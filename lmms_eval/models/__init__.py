@@ -42,6 +42,7 @@ AVAILABLE_MODELS = {
     "llava_hf": "LlavaHf",
     "longva": "LongVA",
     "vila": "VILA",
+    "mantis": "Mantis"
 }
 
 for model_name, model_class in AVAILABLE_MODELS.items():
