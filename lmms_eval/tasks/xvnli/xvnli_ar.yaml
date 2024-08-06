@@ -1,0 +1,31 @@
+dataset_path: floschne/xvnli
+dataset_name: default
+dataset_kwargs:
+  token: True
+task: "xvnli_ar"
+test_split: ar
+output_type: generate_until
+doc_to_visual: !function utils.xvnli_doc_to_visual
+doc_to_text: !function utils.xvnli_doc_to_text
+doc_to_target: "label"
+process_results: !function utils.xvnli_process_result
+generation_kwargs:
+  max_new_tokens: 16
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+metadata:
+  - version: 0.0
+  
+model_specific_prompt_kwargs:
+  default:
+    premise_prompt: "Image Premise: "
+    hypothesis_prompt: "Hypothesis: "
+    
