@@ -104,7 +104,7 @@ def xm3600_aggregation_result(results, metric, args):
     if not os.path.exists(path):
         eval_logger.info("Storing prediction that can be submitted to the server ...")
         with open(path, "w") as f:
-            json.dump(stored_results, f, indent=4)
+            json.dump(stored_results, f, indent=4, ensure_ascii=False)
 
     return score
 
