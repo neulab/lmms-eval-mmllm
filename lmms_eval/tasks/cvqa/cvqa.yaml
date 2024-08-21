@@ -1,0 +1,3 @@
+group: cvqa
+task:
+  - cvqa_test
