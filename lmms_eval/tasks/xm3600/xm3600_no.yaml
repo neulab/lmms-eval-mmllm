@@ -3,7 +3,7 @@ dataset_kwargs:
   token: True
 task : "xm3600_no"
 group : "xm3600"
-test_split: no
+test_split: 'no'
 output_type: generate_until
 doc_to_visual: !function utils.xm3600_doc_to_visual
 doc_to_text: "Provide a one-sentence caption for the provided image in Norwegian."

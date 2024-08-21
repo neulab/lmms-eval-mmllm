@@ -39,4 +39,4 @@ Video-MME/
 VATEX/
 lmms_eval/tasks/vatex/__pycache__/utils.cpython-310.pyc
 datasets/
-xm3600_eval_log/
+*_eval_log/
