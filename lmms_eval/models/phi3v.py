@@ -1,6 +1,7 @@
 import torch
 
-from accelerate import Accelerator, DistributedType
+from accelerate import Accelerator, DistributedType, InitProcessGroupKwargs
+from accelerate.state import AcceleratorState
 from lmms_eval import utils
 from lmms_eval.api.instance import Instance
 from lmms_eval.api.model import lmms
@@ -11,7 +12,7 @@ from transformers import AutoProcessor
 from typing import List, Optional, Tuple, Union
 
 from loguru import logger as eval_logger
-
+from datetime import timedelta
 
 @register_model("phi3v")
 class Phi3v(lmms):
@@ -34,6 +35,7 @@ class Phi3v(lmms):
         self,
         model_id_name: str = "microsoft/Phi-3-vision-128k-instruct",
         device: str = "cuda",
+        device_map="cuda:0",
         dtype: Optional[Union[str, torch.dtype]] = "auto",
         batch_size: int = 1,
         trust_remote_code: Optional[bool] = True,
@@ -41,14 +43,20 @@ class Phi3v(lmms):
         **kwargs,
     ) -> None:
         super().__init__()
-        # Do not use kwargs for now
         assert kwargs == {}, f"Unexpected kwargs: {kwargs}"
-        # Setup accelerator.
-        accelerator = Accelerator()
+
+        accelerator_kwargs = InitProcessGroupKwargs(timeout=timedelta(weeks=52))
+        accelerator = Accelerator(kwargs_handlers=[accelerator_kwargs])
+        self.accelerator = accelerator
         if accelerator.num_processes > 1:
             self._device = torch.device(f"cuda:{accelerator.local_process_index}")
+            self.device_map = f"cuda:{accelerator.local_process_index}"
+        elif accelerator.num_processes == 1 and device_map == "auto":
+            self._device = torch.device(device)
+            self.device_map = device_map
         else:
-            self._device = device
+            self._device = torch.device(f"cuda:{accelerator.local_process_index}")
+            self.device_map = f"cuda:{accelerator.local_process_index}"
         # Load model.
         self._model = AutoModelForCausalLM.from_pretrained(model_id_name, device_map=device, trust_remote_code=trust_remote_code, torch_dtype=dtype)
         self._processor = AutoProcessor.from_pretrained(model_id_name, trust_remote_code=trust_remote_code)
@@ -207,11 +215,13 @@ class Phi3v(lmms):
                 max_new_tokens=gen_kwargs["max_new_tokens"],
                 use_cache=self.use_cache,
             )
+            
             generate_ids = generate_ids[:, input_ids["input_ids"].shape[1] :]
             response = self._processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
             res.append(response)
             self.cache_hook.add_partial("generate_until", (context, gen_kwargs), response)
             pbar.update(1)
+
         # reorder this group of results back to original unsorted form
         res = re_ords.get_original(res)
         pbar.close()

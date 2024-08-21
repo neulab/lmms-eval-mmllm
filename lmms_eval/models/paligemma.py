@@ -1,36 +1,36 @@
-import torch
-
-from tqdm import tqdm
-from lmms_eval import utils
-from lmms_eval.api.instance import Instance
-from lmms_eval.api.model import lmms
-from lmms_eval.api.registry import register_model
-from accelerate import Accelerator, DistributedType, InitProcessGroupKwargs
-from accelerate.state import AcceleratorState
-from typing import List, Optional, Union, Tuple
-from transformers import AutoModel, AutoTokenizer
-
 import warnings
 
+warnings.simplefilter("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore")
+
+from transformers import PaliGemmaForConditionalGeneration, AutoProcessor, AutoTokenizer
+from lmms_eval.api.model import lmms
+from lmms_eval.api.registry import register_model
+import torch
+from PIL import Image
+from typing import List, Optional, Union, Tuple
+from lmms_eval import utils
+from lmms_eval.api.instance import Instance
+from tqdm import tqdm
+from accelerate import Accelerator, DistributedType, InitProcessGroupKwargs
+from accelerate.state import AcceleratorState
 
 from loguru import logger as eval_logger
 from datetime import timedelta
 
-@register_model("minicpm_v")
-class MiniCPM_V(lmms):
+@register_model("paligemma")
+class PaliGemma(lmms):
     """
-    MiniCPM_V Model
+    PaliGemma Model
     """
 
     def __init__(
         self,
-        pretrained: str = "openbmb/MiniCPM-V",
+        pretrained: str = "google/paligemma-3b-mix-448",
         device: Optional[str] = "cuda",
         device_map="cuda:0",
-        dtype: Optional[Union[str, torch.dtype]] = torch.bfloat16,
+        max_new_tokens: int = 256,
         batch_size: Optional[Union[int, str]] = 1,
-        trust_remote_code: Optional[bool] = True,
         **kwargs,
     ) -> None:
         super().__init__()
@@ -50,13 +50,16 @@ class MiniCPM_V(lmms):
             self._device = torch.device(f"cuda:{accelerator.local_process_index}")
             self.device_map = f"cuda:{accelerator.local_process_index}"
 
-        self._model = AutoModel.from_pretrained(pretrained, trust_remote_code=trust_remote_code, torch_dtype=dtype, device_map=self._device).to(dtype)
-        self._tokenizer = AutoTokenizer.from_pretrained(pretrained, trust_remote_code=trust_remote_code)
-        self._config = self._model.config
+        self._tokenizer = AutoTokenizer.from_pretrained(pretrained)
+        self._model = PaliGemmaForConditionalGeneration.from_pretrained(pretrained)
         self.model.eval()
-        self.model.tie_weights()
+        # self.model.tie_weights()
+        self._config = self.model.config
+
+        self.processor = AutoProcessor.from_pretrained(pretrained) 
+        self.max_new_tokens = max_new_tokens
         self.batch_size_per_gpu = int(batch_size)
-        self.pretrained = pretrained
+
         if accelerator.num_processes > 1:
             assert accelerator.distributed_type in [DistributedType.FSDP, DistributedType.MULTI_GPU, DistributedType.DEEPSPEED], "Unsupported distributed type provided. Only DDP and FSDP are supported."
             # If you want to use DistributedType.DEEPSPEED, you have to run accelerate config before using the model
@@ -69,6 +72,7 @@ class MiniCPM_V(lmms):
                 }
                 AcceleratorState().deepspeed_plugin.deepspeed_config_process(must_match=True, **kwargs)
                 eval_logger.info("Detected that you are using DistributedType.DEEPSPEED. Make sure you run `accelerate config` and set zero stage to 0")
+
             if accelerator.distributed_type == DistributedType.FSDP or accelerator.distributed_type == DistributedType.DEEPSPEED:
                 self._model = accelerator.prepare(self.model)
             else:
@@ -78,10 +82,15 @@ class MiniCPM_V(lmms):
                 eval_logger.info(f"Using {accelerator.num_processes} devices with data parallelism")
             self._rank = self.accelerator.local_process_index
             self._world_size = self.accelerator.num_processes
-        else:
-            self.model.to(self._device)
+        elif accelerator.num_processes == 1 and device_map == "auto":
+            eval_logger.info(f"Using {accelerator.num_processes} devices with tensor parallelism")
             self._rank = 0
             self._word_size = 1
+        else:
+            eval_logger.info(f"Using single device: {self._device}")
+            self.model.to(self._device)
+            self._rank = 0
+            self._world_size = 1
 
     @property
     def config(self):
@@ -106,10 +115,6 @@ class MiniCPM_V(lmms):
         return self.tokenizer.eos_token_id
 
     @property
-    def max_length(self):
-        return self._max_length
-
-    @property
     def batch_size(self):
         return self.batch_size_per_gpu
 
@@ -125,22 +130,6 @@ class MiniCPM_V(lmms):
     def world_size(self):
         return self._world_size
 
-    def tok_encode(self, string: str, left_truncate_len=None, add_special_tokens=None) -> List[int]:
-        """ """
-        add_special_tokens = False if add_special_tokens is None else add_special_tokens
-        encoding = self.tokenizer.encode(string, add_special_tokens=add_special_tokens)
-        # left-truncate the encoded context to be at most `left_truncate_len` tokens long
-        if left_truncate_len:
-            encoding = encoding[-left_truncate_len:]
-        return encoding
-
-    def tok_decode(self, tokens):
-        return self.tokenizer.decode(tokens)
-
-    def loglikelihood(self, requests: List[Instance]) -> List[Tuple[float, bool]]:
-        # TODO
-        assert False, "We have not implemented this function for MiniCPM_V yet"
-
     def flatten(self, input, only_get_first=False):
         new_list = []
         for i in input:
@@ -149,6 +138,15 @@ class MiniCPM_V(lmms):
                 if only_get_first:
                     break
         return new_list
+
+    def tok_encode(self, string: str, left_truncate_len=None, add_special_tokens=None) -> List[int]:
+        """ """
+        add_special_tokens = False if add_special_tokens is None else add_special_tokens
+        encoding = self.tokenizer.encode(string, add_special_tokens=add_special_tokens)
+        # left-truncate the encoded context to be at most `left_truncate_len` tokens long
+        if left_truncate_len:
+            encoding = encoding[-left_truncate_len:]
+        return encoding
 
     def generate_until(self, requests: List[Instance]) -> List[str]:
         res = []
@@ -163,85 +161,52 @@ class MiniCPM_V(lmms):
             toks = self.tok_encode(x[0])
             return -len(toks), x[0]
 
-        # we group requests by their generation_kwargs,
-        # so that we don't try to execute e.g. greedy sampling and temp=0.8 sampling
-        # in the same batch.
         re_ords = utils.Collator([reg.args for reg in requests], _collate, grouping=True)
         chunks = re_ords.get_batched(n=self.batch_size, batch_fn=None)
         num_iters = len(requests) // self.batch_size if len(requests) % self.batch_size == 0 else len(requests) // self.batch_size + 1
         pbar = tqdm(total=num_iters, disable=(self.rank != 0), desc="Model Responding")
+
         for chunk in chunks:
             contexts, all_gen_kwargs, doc_to_visual, doc_id, task, split = zip(*chunk)
             task = task[0]
             split = split[0]
             visuals = [doc_to_visual[0](self.task_dict[task][split][ids]) for ids in doc_id]
-            visuals = self.flatten(visuals)
-            # we assume all gen kwargs in the batch are the same
-            # this is safe to assume because the `grouper` object ensures it.
+            visuals = self.flatten(visuals, only_get_first=False)
             gen_kwargs = all_gen_kwargs[0]
 
-            # Set default values for until and max_new_tokens
-            until = [self.tok_decode(self.eot_token_id)]
+            model_inputs = self.processor(
+                images=visuals,
+                text=contexts,
+                padding="longest",
+                return_tensors="pt"
+            )
+            model_inputs = model_inputs.to(self.device)
 
-            # Update values from gen_kwargs if present
-            if "until" in gen_kwargs:
-                until = gen_kwargs.pop("until")
-                if isinstance(until, str):
-                    until = [until]
-                elif not isinstance(until, list):
-                    raise ValueError(f"Expected `gen_kwargs['until']` to be of type Union[str,list] but got {type(until)}")
-            assert self.batch_size_per_gpu == 1, "Do not support batch_size_per_gpu > 1 for now"
-            # assert len(visuals) == 1, "MiniCPM_V interface does not support bn_image > 1 for now"
-            context = contexts[0]
-            if "<image>" in context:
-                # minicpm does not expect the <image> tag
-                context = context.replace("<image>", "")
-            msgs = [{"role": "user", "content": context}]
-
-            gen_kwargs["image_sizes"] = [visuals[idx].size for idx in range(len(visuals))]
+            # preconfigure gen_kwargs with defaults
             if "max_new_tokens" not in gen_kwargs:
-                gen_kwargs["max_new_tokens"] = 1024
+                gen_kwargs["max_new_tokens"] = self.max_new_tokens
             if "temperature" not in gen_kwargs:
                 gen_kwargs["temperature"] = 0
             if "top_p" not in gen_kwargs:
                 gen_kwargs["top_p"] = None
             if "num_beams" not in gen_kwargs:
                 gen_kwargs["num_beams"] = 1
-            try:
-                # ominicpm does not give much information on how they do eval so I just use the chat format.
-                if self.pretrained == "openbmb/MiniCPM-Llama3-V-2_5":
-                        response = self.model.chat(
-                            image=visuals[0],
-                            msgs=msgs,
-                            context=None,
-                            tokenizer=self.tokenizer,
-                            sampling=True if gen_kwargs["temperature"] > 0 else False,
-                            temperature=gen_kwargs["temperature"],
-                            top_p=gen_kwargs["top_p"],
-                            num_beams=gen_kwargs["num_beams"],
-                            max_new_tokens=gen_kwargs["max_new_tokens"],
-                        )
-                else:
-                    response, context, _ = self.model.chat(
-                        image=visuals[0],
-                        msgs=msgs,
-                        context=None,
-                        tokenizer=self.tokenizer,
-                        sampling=True if gen_kwargs["temperature"] > 0 else False,
-                        temperature=gen_kwargs["temperature"],
-                        top_p=gen_kwargs["top_p"],
-                        num_beams=gen_kwargs["num_beams"],
-                        max_new_tokens=gen_kwargs["max_new_tokens"],
-                    )
+            if "until" in gen_kwargs:
+                gen_kwargs.pop("until")
+            if "do_sample" not in gen_kwargs:
+                gen_kwargs["do_sample"] = False
 
-            except Exception as e:
-                eval_logger.error(f"Error {e} in generating")
-                cont = ""
-            res.append(response)
-            self.cache_hook.add_partial("generate_until", (context, gen_kwargs), response)
+            generation_output = self.model.generate(**model_inputs, **gen_kwargs)
+            input_lens = model_inputs["input_ids"].shape[1]
+            generation_output = generation_output[:, input_lens:]
+            response = self.processor.batch_decode(generation_output, skip_special_tokens=True)
+            res.extend(response)
             pbar.update(1)
-            # reorder this group of results back to original unsorted form
-        res = re_ords.get_original(res)
 
+        # reorder this group of results back to original unsorted form
+        res = re_ords.get_original(res)
         pbar.close()
         return res
+
+    def loglikelihood(self, requests: List[Instance]) -> List[Tuple[float, bool]]:
+        assert False, "Not implemented yet."
