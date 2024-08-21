@@ -4,6 +4,7 @@ from pycocoevalcap.eval import COCOEvalCap, Bleu, Meteor, Rouge, Cider, Spice
 from pycocoevalcap.tokenizer.ptbtokenizer import PTBTokenizer
 from pycocotools.coco import COCO
 from datasets import Image
+import unicodedata
 
 from lmms_eval.tasks._task_utils.file_utils import generate_submission_file
 
@@ -48,10 +49,33 @@ def xm3600_process_result(doc, result):
     
     id = int(int_id)
 
+    
+
     data_dict = {"answer": doc["captions"], "pred": pred, "image_id": id}
 
     return {f"xm3600_{metric}": data_dict for metric in XM3600_METRICS}
 
+
+def normalize(result, args):
+    caption = result["pred"]
+    if 'xm3600_zh' in args.tasks:
+        from spacy.lang.zh import Chinese
+        chinese = Chinese() #.from_config({"nlp": {"tokenizer": {"segmenter": "jieba"}}})
+        caption = " ".join([word.text for word in chinese(caption)])
+    if 'xm3600_jp' in args.tasks:
+        from spacy.lang.ja import Japanese
+        japanese = Japanese()
+        caption = " ".join([word.text for word in japanese(caption)])
+    if 'xm3600_th' in args.tasks:
+        from spacy.lang.th import Thai
+        thai = Thai()
+        caption = " ".join([word.text for word in thai(caption)])
+        # tokenizer = AutoTokenizer.from_pretrained("facebook/xlm-v-base")
+        # captions = [" ".join(tokenizer.tokenize(c))[1:] for c in captions]
+    caption = unicodedata.normalize("NFC", caption)
+    # print(caption)
+    result["pred"] = caption
+    return result
 
 def xm3600_aggregation_result(results, metric, args):
     scorers = [(Bleu(4), "Bleu_1"), (Bleu(4), "Bleu_2"), (Bleu(4), "Bleu_3"), (Bleu(4), "Bleu_4"), (Meteor(), "METEOR"), (Rouge(), "ROUGE_L"), (Cider(), "CIDEr"), (Spice(), "SPICE")]
@@ -66,6 +90,7 @@ def xm3600_aggregation_result(results, metric, args):
     dataset = {"annotations": [], "images": []}
     idx = 0
     for result in results:
+        result = normalize(result, args)
         stored_results.append({"image_id": int(result["image_id"]), "caption": result["pred"]})
         for a in result["answer"]:
             dataset["annotations"].append({"image_id": int(result["image_id"]), "caption": a, "id": idx})
@@ -88,9 +113,11 @@ def xm3600_aggregation_result(results, metric, args):
         res[imgId] = coco_eval.cocoRes.imgToAnns[imgId]
 
     eval_logger.info("tokenization...")
-    tokenizer = PTBTokenizer()
-    gts = tokenizer.tokenize(gts)
-    res = tokenizer.tokenize(res)
+
+    if 'xm3600_zh' not in args.tasks and 'xm3600_jp' not in args.tasks and 'xm3600_th' not in args.tasks:
+        tokenizer = PTBTokenizer()
+        gts = tokenizer.tokenize(gts)
+        res = tokenizer.tokenize(res)
 
     eval_logger.info(f"Computing {metric} scores...")
 
@@ -104,7 +131,7 @@ def xm3600_aggregation_result(results, metric, args):
     if not os.path.exists(path):
         eval_logger.info("Storing prediction that can be submitted to the server ...")
         with open(path, "w") as f:
-            json.dump(stored_results, f, indent=4, ensure_ascii=False)
+            json.dump(stored_results, f, indent=4)
 
     return score
 
@@ -168,6 +195,7 @@ def xm3600_test_process_result(doc, result):
 def xm3600_test_aggregation_result(results, args):
     stored_results = []
     for result in results:
+        result = normalize(result, args)
         stored_results.append({"image_id": int(result["image_id"]), "caption": result["pred"]})
 
     path = generate_submission_file("xm3600_captions_test_alg_results.json", args)
