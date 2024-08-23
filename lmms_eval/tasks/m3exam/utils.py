@@ -205,25 +205,41 @@ def combine_images_with_labels(images, labels):
 
     return combined_img
 
-def m3exam_doc_to_visual(doc):
-    all_image_refs = re.findall(r'\(image\)\[([^\]]+)\]', doc['question_text'] + ' '.join(doc['options']))
-    image_ref_to_index = {ref: i for i, ref in enumerate(doc["image_ids"])}
-    
+def generate_white_image(width=300, height=200):
+    """Generate a white image of the specified size."""
+    return PILImage.new('RGB', (width, height), color='white')
+
+def m3exam_doc_to_visual(doc):    
+    images = []
+    option_image_count = sum(1 for ref in re.findall(r'\(image\)\[([^\]]+)\]', ' '.join(doc['options'])))
+        
+    for i, image in enumerate(doc["images"]):
+        img = Image().decode_example(image)
+        images.append(img.convert("RGB"))
+
+    question_image_count = len(images) - option_image_count
+        
+    # Prepare image-label pairs
     image_label_pairs = []
-    for i, ref in enumerate(all_image_refs):
-        if ref in image_ref_to_index:
-            img = Image().decode_example(doc["images"][image_ref_to_index[ref]])
-            label = chr(65 + i)  # A, B, C, D, ...
-            image_label_pairs.append((img.convert("RGB"), f"({label})"))
+    for i, img in enumerate(images):
+        if i < question_image_count:
+            label = f""
+        else:
+            option_index = i - question_image_count
+            label = f"Option ({chr(65 + option_index)})"
+        image_label_pairs.append((img, label))
 
     if not image_label_pairs:
+        img = generate_white_image()
+        lmms_logger.warning(f"No valid images found in document. Using white placeholder.\n\nDocument: {doc}")
         return []
-    elif len(image_label_pairs) == 1:
-        return [image_label_pairs[0][0]]
+    # elif len(image_label_pairs) == 1:
     else:
-        combined_img = combine_images_with_labels(*zip(*image_label_pairs))
-        return [combined_img]
-
+        return [image_label_pairs[0][0]]
+    # else:
+    #     combined_img = combine_images_with_labels(*zip(*image_label_pairs))
+    #     return [combined_img]
+    
 def m3exam_doc_to_text(doc):
     # Standardize options
     doc['options'] = standardize_options(doc['options'])
