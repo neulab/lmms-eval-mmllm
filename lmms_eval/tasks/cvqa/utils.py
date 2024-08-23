@@ -3,12 +3,11 @@ def cvqa_doc_to_text(doc, model_specific_prompt_kwargs=None):
     len_choices = len(choices)
     options = [chr(ord("A") + i) for i in range(len_choices)]
     choices_str = "\n".join([f"{option}. {choice}" for option, choice in zip(options, choices)])
-    if model_specific_prompt_kwargs["format"] == "default":
-        post_prompt = model_specific_prompt_kwargs["post_prompt"]
-        pre_prompt = model_specific_prompt_kwargs["pre_prompt"]
-        return f"Question: {question} Options: {choices_str} Short Answer:"
-    else:
-        raise ValueError(f"Unknown prompt format: {model_specific_prompt_kwargs}")
+    # post_prompt = model_specific_prompt_kwargs["post_prompt"]
+    # pre_prompt = model_specific_prompt_kwargs["pre_prompt"]
+    return f"Question: {question} Options: {choices_str} Short Answer:"
+    # else:
+    #     raise ValueError(f"Unknown prompt format: {model_specific_prompt_kwargs}")
 
 
 def cvqa_doc_to_visual(doc):
@@ -30,8 +29,24 @@ def cvqa_process_results(doc, results):
     # write out predictions and inputs
     # print(f"Prediction: {pred}")
     # print(f"Target: {target}")
-    with open ("~/lmms-eval-mmllm/lmms_eval/tasks/cvqa/predictions.txt", "a") as f:
+    with open ("/home/skhanuja/lmms-eval-mmllm/lmms_eval/tasks/cvqa/predictions.txt", "a") as f:
         f.write(f"Question: {doc['Question']}\t Options: {doc['Options']}\t Prediction: {pred}\t Target: {target}\n")
+    if len(pred) > 1:
+        pred_number = pred[0]
+        if pred_number == "A":
+            pred_num = 0
+        elif pred_number == "B":
+            pred_num = 1
+        elif pred_number == "C":
+            pred_num = 2
+        elif pred_number == "D":
+            pred_num = 3
+        else:
+            pred_num = -1
+    
+    with open("/home/skhanuja/lmms-eval-mmllm/lmms_eval/tasks/cvqa/submit.txt", "a") as f:
+        f.write(f"{doc["ID"]},{pred_num}\n")
+
     if pred == target:
         return {"exact_match": 1.0}
     # pattern: ^[A-Z]\. .*
@@ -39,3 +54,4 @@ def cvqa_process_results(doc, results):
         result = 1.0 if pred[0] == target else 0.0
         return {"exact_match": result}
     return {"exact_match": 0.0}
+
