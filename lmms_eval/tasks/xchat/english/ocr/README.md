@@ -2,8 +2,6 @@
 
 Tasks that require to extract the data in a structured format given an image
 
-**Authors:** Seongyun Lee
-
 ## Example
 
 A sample query in a zero-shot setting:

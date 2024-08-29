@@ -2,8 +2,6 @@
 
 Tasks that require to interpret about the image by answering "why" questions
 
-**Authors:** Seongyun Lee
-
 ## Example
 
 A sample query in a zero-shot setting:

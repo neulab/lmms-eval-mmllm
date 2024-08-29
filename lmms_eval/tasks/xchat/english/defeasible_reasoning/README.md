@@ -2,8 +2,6 @@
 
 Tasks that require to explain about the possible consequences when additional context are provided
 
-**Authors:** Seongyun Lee
-
 ## Example
 
 A sample query in a zero-shot setting:

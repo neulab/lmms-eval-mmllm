@@ -2,8 +2,6 @@
 
 Tasks that require to explain about the humor in a given image
 
-**Authors:** Seongyun Lee
-
 ## Example
 
 A sample query in a zero-shot setting:
