@@ -1,0 +1,110 @@
+[
+    {
+        "capability": "vision",
+        "task": "iq_test",
+        "instance_idx": 0,
+        "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
+        "input": "छवि में दिए गए \"?\" में कौन सा विकल्प (A ~ F) सबसे अच्छा फिट बैठता है, इसका अनुमान लगाएं। उत्तर लिखने से पहले, पैटर्न का विश्लेषण करके अपने विचार प्रक्रिया को विस्तार से बताएं। ",
+        "reference_answer": "निर्देश पूछता है कि छवि के अंदर \"?\" में कौन सा विकल्प सबसे अच्छा फिट बैठता है।\n\nप्रत्येक पंक्ति के लिए, 3 छवियों के बीच एक समानता है।\n- पहली पंक्ति में एक वर्ग के शीर्ष बिंदु पर रखे गए 4 बिंदु हैं।\n- दूसरी पंक्ति में एक आयरन क्रॉस है जो चार-बिंदु वाले तारे का एक रूपांतर है।\n- इसी प्रकार, तीसरी पंक्ति में एक वर्ग होना चाहिए जो बीच में किसी अन्य वस्तु को घेरता हो।\n\nप्रत्येक स्तंभ के लिए, 3 छवियों के बीच एक समानता है।\n- पहले स्तंभ में बीच में एक वृत्त है।\n- दूसरे स्तंभ में बीच में एक प्लस चिह्न है।\n- इसी प्रकार, तीसरे स्तंभ में बीच में एक घुमाया हुआ वर्ग होना चाहिए।\n\nइन अवलोकनों के आधार पर, \"?\" में फिट होने वाली सबसे अच्छी वस्तु में बीच में एक घुमाया हुआ वर्ग और उसे घेरता हुआ एक बड़ा वर्ग होना चाहिए।\nइसलिए, उत्तर है E. ",
+        "score_rubric": {
+            "criteria": "Does the response include a reasoning process that identifies the patterns and selects the correct answer for a visual pattern recognition problem?",
+            "score1_description": "The response lacks any recognition of the patterns, does not explain, and selects an incorrect answer without justification.",
+            "score2_description": "The response demonstrates minimal recognition of the patterns, offers a flawed explanation, and selects an answer with weak justification. Even if the answer is correct, a score of 2 should be given if the reasoning process within the response is not comprehensive enough.",
+            "score3_description": "The response shows some recognition of the patterns, provides a partial explanation (e.g., identifying only the patterns for the column or row), and may select a partially correct answer or a correct answer with an incomplete justification.",
+            "score4_description": "The response displays substantial recognition of the patterns, gives a mostly complete explanation, and selects the correct answer with good justification.",
+            "score5_description": "The response demonstrates excellent recognition of the patterns, provides a comprehensive and detailed explanation, and selects the correct answer with strong, well-justified reasoning."
+        },
+        "atomic_checklist": [
+            "Does the reasoning process encompass an analysis of the commonality for each row?",
+            "Does the reasoning process encompass an analysis of the commonality for each column?",
+            "Based on the analysis for each row and column, does the response succeed at inferring to the most probable answer which is E?"
+        ]
+    },
+    {
+        "capability": "vision",
+        "task": "iq_test",
+        "instance_idx": 1,
+        "system_prompt": "You are an AI assistant with multi-modal capabilities tasked with crafting a useful response using the provided image and text instructions.",
+        "input": "निर्धारित करें कि कौन सा विकल्प (A से F) सबसे उपयुक्त रूप से अनुक्रम को पूरा करता है \"?\" के स्थान पर दिए गए चित्र में। अपना उत्तर प्रस्तुत करने से पहले, पैटर्न की जांच करके अपने तर्क का वर्णन करें। ",
+        "reference_answer": "निर्देश में यह अनुमान लगाने की आवश्यकता है कि कौन सा विकल्प चित्र में \"?\" को सही ढंग से भरता है। यदि आप दो शब्दों \"ways\" और \"yaws\" को देखें, तो दोनों शब्दों में सामान्य अक्षर होते हैं जो शब्द का निर्माण करते हैं। इस समस्या को हल करने का एक संभावित तरीका यह है कि प्रत्येक अक्षर किसी विशेष संख्या के साथ जुड़ा हो सकता है। इसलिए, \"w=5\", \"a=3\", \"y=8\", और \"s=6\"। फिर, \"yaws\" होगा \"8356\"। तो उत्तर है F. ",
+        "score_rubric": {
+            "criteria": "Does the response recognize character-to-number mapping in a pattern recognition task and apply it to determine the correct sequence?",
+            "score1_description": "The response shows no understanding of character-to-number mapping, fails to recognize the pattern, and incorrectly completes the sequence with no logical explanation.",
+            "score2_description": "The response demonstrates limited understanding of the pattern, attempts character-to-number mapping with significant errors, and arrives at an incorrect sequence with flawed reasoning.",
+            "score3_description": "The response exhibits partial understanding of the pattern (e.g., wrong mapping for certain characters), performs the character-to-number mapping with minor errors, and proposes a sequence that is close to correct but with insufficient reasoning.",
+            "score4_description": "The response reflects a good understanding of the pattern, correctly applies character-to-number mapping, and identifies the right sequence with minor lapses in the reasoning process (e.g., fail to recounstruct the correct digit for \"yaws\").",
+            "score5_description": "The response shows excellent comprehension of the pattern, accurately maps characters to numbers, and flawlessly determines the correct sequence with a clear and logical explanation."
+        },
+        "atomic_checklist": [
+            "Does the response recognize that \"ways\" and \"yaws\" have the same characters in different order?",
+            "Does the response recognize that each character corresponds to a digit?",
+            "Does the response use the mapping between the character and digit to assemble the corresponding number for \"yaws\"?"
+        ]
+    },
+    {
+        "capability": "vision",
+        "task": "iq_test",
+        "instance_idx": 2,
+        "system_prompt": "You are an AI assistant with the ability to process visual information, tasked with providing a helpful answer based on the text instructions and the accompanying single image.",
+        "input": "यह निर्धारित करें कि विकल्प (A से F) में से कौन सा विकल्प उस अनुक्रम को सही ढंग से पूरा करता है जहाँ छवि में \"?\" स्थित है। अपनी पसंद बताने से पहले, सेट किए गए पैटर्न का अध्ययन करके अपनी तर्क प्रक्रिया का विवरण दें। ",
+        "reference_answer": "निर्देश यह निर्धारित करने की आवश्यकता है कि कौन सा विकल्प छवि में \"?\" को सही ढंग से पूरा करता है। तराजू के प्रत्येक छोर पर 7 किलोग्राम का वजन दिखाया गया है। यह देखते हुए कि वजन समान हैं और तराजू के केंद्र से समान दूरी पर स्थित हैं, यह निष्कर्ष निकाला जा सकता है कि छवि में '?' समान दूरी का प्रतिनिधित्व करता है, जो कि 90 सेमी है। इसलिए, उत्तर F है। ",
+        "score_rubric": {
+            "criteria": "Does the response apply logical reasoning to deduce the correct distance measurement?",
+            "score1_description": "The response shows no understanding of balance principles, does not recognize the equal weights, and incorrectly suggests a distance without any logical basis.",
+            "score2_description": "The response demonstrates a basic grasp of balance but incorrectly assumes the distances, leading to a wrong answer that lacks clear reasoning related to the scale's equilibrium.",
+            "score3_description": "The response recognizes the need for balance and the equal weights but is only somewhat correct in determining the distance, with an explanation that indicates partial understanding of the scale's functioning.",
+            "score4_description": "The response correctly identifies that the weights are equal and should be equidistant from the center, arriving at a nearly correct distance with reasoning that has minor inaccuracies.",
+            "score5_description": "The response accurately understands the concept of balance, recognizes that the weights are equal and equidistant from the center, and deduces the correct distance of 90cm with a well-reasoned explanation, resulting in the correct answer F."
+        },
+        "atomic_checklist": [
+            "Does the response understand that the two objects in the scale has the same weight (7kg)?",
+            "Does the response recognize that the two objects would be positioned equidistant from the scale's center (90cm)?"
+        ]
+    },
+    {
+        "capability": "vision",
+        "task": "iq_test",
+        "instance_idx": 3,
+        "system_prompt": "As an AI assistant capable of interpreting images, your role is to offer a useful response guided by the text directions and the single image provided.",
+        "input": "प्रस्तुत छवि में \"?\" को सही ढंग से भरने वाला विकल्प (A से F तक) कौन सा है, इसकी पहचान करें। अपनी पसंद को प्रकट करने से पहले, स्थापित पैटर्न के विश्लेषण के माध्यम से अपनी सोच प्रक्रिया को समझाएं। ",
+        "reference_answer": "प्रदान की गई छवि में \"?\" को भरने के लिए सही संख्या की पहचान करने के लिए, हमें प्रस्तुत संख्याओं के क्रम का विश्लेषण करना होगा और पैटर्न निर्धारित करना होगा। छवि में संख्याएँ इस प्रकार हैं: 4, 5, 7, 10, 14, 19, 25, और 32।\n\nइन संख्याओं के बीच का अंतर बढ़ता जा रहा है जब हम एक से दूसरे की ओर बढ़ते हैं:\n- 5 और 4 के बीच का अंतर 1 है।\n- 7 और 5 के बीच का अंतर 2 है।\n- 10 और 7 के बीच का अंतर 3 है।\n- 14 और 10 के बीच का अंतर 4 है।\n- 19 और 14 के बीच का अंतर 5 है।\n- 25 और 19 के बीच का अंतर 6 है।\n- 32 और 25 के बीच का अंतर 7 है।\n\nयह एक पैटर्न का सुझाव देता है जहाँ प्रत्येक संख्या पिछले एक में क्रमिक रूप से बढ़ते हुए संख्या को जोड़कर प्राप्त की जाती है, जो 1 से शुरू होती है और हर बार 1 से बढ़ती है।\n\n32 के बाद क्रम में अगली संख्या खोजने के लिए, हम 8 जोड़ेंगे (क्योंकि अंतिम वृद्धि 7 थी)।\n\nक्रम में अगली संख्या 32 + 8 = 40 है। इसलिए, छवि में \"?\" को भरने के लिए सही विकल्प C है। ",
+        "score_rubric": {
+            "criteria": "Does the response recognize numerical patterns and correctly apply them to identify a missing number in a sequence?",
+            "score1_description": "The response does not recognize any pattern, cannot calculate the differences between numbers, and selects an incorrect answer without any valid reasoning.",
+            "score2_description": "The response shows a limited recognition of the pattern, makes calculation errors in the differences, and chooses an incorrect answer with a flawed justification.",
+            "score3_description": "The response correctly identifies the pattern but makes a minor error in applying it, leading to a close but incorrect answer, with an explanation showing partial understanding.",
+            "score4_description": "The response identifies and applies the pattern correctly but fails to match the result with the appropriate answer option, resulting in a nearly correct response.",
+            "score5_description": "The response accurately recognizes the pattern, applies it correctly to calculate the missing number, and precisely matches the result to the correct answer option with a clear and logical explanation."
+        },
+        "atomic_checklist": [
+            "Does the response calculate the difference between consecutive numbers in the sequence?",
+            "Does the response identify the pattern of incrementally increasing differences?",
+            "Does the response apply the identified pattern to predict the next number correctly?",
+            "Does the response match the calculated number to the correct answer option provided in the image?",
+            "Does the response verify that the pattern hold for all given numbers in the sequence before the missing number?"
+        ]
+    },
+    {
+        "capability": "vision",
+        "task": "iq_test",
+        "instance_idx": 4,
+        "system_prompt": "As an AI assistant adept at analyzing visual content, it's your task to generate a helpful reply based on the instructions in the text and the image that's been supplied.",
+        "input": "दिखाई गई छवि का उपयोग करके निर्मित किया जा सकने वाला सही विकल्प (A से F) चुनें। अपने चयन को प्रकट करने से पहले, इंगित किए गए पैटर्न की जांच करके इसके पीछे की तर्कसंगतता का विवरण दें। ",
+        "reference_answer": "इस पहेली को हल करने के लिए, हमें यह कल्पना करनी होगी कि रंगीन वर्गों की सपाट व्यवस्था 3D बॉक्स में कैसे मुड़ेगी। प्रत्येक रंगीन वर्ग बॉक्स के एक चेहरे का प्रतिनिधित्व करता है। जब वर्गों को घन में मोड़ा जाता है, तो प्रत्येक वर्ग की एक किनारी घन की एक किनारी बन जाती है, और सपाट लेआउट में जुड़े हुए प्रत्येक वर्ग को 3D रूप में जुड़े रहना चाहिए। आइए दिए गए विकल्पों का विश्लेषण करें:\n1. **ऊपरी चेहरा (ग्रे):** ग्रे वर्ग केंद्र में है, इसलिए यह बॉक्स का ऊपरी चेहरा होगा।\n2. **पार्श्व चेहरे:** ग्रे वर्ग के चारों ओर के रंगीन वर्ग बॉक्स के पार्श्व चेहरे होंगे।\n3. **निचला चेहरा:** बॉक्स का निचला चेहरा अनफोल्डेड पैटर्न में दिखाई नहीं देता है, लेकिन हमें पता है कि यह ग्रे वर्ग के विपरीत होना चाहिए।\n\nअब, जुड़े हुए पक्षों को देखें:\n- मैजेंटा वर्ग एक तरफ ग्रे वर्ग से और दूसरी तरफ हरे वर्ग से जुड़ा है।\n- सायन वर्ग मैजेंटा वर्ग के विपरीत होना चाहिए क्योंकि वे जुड़े नहीं हैं।\n- ऑरेंज वर्ग ग्रे वर्ग से जुड़ा है और हरे वर्ग के विपरीत है।\n- ब्राउन और पर्पल वर्ग शेष पक्ष हैं, जिसमें ब्राउन वर्ग ग्रे और हरे दोनों वर्गों से जुड़ा है, जिसका मतलब है कि यह मैजेंटा वर्ग के पास है।\n\nइन विचारों के साथ, आइए अनफोल्डेड पैटर्न की तुलना प्रत्येक विकल्प से करें ताकि यह पता चले कि कौन सा इस पैटर्न से बन सकता है।\nजांच करने पर, यह स्पष्ट है कि विकल्प **E** सही विकल्प है। इसके कारण:\n- ग्रे वर्ग बॉक्स के शीर्ष का निर्माण करेगा, जो विकल्प E में सही है।\n- मैजेंटा और हरे वर्ग एक-दूसरे के विपरीत हैं, जो विकल्प E में भी सही है।\n- सायन वर्ग मैजेंटा वर्ग के पास नहीं है, जो विकल्प E में उनकी स्थिति के साथ मेल खाता है।\n- ऑरेंज वर्ग हरे वर्ग के विपरीत और ग्रे के पास है, जैसा कि विकल्प E में देखा गया है।\n- ब्राउन वर्ग ग्रे और हरे दोनों वर्गों के पास है, जो विकल्प E में सही ढंग से दर्शाया गया है।\n\nइसलिए, सही बॉक्स जो छवि से बनेगा वह विकल्प **E** में दिखाया गया है। ",
+        "score_rubric": {
+            "criteria": "Does the response accurately perform spatial reasoning in mapping the 2D pattern to the 3D cube?",
+            "score1_description": "The explanation shows no understanding of spatial relationships; colors and positions are randomly assigned without following the logic of cube assembly.",
+            "score2_description": "The explanation demonstrates a minimal recognition of spatial relationships, but more than one major error in the mapping process leads to incorrect conclusions.",
+            "score3_description": "The explanation correctly identifies some spatial relationships, but minor errors in mapping or inconsistent logic result in an inaccurate representation of the cube.",
+            "score4_description": "The explanation displays a clear understanding of spatial relationships with only negligible errors, leading to a mostly accurate representation of the cube.",
+            "score5_description": "The explanation demonstrates precise and accurate spatial reasoning, with all colors and positions mapped correctly, resulting in a perfect representation of the 3D cube from the 2D pattern."
+        },
+        "atomic_checklist": [
+            "Does the explanation directly map each colored square in the unfolded pattern to a corresponding face on the 3D cube?",
+            "Are the adjacency relationships between the squares in the unfolded pattern correctly translated into adjacent faces on the cube?",
+            "Is there a clear rationale for identifying which squares are opposite each other on the cube, based on their positions in the unfolded pattern?",
+            "Does the reasoning process include a step that systematically excludes incorrect folding options based on the adjacency and opposite faces criteria?",
+            "Is the explanation consistent with the visual-spatial properties of a cube, such as the number of faces and the rule that each face must be connected to four other faces?"
+        ]
+    }
+]
