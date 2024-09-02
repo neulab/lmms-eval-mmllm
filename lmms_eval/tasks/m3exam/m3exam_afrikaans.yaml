@@ -1,4 +1,4 @@
-dataset_path: floschne/multimodal-m3exam
+dataset_path: KerwinJob/m3exam
 task: "m3exam_afrikaans"
 test_split: afrikaans
 output_type: generate_until

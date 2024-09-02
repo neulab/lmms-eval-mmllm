@@ -1,11 +1,11 @@
 import re
 import logging
 import random
-from datasets import Image
 from difflib import SequenceMatcher
 from PIL import Image as PILImage
 from PIL import ImageDraw, ImageFont
-
+import io
+import base64
 lmms_logger = logging.getLogger("lmms-eval")
 
 LANG_CONFIG = {
@@ -14,8 +14,6 @@ LANG_CONFIG = {
     'vietnamese': 'Câu trả lời:',
     'thai': 'คำตอบ:',
     'italian': 'La risposta:',
-    'javanese': 'Wangsulan:',
-    'swahili': 'Jibu:',
     'afrikaans': 'Antwoord:',
     'portuguese': 'Responder:'
 }
@@ -24,10 +22,8 @@ def construct_prompt(doc):
     lang = doc["language"]
     subject2target = {
         'english': {'language': 'English', 'math': "Math", 'social-science': "Social Science", 'natural-science': 'Natural Science'},
-        'english4all': {'language': 'Language', 'math': "Math", 'social-science': "Social Science", 'natural-science': 'Natural Science'},
+        # 'english4all': {'language': 'Language', 'math': "Math", 'social-science': "Social Science", 'natural-science': 'Natural Science'},
         'chinese':  {'language': '语文', 'math': "数学", 'social-science': "社会科学", 'natural-science': '自然科学'},
-        'javanese': {'language': 'Bahasa Jawa'},
-        'swahili': {'language': 'KISWAHILI'},
         'thai': {'language': 'ภาษาไทย', 'math': 'คณิตศาสตร์', 'social-science': 'สังคมศึกษา', 'natural-science': 'วิทยาศาสตร์'},
         'vietnamese': {'language': 'Tiếng Việt', 'math': "Toán", 'social-science': "Khoa học xã hội", 'natural-science': 'Khoa học tự nhiên'},
         'italian': {'language': 'Italiano', 'math': "Matematica", 'social-science': "Scienze sociali", 'natural-science': 'Scienze naturali'},
@@ -39,12 +35,10 @@ def construct_prompt(doc):
     hint_templates = {
         'english': f"The following is a multiple choice question about {subject}. Please only respond with the letter (A, B, C, or D) corresponding to the correct answer, without any additional explanation.",
         'chinese': f"以下是关于{subject}的单项选择题。 请仅给出正确选项对应的选项序号（A, B, C, 或 D） 而非其他细节。",
-        'javanese': f"Ing ngisor iki pitakon pilihan ganda ngenani {subject}. Mangga dipun wangsuli namung kanthi aksara (A, B, C, utawa D) ingkang cocok kaliyan wangsulan ingkang leres, tanpa andharan tambahan.",
         'thai': f"ต่อไปนี้เป็นคำถามแบบปรนัย วิชา{subject} โปรดตอบเพียงตัวอักษร (A, B, C หรือ D) ที่ตรงกับคำตอบที่ถูกต้อง โดยไม่ต้องมีคำอธิบายเพิ่มเติม",
         'vietnamese': f"Sau đây là câu hỏi trắc nghiệm về {subject}. Vui lòng chỉ trả lời bằng chữ cái (A, B, C hoặc D) tương ứng với câu trả lời đúng, không cần giải thích thêm.",
         'italian': f"La seguente è una domanda a scelta multipla su {subject}. Si prega di rispondere solo con la lettera (A, B, C o D) corrispondente alla risposta corretta, senza alcuna spiegazione aggiuntiva.",
         'afrikaans': f"Die volgende is 'n meervoudige keuse vraag oor {subject}. Antwoord asseblief slegs met die letter (A, B, C of D) wat ooreenstem met die korrekte antwoord, sonder enige bykomende verduideliking.",
-        'swahili': f"Ifuatayo ni swali la chaguo-nyingi kuhusu {subject}. Tafadhali jibu tu kwa herufi (A, B, C, au D) inayolingana na jibu sahihi, bila maelezo yoyote ya ziada.",
         'portuguese': f"A seguir está uma questão de múltipla escolha sobre {subject}. Por favor, responda apenas com a letra (A, B, C ou D) correspondente à resposta correta, sem qualquer explicação adicional."
     }
 
@@ -141,11 +135,11 @@ def standardize_options(options):
 
 def standardize_answer(answer, options):
     # If answer is already A, B, C, or D, return it
-    if answer in 'ABCD':
+    if answer in 'ABCDEFGH':
         return answer
     
     # If answer is 1, 2, 3, or 4, convert to A, B, C, or D
-    if answer in '1234':
+    if answer in '12345678':
         return chr(64 + int(answer))
     
     # If answer is (1), (2), (3), or (4), convert to A, B, C, or D
@@ -209,36 +203,20 @@ def generate_white_image(width=300, height=200):
     """Generate a white image of the specified size."""
     return PILImage.new('RGB', (width, height), color='white')
 
-def m3exam_doc_to_visual(doc):    
-    images = []
-    option_image_count = sum(1 for ref in re.findall(r'\(image\)\[([^\]]+)\]', ' '.join(doc['options'])))
-        
-    for i, image in enumerate(doc["images"]):
-        img = Image().decode_example(image)
-        images.append(img.convert("RGB"))
-
-    question_image_count = len(images) - option_image_count
-        
-    # Prepare image-label pairs
-    image_label_pairs = []
-    for i, img in enumerate(images):
-        if i < question_image_count:
-            label = f""
+def m3exam_doc_to_visual(doc):
+    visual = []
+    for i in range(10):
+        if doc['image_' + str(i)] == "None":
+            continue
         else:
-            option_index = i - question_image_count
-            label = f"Option ({chr(65 + option_index)})"
-        image_label_pairs.append((img, label))
+            image_data = base64.b64decode(doc['image_' + str(i)])
+            image = PILImage.open(io.BytesIO(image_data))
+    
+            image_rgb = image.convert('RGB')
 
-    if not image_label_pairs:
-        img = generate_white_image()
-        lmms_logger.warning(f"No valid images found in document. Using white placeholder.\n\nDocument: {doc}")
-        return []
-    # elif len(image_label_pairs) == 1:
-    else:
-        return [image_label_pairs[0][0]]
-    # else:
-    #     combined_img = combine_images_with_labels(*zip(*image_label_pairs))
-    #     return [combined_img]
+            visual.append(image_rgb)
+
+    return visual
     
 def m3exam_doc_to_text(doc):
     # Standardize options
