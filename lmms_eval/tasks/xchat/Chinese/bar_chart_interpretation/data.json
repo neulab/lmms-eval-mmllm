@@ -4,8 +4,8 @@
         "task": "bar_chart_interpretation",
         "instance_idx": 0,
         "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
-        "input": "哪个国家的经济规模下降幅度最大，与经济规模下降幅度第八大的国家相比，GDP减少百分比的差异是多少？",
-        "reference_answer": "所提供的图像显示了一个图表，其中列出了各个国家及其以美元计算的名义GDP的预计变化。为了解答您的问题，我需要确定GDP下降最多的国家和下降第八多的国家，然后计算这两个国家之间GDP减少百分比的差异。\n\n让我分析图像以提取所需数据。\n1. 俄罗斯: -$153B\n2. 埃及: -$88B\n3. 加拿大: -$50B\n4. 沙特阿拉伯: -$46B\n5. 孟加拉国: -$40B\n6. 挪威: -$25B\n7. 科威特: -$20B\n8. 阿曼: -$10B\n\n俄罗斯和阿曼的GDP减少百分比差异是$153B - $10B = $143B。因此，答案是$143B。  \n",
+        "input": "根据图表，经济规模减少最大的国家与经济规模减少第八大的国家之间,国内生产总值(GDP)减少的差异是多少?",
+        "reference_answer": "提供的图像显示了各个国家预计的名义GDP变化(以美元计)。为了回答您的问题,我需要确定GDP减少最多的国家和减少第八多的国家,然后计算这两个国家之间GDP减少百分比的差异。\n\n让我分析图像以提取所需数据。\n1. 俄罗斯: -1530亿美元\n2. 埃及: -880亿美元\n3. 加拿大: -500亿美元\n4. 沙特阿拉伯: -460亿美元\n5. 孟加拉国: -400亿美元\n6. 挪威: -250亿美元\n7. 科威特: -200亿美元\n8. 阿曼: -100亿美元\n\n俄罗斯和阿曼的GDP减少百分比之间的差异是1530亿美元 - 100亿美元 = 1430亿美元。所以,答案是1430亿美元。",
         "score_rubric": {
             "criteria": "Does the response accurately identify and parse the information in the image and successfully apply the required calculation to derive the GDP reduction difference?",
             "score1_description": "The response inaccurately extracts GDP figures from the graph, misidentifies the largest and eighth largest decreases, and/or incorrectly calculates the difference.",
@@ -30,7 +30,7 @@
         "task": "bar_chart_interpretation",
         "instance_idx": 1,
         "system_prompt": "You are an AI assistant with multi-modal capabilities tasked with crafting a useful response using the provided image and text instructions.",
-        "input": "从给定的图像中，哪个国家获得了超过180的分数？  \n",
+        "input": "根据图片，哪个国家获得了超过180的分数？",
         "reference_answer": "根据所提供的图像，在2023年国际数学奥林匹克竞赛（IMO）中获得超过180分的国家有：\n1. 中国：240分\n2. 美国：222分\n3. 韩国：215分\n4. 罗马尼亚：208分\n5. 加拿大：183分\n6. 日本：181分\n\n这些国家的总分在图表中各自的条形旁边标明，均超过180分。 ",
         "score_rubric": {
             "criteria": "Does the response precisely identify and report countries with scores above 180 in the IMO 2023 report?",
@@ -56,8 +56,8 @@
         "task": "bar_chart_interpretation",
         "instance_idx": 2,
         "system_prompt": "You are an AI assistant with the ability to process visual information, tasked with providing a helpful answer based on the text instructions and the accompanying single image.",
-        "input": "给定的图像比较了每个模型生成的语言反馈的质量。人类标注者被指派在成对设置中选择哪个更好。确定哪个模型表现最好！",
-        "reference_answer": "图像似乎是一个柱状图，比较了三对语言模型：GPT-4 vs. ChatGPT, Prometheus vs. ChatGPT, 和 Prometheus vs. GPT-4。每个模型生成的语言反馈质量在成对设置中由人工标注者进行评估，他们选择哪个更好，或者两者都好或两者都差。\n\n柱状图使用颜色编码来表示四种结果：\n- 蓝色：左方胜\n- 粉色：右方胜\n- 紫色：两者都好\n- 橙色：两者都差\n\n从提供的图表中，我们可以评估每个模型的表现：\n1. **GPT-4 vs. ChatGPT**：GPT-4 更常获胜（74 次）相比于 ChatGPT（19 次）。这表明 GPT-4 在直接与 ChatGPT 比较时是更优的模型。\n2. **Prometheus vs. ChatGPT**：Prometheus 更常获胜（59 次）相比于 ChatGPT（19 次）。这表明 Prometheus 表现优于 ChatGPT。\n3. **Prometheus vs. GPT-4**：Prometheus 更常获胜（51 次）相比于 GPT-4（36 次）。这表明 Prometheus 在与 GPT-4 比较时通常被认为是更好的模型。\n\n考虑到这些成对比较中的胜利次数，Prometheus 似乎是表现最好的模型。它在与 ChatGPT 的比较中获得了最多的胜利，并且在与 GPT-4 的正面对比中也表现更好。 \n\n",
+        "input": "这张图比较了每个模型生成的语言反馈的质量。标注者会选择哪个更好。根据图像，请问哪个模型表现最好？",
+        "reference_answer": "图像似乎是一个柱状图，比较了三对语言模型：GPT-4 vs. ChatGPT, Prometheus vs. ChatGPT, 和 Prometheus vs. GPT-4。每个模型生成的语言反馈质量在成对设置中由人工标注者进行评估，他们选择哪个更好，或者两者都好或两者都差。\n\n柱状图使用颜色编码来表示四种结果：\n- 蓝色：左方胜\n- 粉色：右方胜\n- 紫色：两者都好\n- 橙色：两者都差\n\n从提供的图表中，我们可以评估每个模型的表现：\n1. **GPT-4 vs. ChatGPT**：GPT-4 更常获胜（74 次）相比于 ChatGPT（19 次）。这表明 GPT-4 在直接与 ChatGPT 比较时是更优的模型。\n2. **Prometheus vs. ChatGPT**：Prometheus 更常获胜（59 次）相比于 ChatGPT（19 次）。这表明 Prometheus 表现优于 ChatGPT。\n3. **Prometheus vs. GPT-4**：Prometheus 更常获胜（51 次）相比于 GPT-4（36 次）。这表明 Prometheus 在与 GPT-4 比较时通常被认为是更好的模型。\n\n考虑到这些成对比较中的胜利次数，Prometheus 似乎是表现最好的模型。它在与 ChatGPT 的比较中获得了最多的胜利，并且在与 GPT-4 的正面对比中也表现更好。",
         "score_rubric": {
             "criteria": "Does the response show accuracy and clarity in interpreting and comparing the performance of language models as presented in the chart?",
             "score1_description": "The response misinterprets the chart data and provides an incorrect comparison of model performance.",
