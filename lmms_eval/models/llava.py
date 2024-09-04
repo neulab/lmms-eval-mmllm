@@ -90,6 +90,7 @@ class Llava(lmms):
         if "use_flash_attention_2" in kwargs:
             llava_model_args["use_flash_attention_2"] = kwargs["use_flash_attention_2"]
         model_name = model_name if model_name is not None else get_model_name_from_path(pretrained)
+        # model_name = "llava-v1.5-7b" if pretrained == "MBZUAI/PALO-7B" else get_model_name_from_path(pretrained)
         try:
             # Try to load the model with the multimodal argument
             self._tokenizer, self._model, self._image_processor, self._max_length = load_pretrained_model(pretrained, None, model_name, device_map=self.device_map, **llava_model_args)
