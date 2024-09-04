@@ -4,7 +4,7 @@
         "task": "art_explanation",
         "instance_idx": 0,
         "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
-        "input": "这个杰作很神奇，因为它就像一个特别的故事书。它有很多漂亮的颜色和形状，就像你最喜欢的彩色铅笔画。每当你看它的时候，你会发现新的东西，就像在寻找隐藏的宝藏。它是由一个非常聪明的人创造的，他用他的想象力把所有这些美丽的东西放在一起。这个杰作让人感觉很开心，就像听到一个有趣的故事一样。 ",
+        "input": "请你用和一个5岁的小朋友解释的口吻，说说这幅图片有什么令人惊叹的地方。但是，不要因为听众年纪小就略过任何细节哦！ ",
         "reference_answer": "想象一下你有一大盒蜡笔，你决定画夜空。但你不仅仅画出黑暗的天空和小小的星星，而是让整个天空舞动和旋转，充满了各种蓝色和绿色，星星看起来像大大的、发光的萤火虫。而且你不仅仅在线内上色；你让颜色到处蔓延，用粗粗的、扭曲的线条，就像海洋中的波浪一样移动。\n\n这幅画就是这样的！它是由一个以他自己独特方式看待夜晚的人创作的。他用颜料让天空看起来像是在移动，星星如此明亮和闪烁，照亮了一切。就像他能感受到风，看见声音，并把这种感觉放在画布上，让我们也能感受到。是不是很酷？通过颜色和想象力，你可以创造出一幅充满生命和魔力的画作。 ",
         "score_rubric": {
             "criteria": "Does this response show a clear and imaginative description of the painting's colors, patterns, and emotional effect suitable for a 5-year-old?",
@@ -62,7 +62,7 @@
         "instance_idx": 2,
         "system_prompt": "You are an AI assistant with the ability to process visual information, tasked with providing a helpful answer based on the text instructions and the accompanying single image.",
         "input": "这幅原始肖像画位于哪里？你能否也解释一下它为什么会在那里（例如，解释一下历史背景）？  \n",
-        "reference_answer": "您提供的肖像画似乎是由著名法国画家Élisabeth Louise Vigée Le Brun创作的《玫瑰中的玛丽·安托瓦内特》。玛丽·安托瓦内特的原始肖像画收藏在法国凡尔赛宫。\n\n这幅玛丽·安托瓦内特的画作，与Vigée Le Brun的许多其他作品一样，由于玛丽·安托瓦内特本人的历史重要性，最终被收藏在凡尔赛宫。玛丽·安托瓦内特是法国大革命前的最后一位王后。凡尔赛宫从1682年路易十四时期开始，直到1789年法国大革命爆发时的路易十六时期，都是法国的主要王室住所。在那段时期，它是法国政治权力的中心。\n\n玛丽·安托瓦内特是艺术的重要赞助人，而Vigée Le Brun成为了她最喜爱的画家。王室委托她创作了几幅王后的肖像，以帮助改善她在民众中的形象。在法国大革命期间王室倒台后，许多王室财产，包括艺术品，被清点并最终进入国家收藏。凡尔赛宫后来成为博物馆和历史遗址，保存了法国王室历史的遗产，包括王室成员的肖像画。 \n\n",
+        "reference_answer": "您提供的肖像画是由著名法国画家Élisabeth Louise Vigée Le Brun创作的《玫瑰中的玛丽·安托瓦内特》。玛丽·安托瓦内特的原始肖像画收藏在法国凡尔赛宫。\n\n这幅玛丽·安托瓦内特的画作，与Vigée Le Brun的许多其他作品一样，由于玛丽·安托瓦内特本人的历史重要性，最终被收藏在凡尔赛宫。玛丽·安托瓦内特是法国大革命前的最后一位王后。凡尔赛宫从1682年路易十四时期开始，直到1789年法国大革命爆发时的路易十六时期，都是法国的主要王室住所。在那段时期，它是法国政治权力的中心。\n\n玛丽·安托瓦内特是艺术的重要赞助人，而Vigée Le Brun成为了她最喜爱的画家。王室委托她创作了几幅王后的肖像，以帮助改善她在民众中的形象。在法国大革命期间王室倒台后，许多王室财产，包括艺术品，被清点并最终进入国家收藏。凡尔赛宫后来成为博物馆和历史遗址，保存了法国王室历史的遗产，包括王室成员的肖像画。 \n\n",
         "score_rubric": {
             "criteria": "Does this response show detailed knowledge of the painting's current location and the historical reasons for its placement?",
             "score1_description": "The response does not indicate the current location of the portrait or provide any historical context.",
@@ -119,8 +119,8 @@
         "task": "art_explanation",
         "instance_idx": 4,
         "system_prompt": "As an AI assistant adept at analyzing visual content, it's your task to generate a helpful reply based on the instructions in the text and the image that's been supplied.",
-        "input": "我想在我的客厅里摆放一件类似于这件的杰作。我应该如何向一个出售多件杰作的人解释这一点？我不确定该如何详细说明。",
-        "reference_answer": "当与艺术品经销商或画廊老板讨论购买与图中相似的作品时，您需要描述您感兴趣的风格和主题元素。以下是您可能解释偏好的方式：\n\n1. **风格**：提到您正在寻找一件体现抽象表现主义风格的作品，其特点是充满活力的手势笔触、鲜艳的色彩和自发性。\n2. **构图**：具体说明您在寻找一幅具有复杂、层次分明的构图的画作，可能混合了具象元素和贯穿其中的抽象形状。\n3. **色彩搭配**：表达您对丰富多样的色彩搭配的兴趣，设计的复杂性中可能存在高对比度和和谐。\n4. **情感影响**：传达您被具有强烈情感或戏剧性影响的艺术作品所吸引，或许带有运动感或混乱感。\n5. **尺寸**：指明您正在寻找的画作尺寸，确保它适合您客厅的空间并能达到您想要的大胆效果。\n\n通过提供这些细节，艺术品销售人员可以更好地理解您的需求，并引导您找到适合您客厅和个人品味的杰作。 \n\n",
+        "input": "我想在我的客厅里摆放一件类似于这样的艺术作品。我应该如何向销售解释这一点？",
+        "reference_answer": "当与销售人员（如艺术品经销商或画廊老板）讨论购买与图中相似的作品时，您需要描述您感兴趣的风格和主题元素。以下是您可能解释偏好的方式：\n\n1. **风格**：提到您正在寻找一件体现抽象表现主义风格的作品，其特点是充满活力的手势笔触、鲜艳的色彩和自发性。\n2. **构图**：具体说明您在寻找一幅具有复杂、层次分明的构图的画作，可能混合了具象元素和贯穿其中的抽象形状。\n3. **色彩搭配**：表达您对丰富多样的色彩搭配的兴趣，设计的复杂性中可能存在高对比度和和谐。\n4. **情感影响**：传达您被具有强烈情感或戏剧性影响的艺术作品所吸引，或许带有运动感或混乱感。\n5. **尺寸**：指明您正在寻找的画作尺寸，确保它适合您客厅的空间并能达到您想要的大胆效果。\n\n通过提供这些细节，艺术品销售人员可以更好地理解您的需求，并引导您找到适合您客厅和个人品味的杰作。 \n\n",
         "score_rubric": {
             "criteria": "Does this response show clear communication of the desired artistic elements for a masterpiece to be displayed in the living room?",
             "score1_description": "The response does not specify any of the desired artistic elements for the artwork.",
