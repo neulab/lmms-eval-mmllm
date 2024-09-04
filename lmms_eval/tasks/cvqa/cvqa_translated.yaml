@@ -1,6 +1,6 @@
 dataset_path: afaji/cvqa
 dataset_name: default
-task: "cvqa"
+task: "cvqa_translated"
 dataset_kwargs:
   token: True
 test_split: test
@@ -25,7 +25,7 @@ metadata:
 model_specific_prompt_kwargs:
   default:
     format: default
-    translated: False 
+    translated: True
 model_specific_generation_kwargs:
   llava:
     image_aspect_ratio: original
