@@ -4,8 +4,8 @@
         "task": "art_explanation",
         "instance_idx": 0,
         "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
-        "input": "この傑作がすごい理由を5歳の子どもに説明するとね、まず、この絵はとってもきれいな色を使っているんだよ。見て、青や赤や黄色がいっぱいあるでしょ？それに、この絵の中の人や動物はまるで本物みたいに見えるの。絵を描いた人は、たくさんの時間をかけて、細かいところまで丁寧に描いたんだ。だから、絵を見ていると、まるでその世界に入ったみたいな気持ちになるんだよ。それがこの絵のすごいところなんだ！",
-        "reference_answer": "想像してみてください、大きなクレヨンの箱を持っていて、夜空を描くことに決めたとします。でも、ただの暗い空と小さな星ではなく、たくさんの青や緑で空全体を踊らせたり渦巻かせたりします。そして、星は大きくて光るホタルのように見えます。線の中だけを塗るのではなく、色をあちこちに広げて、海の波のように動く太くてねじれた線を描きます。\n\nこの絵はそんな感じです！それは、夜を自分だけの特別な方法で見た人によって作られました。彼は絵の具を使って、空が動いているように見せ、星がとても明るく輝いて、すべてを照らしているようにしました。彼は風を感じ、音を見て、その感覚をキャンバスに表現したので、私たちもそれを感じることができるのです。色と想像力で、生き生きとして魔法に満ちた絵を作れるなんて、すごいと思いませんか？ ",
+        "input": "この傑作のすごいところを、5歳の子どもに説明するようにわかりやすく教えてください。でも、聞き手が小さいからといって、細かいところを省略しないでくださいね！",
+        "reference_answer": "おもちゃ箱からクレヨンを取り出して、お空のえをかくところを想像してみてね。でも、ただの暗い空と小さな星じゃなくて、青や緑がいっぱいの、くるくる踊っているようなお空をかくんだ。そして星は、光るホタルみたいに大きくてピカピカ。線からはみ出してもいいの。色をぐるぐる波みたいに塗ってみよう。\n\nこの絵はね、そんな感じなんだ！夜空を特別な目で見た人が描いたんだよ。絵の具を使って、空が動いているみたいに見えるでしょ？星はとってもまぶしくて、まわりを明るくしているね。風の音が見えたり、音が見えたりするような不思議な感じを、この人は絵に表したんだ。色と想像力を使えば、生きているみたいな、魔法みたいなえが描けるんだね。すごいでしょ？",
         "score_rubric": {
             "criteria": "Does this response show a clear and imaginative description of the painting's colors, patterns, and emotional effect suitable for a 5-year-old?",
             "score1_description": "The response does not effectively describe the colors or patterns, and fails to convey the emotional effect of the painting.",
