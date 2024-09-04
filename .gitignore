@@ -36,6 +36,8 @@ logs/
 data/
 llava-video/
 Video-MME/
+run.sh
+sbatch-jobs/
 VATEX/
 lmms_eval/tasks/vatex/__pycache__/utils.cpython-310.pyc
 datasets/
