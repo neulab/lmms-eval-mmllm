@@ -42,3 +42,4 @@ VATEX/
 lmms_eval/tasks/vatex/__pycache__/utils.cpython-310.pyc
 datasets/
 *_eval_log/
+.DS_Store

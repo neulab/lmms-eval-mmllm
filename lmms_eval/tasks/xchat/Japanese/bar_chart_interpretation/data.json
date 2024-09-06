@@ -4,7 +4,7 @@
         "task": "bar_chart_interpretation",
         "instance_idx": 0,
         "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
-        "input": "経済規模の減少が最大の国と、8番目に大きい減少を示した国とのGDP減少率の差は何ですか？",
+        "input": "経済規模の減少が最大の国と、8番目に大きい減少を示した国とのGDP減少率の差はいくらですか？",
         "reference_answer": "提供された画像には、さまざまな国とその米ドルでの名目GDPの予測変化を示すグラフが表示されています。あなたの質問に答えるためには、GDPの減少が最も大きい国と8番目に大きい減少の国を特定し、これら2つの国間のGDP減少率の差を計算する必要があります。\n\n画像を分析して必要なデータを抽出します。\n1. ロシア: -$153B\n2. エジプト: -$88B\n3. カナダ: -$50B\n4. サウジアラビア: -$46B\n5. バングラデシュ: -$40B\n6. ノルウェー: -$25B\n7. クウェート: -$20B\n8. オマーン: -$10B\n\nロシアとオマーンのGDP減少率の差は$153B - $10B = $143Bです。したがって、答えは$143Bです。  \n",
         "score_rubric": {
             "criteria": "Does the response accurately identify and parse the information in the image and successfully apply the required calculation to derive the GDP reduction difference?",
@@ -30,7 +30,7 @@
         "task": "bar_chart_interpretation",
         "instance_idx": 1,
         "system_prompt": "You are an AI assistant with multi-modal capabilities tasked with crafting a useful response using the provided image and text instructions.",
-        "input": "与えられた画像から、どの国が180以上のスコアを獲得しましたか？  \n",
+        "input": "与えられた画像から、どの国が180点以上のスコアを獲得しましたか？  \n",
         "reference_answer": "画像に基づいて、2023年の国際数学オリンピック（IMO）で180点以上を獲得した国は次の通りです。\n1. 中国: 240点\n2. アメリカ: 222点\n3. 韓国: 215点\n4. ルーマニア: 208点\n5. カナダ: 183点\n6. 日本: 181点\n\nこれらの国はそれぞれの棒グラフの横に示された合計得点が180点以上です。  \n",
         "score_rubric": {
             "criteria": "Does the response precisely identify and report countries with scores above 180 in the IMO 2023 report?",
@@ -56,8 +56,8 @@
         "task": "bar_chart_interpretation",
         "instance_idx": 2,
         "system_prompt": "You are an AI assistant with the ability to process visual information, tasked with providing a helpful answer based on the text instructions and the accompanying single image.",
-        "input": "与えられた画像は、各モデルが生成する言語フィードバックの質を比較しています。人間のアノテーターがペア設定でどちらが優れているかを選ぶように割り当てられています。どのモデルが最も優れているかを判断してください！",
-        "reference_answer": "画像は、3組の言語モデルを比較する棒グラフのようです：GPT-4対ChatGPT、プロメテウス対ChatGPT、プロメテウス対GPT-4。各モデルによって生成された言語フィードバックの質は、人間のアノテーターによってペアワイズ設定で評価され、どちらが優れているか、または両方が良いか悪いかが選ばれます。\n\n棒グラフは4つの結果を色分けして表しています：\n- 青：左が勝つ\n- ピンク：右が勝つ\n- 紫：両方が良い\n- オレンジ：両方が悪い\n\n提供されたグラフから、各モデルのパフォーマンスを評価できます：\n1. **GPT-4対ChatGPT**：GPT-4がより多く勝利しています（74回）ChatGPT（19回）と比較して。これは、GPT-4がChatGPTと直接比較した場合に優れたモデルであることを示唆しています。\n2. **プロメテウス対ChatGPT**：プロメテウスがより多く勝利しています（59回）ChatGPT（19回）と比較して。これは、プロメテウスがChatGPTよりも優れていることを示しています。\n3. **プロメテウス対GPT-4**：プロメテウスがより多く勝利しています（51回）GPT-4（36回）と比較して。これは、プロメテウスがGPT-4と比較した場合にしばしば優れたモデルと見なされることを示しています。\n\nこれらのペアワイズ比較での勝利数を考慮すると、プロメテウスが最も優れたパフォーマンスを示すモデルであるように見えます。ChatGPTに対して最も多くの勝利を収め、またGPT-4との直接対決でも優れています。  \n",
+        "input": "与えられた画像は、各モデルが生成する言語フィードバックの質を比較しています。人間のアノテーターが2つのモデルの中からどちらが優れているかを選ぶように指示されています。画像の情報から、どのモデルが最も優れているかを判断してください。",
+        "reference_answer": "画像は、3組の言語モデルを比較する棒グラフのようです：GPT-4対ChatGPT、プロメテウス対ChatGPT、プロメテウス対GPT-4。各モデルによって生成された言語フィードバックの質は、人間のアノテーターによって比較評価され、どちらが優れているか、または両方が良いか悪いかが選択肢としてあります。\n\n棒グラフは4つの結果を色分けして表しています：\n- 青：左が優れている\n- ピンク：右が優れている\n- 紫：両方が良い\n- オレンジ：両方が悪い\n\n提供されたグラフから、各モデルのパフォーマンスを評価できます：\n1. **GPT-4対ChatGPT**：GPT-4の勝利数（74回）がChatGPTの勝利数（19回）より多いです。これは、GPT-4がChatGPTと直接比較した場合に優れたモデルであることを示唆しています。\n2. **プロメテウス対ChatGPT**：プロメテウスの勝利数（59回）がChatGPTの勝利数（19回）より多いです。これは、プロメテウスがChatGPTよりも優れていることを示しています。\n3. **プロメテウス対GPT-4**：プロメテウスの勝利数（51回）がGPT-4の勝利数（36回）より多いです。これは、プロメテウスがGPT-4と比較した場合にしばしば優れたモデルと見なされることを示しています。\n\nこれらのペアワイズ比較での勝利数を考慮すると、プロメテウスが最も優れモデルであるように見えます。ChatGPTに対して最も多くの勝利を収め、またGPT-4との直接対決でも優れています。  \n",
         "score_rubric": {
             "criteria": "Does the response show accuracy and clarity in interpreting and comparing the performance of language models as presented in the chart?",
             "score1_description": "The response misinterprets the chart data and provides an incorrect comparison of model performance.",
@@ -85,7 +85,7 @@
         "instance_idx": 3,
         "system_prompt": "As an AI assistant capable of interpreting images, your role is to offer a useful response guided by the text directions and the single image provided.",
         "input": "次の画像は、アメリカの一般的な教育機関の授業料を示しています。イリノイ大学アーバナ・シャンペーン校とジョージア工科大学メインキャンパスの授業料の差はおおよそどのくらいですか？  \n",
-        "reference_answer": "画像は、2021年までの期間における様々な大学の州内授業料を示す横棒グラフを表示しています。\n\nグラフの視覚的な検査から：\n- イリノイ大学アーバナ・シャンペーン校を表す棒は、15,000ドルよりわずかに少ないところまで伸びています。\n- ジョージア工科大学メインキャンパスの棒は、10,000ドルを少し超えています。\n\nしたがって、両大学の授業料の差は5,000ドルよりわずかに少ないことになります。 ",
+        "reference_answer": "この画像は、2021年までの期間における様々な大学の州内授業料を示す横棒グラフです。\n\nグラフから：\n- イリノイ大学アーバナ・シャンペーン校を表す棒は、15,000ドルよりわずかに少ないところまで伸びています。\n- ジョージア工科大学メインキャンパスの棒は、10,000ドルを少し超えています。\n\nしたがって、両大学の授業料の差は5,000ドルをわずかに下回ることになります。 ",
         "score_rubric": {
             "criteria": "Does the response accurately estimate the tuition costs from the bar chart and make a correct calculation of the difference between the two universities?",
             "score1_description": "The response greatly misestimates tuition costs for both universities and incorrectly calculates the difference.",
