@@ -1,11 +1,10 @@
-[
-    {
+[{
         "capability": "vision",
         "task": "iq_test",
         "instance_idx": 0,
         "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
         "input": "提供された画像の「？」に最も適した選択肢（A ~ F）を推測してください。答えを書く前に、パターンを分析して考え方を詳しく説明してください。 ",
-        "reference_answer": "指示は、画像内の「？」に最も適したオプションを推測するよう求めています。\n\n各行には、3つの画像の間に共通点があります。\n- 最初の行には、正方形の頂点に配置された4つの点があります。\n- 2番目の行には、四角い星のバリエーションである鉄十字があります。\n- 同様に、3番目の行には、中央に別のオブジェクトを囲む正方形があるはずです。\n\n各列には、3つの画像の間に共通点があります。\n- 最初の列には、中央に配置された円があります。\n- 2番目の列には、中央に配置されたプラス記号があります。\n- 同様に、3番目の列には、中央に回転した正方形があるはずです。\n\nこれらの観察に基づいて、「？」に最も適したオブジェクトは、中央に回転した正方形があり、それを囲む大きな正方形を持つべきです。\nしたがって、答えはEです。",
+        "reference_answer": "画像の各行には、3つの画像の間に共通点があります。\n- 最初の行には、正方形の頂点に配置された4つの点があります。\n- 2番目の行には、四角い星のバリエーションである鉄十字があります。\n- 同様に、3番目の行には、中央に別のオブジェクトを囲む正方形があるはずです。\n\n各列には、3つの画像の間に共通点があります。\n- 最初の列には、中央に配置された円があります。\n- 2番目の列には、中央に配置されたプラス記号があります。\n- 同様に、3番目の列には、中央に回転した正方形があるはずです。\n\nこれらの観察に基づいて、「？」に最も適したオブジェクトは、中央に回転した正方形があり、それを囲む大きな正方形を持つべきです。\nしたがって、答えはEです。",
         "score_rubric": {
             "criteria": "Does the response include a reasoning process that identifies the patterns and selects the correct answer for a visual pattern recognition problem?",
             "score1_description": "The response lacks any recognition of the patterns, does not explain, and selects an incorrect answer without justification.",
@@ -25,8 +24,8 @@
         "task": "iq_test",
         "instance_idx": 1,
         "system_prompt": "You are an AI assistant with multi-modal capabilities tasked with crafting a useful response using the provided image and text instructions.",
-        "input": "与えられた画像の「？」の代わりに、どの選択肢（AからF）が最も適切にシーケンスを完成させるかを決定します。答えを提示する前に、パターンを調べて推論を説明してください。 ",
-        "reference_answer": "指示は、画像内の「？」に正しく当てはまる選択肢を推定することを要求しています。  \n「ways」と「yaws」の2つの単語を見ると、両方の単語には共通の文字が含まれています。この問題を解く1つの方法として、各文字が特定の数字に対応している可能性があります。  \nしたがって、「w=5」、「a=3」、「y=8」、「s=6」となります。すると、「yaws」は「8356」になります。したがって、答えはFです。  \n",
+        "input": "与えられた画像の「？」に当てはまる適切な数字列を選択肢（AからF）から選んでください。答えを提示する前に、パターンを調べて推論を説明してください。 ",
+        "reference_answer": "この画像で示された「ways」と「yaws」の2つの単語を見ると、両方の単語には共通の文字が含まれています。この問題を解く1つの方法として、各文字が特定の数字に対応している可能性があります。  \nしたがって、「w=5」、「a=3」、「y=8」、「s=6」となります。すると、「yaws」は「8356」になります。したがって、答えはFです。  \n",
         "score_rubric": {
             "criteria": "Does the response recognize character-to-number mapping in a pattern recognition task and apply it to determine the correct sequence?",
             "score1_description": "The response shows no understanding of character-to-number mapping, fails to recognize the pattern, and incorrectly completes the sequence with no logical explanation.",
@@ -46,8 +45,8 @@
         "task": "iq_test",
         "instance_idx": 2,
         "system_prompt": "You are an AI assistant with the ability to process visual information, tasked with providing a helpful answer based on the text instructions and the accompanying single image.",
-        "input": "画像に示された「？」の位置にあるシーケンスを正確に完成させる選択肢（AからFの中から）を決定します。選択を明らかにする前に、設定されたパターンを研究してあなたの推論を詳述してください。",
-        "reference_answer": "指示は、画像の「？」を正確に完成させるオプションを決定することを要求しています。天秤は両端に7kgの重りを示しています。重りが同一であり、天秤の中心から等距離に配置されていることから、画像の「？」は同じ距離を表していると推測でき、それは90cmです。したがって、答えはFです。",
+        "input": "画像に示された「？」の位置にあるシーケンスを正確に完成させる選択肢（AからFの中から）を決定します。選択を回答する前に、パターンを調べあなたの推論家庭を詳述してください。",
+        "reference_answer": "天秤は両端に7kgの重りを示しています。重りが同一であり、天秤が釣り合っていることから、これらの重りは中心から等距離に配置されていることが推測できます。このことから、画像の「？」は画像右側の90cmと等距離であると推測できるため、答えはFです。",
         "score_rubric": {
             "criteria": "Does the response apply logical reasoning to deduce the correct distance measurement?",
             "score1_description": "The response shows no understanding of balance principles, does not recognize the equal weights, and incorrectly suggests a distance without any logical basis.",
@@ -66,8 +65,8 @@
         "task": "iq_test",
         "instance_idx": 3,
         "system_prompt": "As an AI assistant capable of interpreting images, your role is to offer a useful response guided by the text directions and the single image provided.",
-        "input": "提示された画像の「？」に正しく当てはまる選択肢（AからFの範囲）を特定してください。選択を明らかにする前に、確立されたパターンの分析を通じてあなたの考えを説明してください。",
-        "reference_answer": "提供された画像の「？」に当てはまる正しい数字を特定するには、提示された数列を分析し、そのパターンを決定する必要があります。画像の数字は次のとおりです：4, 5, 7, 10, 14, 19, 25, 32。\n\nこれらの数字の間の差は、次に進むにつれて増加しています：\n- 5と4の差は1です。\n- 7と5の差は2です。\n- 10と7の差は3です。\n- 14と10の差は4です。\n- 19と14の差は5です。\n- 25と19の差は6です。\n- 32と25の差は7です。\n\nこれは、各数字が前の数字に1から始まり、毎回1ずつ増加する数を加えることで得られるパターンを示唆しています。\n\n32の次の数列の数字を見つけるには、8を加えます（最後の増加が7だったため）。\n\n数列の次の数字は32 + 8 = 40です。したがって、画像の「？」に当てはまる正しい選択肢はCです。 ",
+        "input": "提示された画像の「？」に正しく当てはまる選択肢（AからFの中から）を特定してください。選択を回答する前に、確立されたパターンの分析し、あなたの考えを説明してください。",
+        "reference_answer": "提供された画像の「？」に当てはまる正しい数字を特定するには、提示された数列を分析し、そのパターンを決定する必要があります。画像の数字は次のとおりです。4, 5, 7, 10, 14, 19, 25, 32。\n\nこれらの数字の間の差が文字列が進むにつれて増加していることがわかります。\n- 5と4の差は1です。\n- 7と5の差は2です。\n- 10と7の差は3です。\n- 14と10の差は4です。\n- 19と14の差は5です。\n- 25と19の差は6です。\n- 32と25の差は7です。\n\nこれは、各数字が前の数字に1から始まり、毎回1ずつ増加する数を加えることで得られるパターンを示唆しています。\n\n32の次の数列の数字を見つけるには、最後の増加が7だったため8を加えます。\n\nつまり数列の次の数字は32 + 8 = 40です。したがって、画像の「？」に当てはまる正しい選択肢はCです。 ",
         "score_rubric": {
             "criteria": "Does the response recognize numerical patterns and correctly apply them to identify a missing number in a sequence?",
             "score1_description": "The response does not recognize any pattern, cannot calculate the differences between numbers, and selects an incorrect answer without any valid reasoning.",
@@ -89,8 +88,8 @@
         "task": "iq_test",
         "instance_idx": 4,
         "system_prompt": "As an AI assistant adept at analyzing visual content, it's your task to generate a helpful reply based on the instructions in the text and the image that's been supplied.",
-        "input": "表示された画像を使用して構築できるオプション（AからF）を選択してください。選択を開示する前に、示されたパターンを調べて、その理由を詳しく説明してください。 ",
-        "reference_answer": "このパズルを解くためには、色付きの正方形の平面配置がどのように3Dボックスに折りたたまれるかを視覚化する必要があります。各色の正方形はボックスの面を表しています。正方形が立方体に折りたたまれると、各正方形の辺が立方体の辺となり、平面上で接続されているすべての正方形は3D形状でも接続されたままでなければなりません。提供されたオプションを分析しましょう：\n1. **上面（グレー）：** グレーの正方形は中央にあるので、ボックスの上面になります。\n2. **側面：** グレーの正方形を囲む色付きの正方形がボックスの側面になります。\n3. **底面：** ボックスの底面は展開図では見えませんが、グレーの正方形の反対側にあるはずです。\n\n次に、接続された側面を見てみましょう：\n- マゼンタの正方形は、片側でグレーの正方形と、もう片側で緑の正方形と接続されています。\n- シアンの正方形はマゼンタの正方形の反対側にあるはずです。なぜなら、これらは接続されていないからです。\n- オレンジの正方形はグレーの正方形と接続されており、緑の正方形の反対側にあります。\n- 茶色と紫の正方形は残りの側面で、茶色の正方形はグレーと緑の正方形の両方に接続されているため、マゼンタの正方形に隣接しています。\n\nこれらの考慮事項を踏まえて、展開図を各オプションと比較し、このパターンから形成できるものを見つけましょう。\n調べてみると、オプション**E**が正しい選択であることが明らかです。理由は次のとおりです：\n- グレーの正方形がボックスの上面を形成し、オプションEでは正しいです。\n- マゼンタと緑の正方形は互いに反対側にあり、オプションEでもそうです。\n- シアンの正方形はマゼンタの正方形に隣接しておらず、オプションEの位置と一致しています。\n- オレンジの正方形は緑の正方形の反対側で、グレーに隣接しており、オプションEで見られるように。\n- 茶色の正方形はグレーと緑の正方形の両方に隣接しており、オプションEで正しく表されています。\n\nしたがって、画像から形成される正しいボックスは、オプション**E**に示されているものです。",
+        "input": "表示された展開図を使用して構築できる立方体をAからFの中から選んでください。選択を回答する前に、その理由を詳しく説明してください。 ",
+        "reference_answer": "このパズルを解くためには、立方体の展開図がどのように折りたたまれるかを視覚化する必要があります。各色の正方形はそれぞれ立方体の各面を表しています。正方形が立方体に折りたたまれると、各正方形の辺が立方体の辺となり、平面上で隣接しているすべての正方形は立方体に折り畳まれた際にも隣接されたままでなければなりません。提供された選択肢を分析しましょう：\n1. **上面（グレー）：** グレーの正方形は中央にあるので、ボックスの上面になります。\n2. **側面：** グレーの正方形を囲む色付きの正方形がボックスの側面になります。\n3. **底面：** ボックスの底面は展開図では見えませんが、グレーの正方形の反対側にあるはずです。\n\n次に、接続された側面を見てみましょう：\n- マゼンタの正方形は、片側でグレーの正方形と、もう片側で緑の正方形と接続されています。\n- シアンの正方形はマゼンタの正方形の反対側にあるはずです。なぜなら、これらは接続されていないからです。\n- オレンジの正方形はグレーの正方形と接続されており、緑の正方形の反対側にあります。\n- 茶色と紫の正方形は残りの側面で、茶色の正方形はグレーと緑の正方形の両方に接続されているため、マゼンタの正方形に隣接しています。\n\nこれらの考慮事項を踏まえて、展開図を各オプションと比較し、このパターンから形成できるものを見つけましょう。\n調べてみると、オプション**E**が正しい選択であることが明らかです。理由は次のとおりです：\n- グレーの正方形がボックスの上面を形成し、オプションEでは正しいです。\n- マゼンタと緑の正方形は互いに反対側にあり、オプションEでもそうです。\n- シアンの正方形はマゼンタの正方形に隣接しておらず、オプションEの位置と一致しています。\n- オレンジの正方形は緑の正方形の反対側で、グレーに隣接しており、オプションEで見られるように。\n- 茶色の正方形はグレーと緑の正方形の両方に隣接しており、オプションEで正しく表されています。\n\nしたがって、画像から形成される正しいボックスは、オプション**E**に示されているものです。",
         "score_rubric": {
             "criteria": "Does the response accurately perform spatial reasoning in mapping the 2D pattern to the 3D cube?",
             "score1_description": "The explanation shows no understanding of spatial relationships; colors and positions are randomly assigned without following the logic of cube assembly.",

@@ -1,11 +1,10 @@
-[
-    {
+[{
         "capability": "vision",
         "task": "ocr",
         "instance_idx": 0,
         "system_prompt": "You are helpful visual-language assistant.",
         "input": "デザインチャレンジ中、異なる素材とそれに対応する数量と重さを表示するボードがありました。記録用に写真が撮られました。しかし、画像は少しぼやけており、手書きのスタイルとサイズが異なります。画像を調べ、カードストック、工作用紙、布の数量と重さを詳しく正確に転記してください。 ",
-        "reference_answer": "画像には、マーカーで情報が書かれたホワイトボードが映っています。3つの列があり、それぞれ異なる素材に割り当てられています：カードストック、画用紙、布。それぞれの素材について、数量（個数）と重量（グラム）が示されています。\n\nカードストック\n\n数量：3個\n重量：13グラム\n画用紙\n\n数量：2個\n重量：6グラム\n布\n\n数量：32\n重量：77グラム\n重量は強調のために下線が引かれているようです。「カードストック」と「画用紙」の手書きは黒インクで、数字も黒で書かれています。「布」とその対応する数字は青インクで書かれています。フォントスタイルはカジュアルでサイズは様々ですが、情報は読めます。ホワイトボードの右上には印刷されたフォームがありますが、写真の角度と距離のためにこのフォームのテキストは判読できません。 ",
+        "reference_answer": "画像には、マーカーで情報が書かれたホワイトボードが映っています。3つの列があり、それぞれ異なる素材に割り当てられています：カードストック、画用紙、布それぞれの素材について、数量（個数）と重量（グラム）が示されています。\n\nカードストック\n\n数量：3個\n重量：13グラム\n画用紙\n\n数量：2個\n重量：6グラム\n布\n\n数量：32\n重量：77グラム\n重量は強調するために下線が引かれているようです。「カードストック」と「画用紙」の手書きは黒インクで、数字も黒で書かれています。「布」とその対応する数字は青インクで書かれています。フォントスタイルはカジュアルでサイズは様々ですが、情報は読めます。ホワイトボードの右上には印刷された紙がありますが、写真の角度と距離のためにこの紙の文章は判読できません。 ",
         "score_rubric": {
             "criteria": "Does the response accurately transcribe all visual information from the image, including specific details such as quantities, weights, underlines, and ink colors?",
             "score1_description": "The response recognizes the presence of text but fails to accurately transcribe any of the materials and their corresponding quantities and weights, for example, quantities are present but weights are not present.",
@@ -33,8 +32,8 @@
         "task": "ocr",
         "instance_idx": 1,
         "system_prompt": "You are helpful visual-language assistant.",
-        "input": "メジャーリーグの野球場では、スタジアム内の場所、時間帯、特定の広告要素の有無など、特定の特徴によって写真を自動的に分類するシステムを作成することに課題があるようです。この画像を考慮して、既存の分類ガイドラインに頼らずに、どのようにして整理されたデータベースのために分類するのでしょうか？",
-        "reference_answer": "画像を整理されたデータベースに分類するためには、構造化されたアプローチを取るべきです。まず、画像に存在する視覚要素を分析します。顕著な特徴は野球場であり、特徴的なブランドと建築的特徴からヤンキースタジアムと特定されます。画像のメタデータは写真が撮影された正確な時間を提供する可能性がありますが、利用できない場合、光と影から自然光の角度と強度を考慮して早朝または午後遅くであることが示唆されます。\n\n次に、広告要素の存在をカタログ化できます。スコアボードには、ペプシ、キヤノン、ゲータレードなどの複数のブランドロゴが表示されており、個別にタグ付けできます。フィールドビューは、撮影角度から中段または上段の観客席から撮影されたことを示しています。\n\n正確な分類のために、画像には以下のデータポイントでタグ付けされるべきです：\n\nスタジアム名：ヤンキースタジアム\nイベント：野球試合（観客がいないことと選手がウォームアップしていることから試合前）\nスタジアムのセクション：観客席、中段/上段\n時間帯：早朝または午後遅く（メタデータまたは影の分析による確認が必要）\n広告の存在：スコアボードに見えるペプシ、キヤノン、ゲータレードなどのロゴ\nフィールドビュー：外野に焦点を当てた野球場の部分的なビュー\nこの分類方法は、画像を明確で一貫したカテゴリーに分割し、分析またはデータベースへの組み込みの準備を整えます。各タグは特定のクエリ、例えば「ヤンキースタジアムの広告」や「フィールドの観客ビュー」などのために画像をフィルタリングし、取得するために使用できるデータポイントを提供します。このプロセスは、データを非常に整理された、明確で分析準備が整った形式で提示するため、ルーブリックの5に該当します。 ",
+        "input": "メジャーリーグの野球場では、スタジアム内の場所、時間帯、特定の広告要素の有無など、写真を自動的に分類するシステムを作成することに課題があるようです。この画像を見て、既存の分類ガイドラインに頼らずに、どのようにしてこの写真を整理されたデータベースに分類するのか説明しなさい。",
+        "reference_answer": "画像を整理されたデータベースに分類するためには、構造化されたアプローチを取るべきです。まず、画像中の視覚要素を分析しますこの写真の顕著な特徴は野球場であり、特徴的なブランドと建築的特徴からヤンキースタジアムと特定されます。画像のメタデータは写真が撮影された正確な時間を提供する可能性がありますが、利用できない場合、光と影から自然光の角度と強度を考慮して早朝または午後遅くであることが示唆されます。\n\n次に、広告要素の存在をカタログ化できます。スコアボードには、ペプシ、キヤノン、ゲータレードなどの複数のブランドロゴが表示されており、個別にタグ付けできます。フィールドビューは、撮影角度から中段または上段の観客席から撮影されたことを示しています。\n\n正確な分類のために、画像には以下のデータポイントでタグ付けされるべきです：\n\nスタジアム名：ヤンキースタジアム\nイベント：野球試合（観客がいないことと選手がウォームアップしていることから試合前）\nスタジアムのセクション：観客席、中段/上段\n時間帯：早朝または午後遅く（メタデータまたは影の分析による確認が必要）\n広告の存在：スコアボードに見えるペプシ、キヤノン、ゲータレードなどのロゴ\nフィールドビュー：外野に焦点を当てた野球場の部分的なビュー\nこの分類方法は、画像を明確で一貫したカテゴリーに分割し、分析またはデータベースへの組み込みの準備を整えます。各タグは特定のクエリ、例えば「ヤンキースタジアムの広告」や「フィールドの観客ビュー」などのために画像をフィルタリングし、取得するために使用できるデータポイントを提供します。このプロセスは、データを非常に整理された、明確で分析準備が整った形式で提示するため、ルーブリックの5に該当します。 ",
         "score_rubric": {
             "criteria": "Does the response correctly identify and categorize key features in the image for database classification?",
             "score1_description": "The response identifies the location or a single element but fails to categorize any additional features of the image.",
@@ -85,7 +84,7 @@
         "task": "ocr",
         "instance_idx": 3,
         "system_prompt": "You are helpful visual-language assistant.",
-        "input": "提供された温度計の画像には、さまざまな数値とテキストの表記が表示されています。タスクの性質を明かさずに、ゲージに存在する言語や文字を特定し、それらが装置の読み取りを解釈する上での重要性を説明してください。これらの通知は数字だけでなく、温度スケールやゲージが意図されている機器の種類を示す可能性のある単語や略語を含む場合もあることを考慮してください。 ",
+        "input": "提供された温度計の画像には、さまざまな数値とテキストの表記が表示されています。タスクの性質を明かさずに、ゲージに存在する言語や文字を特定し、それらが装置の読み取りを解釈する上での重要性を説明してください。これら表示は実際の数字だけでなく、温度スケールやゲージが意図されている機器の種類を示す可能性のある単語や略語を含む場合もあることを考慮してください。 ",
         "reference_answer": "画像には、文字盤の周りに円形に配置された40から120までの数値を持つ温度計が表示されています。数字は、国際的に最も一般的に使用されている現代の西洋アラビア数字で書かれています。これらの数字は、定量的な測定を示すために科学的および技術的な機器で普遍的に認識されています。\n\nゲージの下部には「NORMAL」と書かれたテキスト表記があります。これは、英語を含む多くの西洋言語で使用されているラテンアルファベットで書かれています。「NORMAL」という用語は、ゲージの標準または期待される動作範囲を表すものとして一般的に理解されています。この文脈では、文字盤の特定の範囲内の温度が、測定対象のデバイスの正常な動作パラメータ内であると見なされることを示唆しています。\n\nゲージの針は100を少し超えた値を指しており、ゲージが華氏で校正されている場合、高温ではあるが極端ではない温度を示します。他の言語や文字がないことから、このデバイスは英語圏の地域や、科学技術機器の言語として英語が一般的に使用される国際的な環境での使用を意図している可能性が高いことを示唆しています。\n\nさらに、数字のスタイルと「NORMAL」という単語は、幅広い専門的および地理的な文脈で情報を正確に伝えるために不可欠な明確さと普遍的な理解を目指したデザインを示しています。\n\nこのゲージの部分には他の言語や文字の証拠はなく、目に見えるすべての表記はゲージの機能に対するその重要性について説明されています。 ",
         "score_rubric": {
             "criteria": "Does the response accurately determine the languages or scripts on the gauge and explain their significance in interpreting the device's reading?",
@@ -111,7 +110,7 @@
         "task": "ocr",
         "instance_idx": 4,
         "system_prompt": "You are helpful visual-language assistant.",
-        "input": "デジタルデバイスを使用しようとする際、難しさはしばしばその画面に表示される情報を読み理解することにあります。特に画面が部分的に隠れていたり、照明が不十分な場合です。問題のデバイスには、重要な情報を提供するさまざまな記号、数字、テキストがあります。表示されている情報を詳細に説明し、現在アクティブな機能や設定の可能性がある指標を含めてください。 ",
+        "input": "デジタルデバイスを使用しようとする際の困難に、しばしばその画面に表示される情報を読み理解することがあります。特に画面が部分的に隠れていたり、照明が不十分な場合です。画像の機械には、重要な情報を提供するさまざまな記号、数字、テキストがあります。表示されている情報を詳細に説明し、現在アクティブな機能や設定の可能性がある指標を含めてください。 ",
         "reference_answer": "画像には「TECSUN PL-380」というデジタルデバイスが表示されており、これはおそらくFM、AM、短波、長波ラジオバンド用のDSP受信機です。画面は明るく、テキストははっきりと読み取れます。デジタル時計が「12:54」と表示され、PMインジケーターがあることから午後であることを示しています。時間の下には「79°F」と表示された温度読み取りがあり、デバイスが周囲の温度を測定できることを示しています。画面の左上には電源ボタンのようなアイコンがあり、おそらくデバイスがオンになっていることを示しており、その下にはアラートまたはアラームのシンボルがあり、アラームが設定されているか現在作動中であることを意味している可能性があります。画面の右上には赤い電源ボタンがあり、画面の左にはライト/スヌーズ機能を含む一連のボタンがあり、おそらくアラーム用で、時間とアラームの設定もあります。画面の下のキーパッドには数値ボタンがあり、プリセットまたは手動チューニングの機能を示唆しており、バンド選択（FM、AM、SW）のボタンもあります。「FM ST.」はおそらくFMステレオを意味し、デバイスがステレオ放送を受信できることを示しています。左側には伸縮可能なアンテナがあり、ラジオ受信に一般的です。全体として、デバイスは機能的な状態にあり、画面やコントロールに目立った障害はありません。 ",
         "score_rubric": {
             "criteria": "Does the response comprehensively describe the displayed information on the device's screen, including indicators of functionality or active settings?",
@@ -134,12 +133,10 @@
             "Is the response attentive to the 'FM ST.' indicator and its meaning for stereo broadcast reception?",
             "Does the response notice the extendable antenna and its purpose for radio reception?"
         ],
-        "background_knowledge": [
-            {
-                "information": "Image link",
-                "reference_url": "https://drive.google.com/file/d/1YO1kW2rq7BGkrGOcVM09jD2QSDMcyn-0/view?usp=drive_link"
-            }
-        ],
+        "background_knowledge": [{
+            "information": "Image link",
+            "reference_url": "https://drive.google.com/file/d/1YO1kW2rq7BGkrGOcVM09jD2QSDMcyn-0/view?usp=drive_link"
+        }],
         "caption": "The image shows a portable TECSUN PL-380 radio placed on a textured surface. The radio features a digital display indicating the temperature as 79°F and the time as 12:54 PM. It has a range of buttons for different functions, including power, display settings, and band selection for FM, AM, and shortwave. The device also appears to have a timer and alarm function, and a light/snooze feature, suggesting multifunctionality beyond just a radio receiver. A wrist strap is attached to the top left corner of the radio."
     }
 ]
