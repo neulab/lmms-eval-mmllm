@@ -47,7 +47,7 @@
         "instance_idx": 2,
         "system_prompt": "You are an AI assistant with the ability to process visual information, tasked with providing a helpful answer based on the text instructions and the accompanying single image.",
         "input": "Determine which choice (from A to F) accurately completes the sequence where the \"?\" is located in the image shown. Before disclosing your choice, detail your reasoning by studying the pattern that has been set.",
-        "reference_answer": "The instruction requires determining which option accurately completes the \"?\" in the image.\nThe scale shows a 7kg weight at each end. Given that the weights are identical and positioned equidistant from the scale's center, it can be inferred that the '?' on the image represents the same distance, which is 90cm. Thus, the answer is F.",
+        "reference_answer": "The instruction requires determining which option accurately completes the \"?\" in the image.\nThe scale shows a 7kg weight at each end. When weights of x and y are placed on a balance scale, to achieve equilibrium, the distances should be y and x, respectively—that is, the product of the weight and the distance must be equal. Given that the weights are identical and positioned equidistant from the scale's center, it can be inferred that the '?' on the image represents the same distance, which is 90cm. Thus, the answer is F.",
         "score_rubric": {
             "criteria": "Does the response apply logical reasoning to deduce the correct distance measurement?",
             "score1_description": "The response shows no understanding of balance principles, does not recognize the equal weights, and incorrectly suggests a distance without any logical basis.",
