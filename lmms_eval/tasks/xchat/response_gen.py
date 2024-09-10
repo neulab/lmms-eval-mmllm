@@ -1,31 +1,18 @@
 import argparse
-import json
-from typing import List, Dict
-from vllm import LLM, SamplingParams
-from conversation import get_conv_template
-import os
-
 import torch
+import json
+import os
 from PIL import Image
-from torchvision import transforms
+import requests
+from tqdm import tqdm
+import torch
+from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration
 
-def load_and_process_image(image_path, size=(336, 336)):
-    if os.path.exists(image_path):
-        image = Image.open(image_path)
-        transform = transforms.Compose([
-            transforms.Resize(size),
-            transforms.ToTensor(),
-        ])
-        return transform(image).unsqueeze(0)  # Add batch dimension
-    else:
-        return torch.zeros((1, 3, *size))  # Placeholder for missing images
-
-def process_dialogue(inst,system_message):
-    return "<image>" * 576+f"\n{system_message}"+f"\nUSER: {inst}\nASSISTANT: "
-    
+def load_and_process_image(image_path):
+    image = Image.open(image_path)
+    return image
 
 def prep_dataset(language):
-
     base_path = f"./{language}"
     eval_set = []
     orig_data = []
@@ -36,31 +23,62 @@ def prep_dataset(language):
         if os.path.exists(task_path):
             with open(task_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                for index,item in enumerate(data):
-                    eval_set.append(process_dialogue(item["input"],item['system_prompt']))
-                    orig_data.append(item)
+                for index, item in enumerate(data):
+                    prompt = f"{item['system_prompt']}\n\n{item['input']}"
                     image_path = os.path.join(base_path, task, f"{index}.jpg")
-                    images.append(load_and_process_image(image_path))
+                    image = load_and_process_image(image_path)
 
-    return eval_set, images, orig_data
+                    eval_set.append({
+                        "role": "user",
+                        "content":[
+                            {"type":"image"},
+                            {"type":"text","text":prompt}
+                        ]
+                    })
+                    images.append(image)
+                    orig_data.append(item)
+                    
     
+    return eval_set, images, orig_data
 
 def main(args):
-    eval_suite,orig_data,images = prep_dataset(args.language)
+    
+    # if "llava-hf" in args.model_name:
+    #     processor = AutoProcessor.from_pretrained(args.model_name)
+    # else:
+    #     processor = AutoProcessor.from_pretrained("llava-hf/llava-1.5-7b-hf")
+    processor = AutoProcessor.from_pretrained(args.model_name)
+    processor.tokenizer.add_tokens(["<image>", "<pad>"], special_tokens=True)
 
-    sampling_params = SamplingParams(temperature=0, top_p=1, max_tokens=2048, stop=["<|eot_id|>","<|end_of_text|>","# Test the function","<pad>"])
-
-    llm = LLM(model=args.model_name,tensor_parallel_size=args.gpu_num,gpu_memory_utilization=0.95,download_dir="/data/tir/projects/tir7/user_data/seungonk/huggingface", image_input_type="pixel_values", image_token_id=32000, image_input_shape="1,3,336,336", image_feature_size=576)
-    outputs = llm.generate(prompts=eval_suite, sampling_params=sampling_params, multi_modal_data=MultiModalData(type=MultiModalData.Type.IMAGE, data=images))
+    prompts, images, orig_data = prep_dataset(args.language)
+    
+    if "1.5" in args.model_name:
+        model = LlavaForConditionalGeneration.from_pretrained(
+            args.model_name, 
+            torch_dtype=torch.float16
+        ).to(0)
+        model.resize_token_embeddings(len(processor.tokenizer))
+    else:
+        model = LlavaNextForConditionalGeneration.from_pretrained(
+            args.model_name, 
+            torch_dtype=torch.float16
+        ).to(0)
+        model.resize_token_embeddings(len(processor.tokenizer))
 
     results = []
-    for output,inst in zip(outputs,orig_data):
-        x = inst
-        x['response'] = output.outputs[0].text
-        results.append(x)
+    for p,i in tqdm(zip(prompts,images),total=len(images)):
+        p = processor.apply_chat_template([p], add_generation_prompt=True)
+        
+        model_inputs = processor(images=i, text=p, return_tensors='pt').to(0, torch.float16)
+        
+        output = model.generate(**model_inputs, max_new_tokens=1024, temperature=1.0, top_p=0.9, do_sample=True)
+        results.append(processor.decode(output[0][2:], skip_special_tokens=True))
+
+    for inst,r in zip(orig_data,results):
+        inst['response'] = r
 
     with open(args.output_file, 'w', encoding='utf-8') as f:
-        json.dump(results, f, ensure_ascii=False, indent=4)
+        json.dump(orig_data, f, ensure_ascii=False, indent=4)
 
 
 if __name__ == "__main__":
