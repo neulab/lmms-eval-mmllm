@@ -5,7 +5,7 @@
         "instance_idx": 0,
         "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
         "input": "猜测哪个选项（A ~ F）最适合填入所提供图像中的“？”处。在写出答案之前，通过分析模式来详细说明你的思考过程。 ",
-        "reference_answer": "说明要求猜测哪个选项最适合放入图像中的“？”。\n\n每一行的三个图像之间都有共同点。\n- 第一行有4个点放置在一个正方形的顶点上。\n- 第二行有一个铁十字，这是四角星的一种变体。\n- 同样地，第三行应该有一个正方形围绕着中间的另一个物体。\n\n每一列的三个图像之间也有共同点。\n- 第一列中间有一个圆。\n- 第二列中间有一个加号。\n- 同样地，第三列应该在中间有一个旋转的正方形。\n\n基于这些观察，最适合放入“？”的物体应该是中间有一个旋转的正方形，并且有一个更大的正方形围绕着它。\n因此，答案是E。 ",
+        "reference_answer": "说明要求猜测哪个选项最适合放入图像中的“？”。\n\n每一行的三个图像之间都有共同点。\n- 第一行有4个点放置在一个正方形的顶点上。\n- 第二行有一个铁十字，这是四角星的一种变体。\n- 同样地，第三行应该有一个正方形围绕着中间的另一个物体。\n\n每一列的三个图像之间也有共同点。\n- 第一列中间有一个圆。\n- 第二列中间有一个加号。\n- 同样地，第三列应该在中间有一个被旋转过的正方形。\n\n基于这些观察，最适合放入“？”的物体应该是中间有一个被旋转过的正方形，并且有一个更大的正方形围绕着它。\n因此，答案是E。 ",
         "score_rubric": {
             "criteria": "Does the response include a reasoning process that identifies the patterns and selects the correct answer for a visual pattern recognition problem?",
             "score1_description": "The response lacks any recognition of the patterns, does not explain, and selects an incorrect answer without justification.",
@@ -47,7 +47,7 @@
         "instance_idx": 2,
         "system_prompt": "You are an AI assistant with the ability to process visual information, tasked with providing a helpful answer based on the text instructions and the accompanying single image.",
         "input": "确定哪个选项（从A到F）准确地完成图中“？”所在位置的序列。在公布你的选择之前，通过研究已设定的模式来详细说明你的推理过程。 ",
-        "reference_answer": "说明要求确定哪个选项可以准确地完成图像中的“？”。\n天平的两端各显示一个7公斤的重量。鉴于这些重量是相同的，并且距离天平中心的距离相等，可以推断图像中的“？”代表相同的距离，即90厘米。因此，答案是F。  \n",
+        "reference_answer": "说明要求确定哪个选项可以准确地完成图像中的“？”。\n天平的两端各显示一个7公斤的重量。当重物x和y放在一个水平的天平上，为达平衡， 天平的臂长应该分别是y和x -- 也就是说，重量和天平臂长之乘积应该相等，根据重量相等而距离天平中心的距离亦相同，可以推断图像中的“？”代表相同的距离，即90厘米。因此，答案是F。  \n",
         "score_rubric": {
             "criteria": "Does the response apply logical reasoning to deduce the correct distance measurement?",
             "score1_description": "The response shows no understanding of balance principles, does not recognize the equal weights, and incorrectly suggests a distance without any logical basis.",
@@ -90,7 +90,7 @@
         "instance_idx": 4,
         "system_prompt": "As an AI assistant adept at analyzing visual content, it's your task to generate a helpful reply based on the instructions in the text and the image that's been supplied.",
         "input": "选择可以使用所示图像构建的正确选项（从A到F）。在揭示您的选择之前，通过检查所指示的模式来详细说明其背后的推理。 ",
-        "reference_answer": "要解决这个谜题，我们必须想象彩色方块的平面排列如何折叠成一个三维立方体。每个彩色方块代表立方体的一个面。当方块折叠成立方体时，每个方块的边就成为立方体的边，并且在平面布局中相连的每个方块在三维形式中也必须保持连接。让我们分析提供的选项：\n\n1. **顶部面（灰色）：** 灰色方块在中心，所以它将成为盒子的顶部面。\n2. **侧面：** 围绕灰色方块的彩色方块将成为盒子的侧面。\n3. **底部面：** 盒子的底部面在展开图中不可见，但我们知道它必须与灰色方块相对。\n\n现在，让我们看看连接的边：\n\n- 洋红色方块在一侧连接灰色方块，另一侧连接绿色方块。\n- 青色方块必须与洋红色方块相对，因为它们没有连接。\n- 橙色方块连接灰色方块并与绿色方块相对。\n- 棕色和紫色方块是剩下的侧面，棕色方块连接灰色和绿色方块，这意味着它与洋红色方块相邻。\n\n考虑到这些因素，让我们将展开图与每个选项进行比较，以找出哪个可以从这个图案形成。\n\n经过检查，很明显选项**E**是正确的选择。原因如下：\n\n- 灰色方块将形成盒子的顶部，这在选项E中是正确的。\n- 洋红色和绿色方块相对，这在选项E中也成立。\n- 青色方块不与洋红色方块相邻，这与它们在选项E中的位置一致。\n- 橙色方块与绿色方块相对并与灰色方块相邻，如选项E所示。\n- 棕色方块与灰色和绿色方块相邻，这在选项E中正确表示。\n\n因此，从图像中形成的正确盒子是选项**E**中显示的那个。 \n\n",
+        "reference_answer": "要解决这个谜题，我们需要在脑海中将二维展开图折叠成一个三维立方体，并将立方体表面的图案和颜色与提供的选项（A到F）进行匹配。让我们一步一步分析每个选项。\n\n### 理解展开图：\n展开图由六个彩色方块组成。颜色如下：\n- 顶部中间：灰色\n- 左边：棕色\n- 右边：绿色\n- 中间：蓝色\n- 底部：橙色\n- 中心上方：粉色\n\n### 现在，让我们评估每个选项：\n1. **选项A**：\n可见的面显示为**灰色、粉色和绿色**。\n- 折叠时，颜色应该是橙色，而不是灰色。如果是灰色，粉色和绿色之间的顺序应该是相反的。\n- 因此，**A** 不能正确。\n\n2. **选项B**：\n可见的面显示为**蓝色、绿色和棕色**。\n- 起初这看起来是合理的，但根据其他折叠方式，棕色和绿色应该是相对的，而不是相邻的。\n- **B** 是不正确的。\n\n3. **选项C**：\n可见的面显示为**灰色、橙色和粉色**。\n- 灰色在顶部，橙色在底部。粉色在展开图中位于蓝色的上方，不应该与灰色相邻。\n- 因此，**C** 不正确。\n\n4. **选项D**：\n可见的面显示为**蓝色、绿色和棕色**。\n- 正如在选项B中讨论的那样，绿色和蓝色不应相邻。它们在正确折叠的立方体中应该是相对的面。\n- **D** 是不正确的。\n\n5. **选项E**：\n可见的面显示为**粉色、橙色和灰色**。\n- 粉色在展开图中位于蓝色的正上方，橙色位于蓝色的正下方。折叠时，粉色、橙色和灰色可以相邻。\n- **E** 符合正确的配置，因此是正确答案。\n\n6. **选项F**：\n可见的面显示为**蓝色、橙色和灰色**。\n- 蓝色在中间，橙色在展开图中位于蓝色的下方。然而，折叠时橙色和灰色不应该相邻。\n- **F** 是不正确的。\n\n### 结论：\n正确的答案是**E**，因为当展开图折叠成立方体时，粉色、橙色和灰色的面是相邻的，符合选项E的配置。其他选项的颜色配对在正确折叠时并不相邻。' \n",
         "score_rubric": {
             "criteria": "Does the response accurately perform spatial reasoning in mapping the 2D pattern to the 3D cube?",
             "score1_description": "The explanation shows no understanding of spatial relationships; colors and positions are randomly assigned without following the logic of cube assembly.",

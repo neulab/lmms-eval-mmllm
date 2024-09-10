@@ -5,7 +5,7 @@
         "instance_idx": 0,
         "system_prompt": "You are a multi-modal AI assistant responsible for writing a helpful response based on the given text instruction and image.",
         "input": "请解释与此图相关的理论以及此图试图解释的内容。  \n",
-        "reference_answer": "您提供的图表似乎显示了一组通常与范德瓦尔斯状态方程相关的等温线，该方程描述了真实气体的行为。范德瓦尔斯方程是对理想气体定律的改进，考虑了气体分子所占据的体积及其之间的吸引力。\n\n图表显示了不同的曲线，每条曲线对应于不同的温度（T_r），其中 T_r 是约化温度。约化温度是热力学和统计力学中使用的无量纲量，它将物质的实际温度与其临界温度（T_c）进行比较，因此 T_r = T/T_c。\n\n这些线条表示气体的压力如何随体积在恒定温度下变化。曲线的形状展示了真实气体的特征行为：\n- 在高温下（T_r = 9/8，高于临界温度），气体几乎表现为理想气体，随着体积增加，压力连续下降。\n- 在临界温度（T_r = 1）时，等温线显示出一个拐点，在这个范围内，压力对体积变化相对不敏感。这个点对应于气体的临界点，此时气体和液体相的密度相同且无法区分。\n- 在低于临界温度（T_r < 1）时，等温线显示出一个负斜率的区域，气体在此区域凝结成液体。这个区域在物理上不稳定，是发生相变的地方。虚线标记的区域在实际中未被观察到，因为系统直接从气体相转变为液体相或反之，图中的水平线（在此不明显但通常称为麦克斯韦等面积规则）表示这一过程。\n\n该图试图解释真实气体的非理想行为及其相变，特别是在临界点附近。它直观地展示了真实气体如何偏离理想气体行为，而这在理想气体定律中未被捕捉到。\n\n",
+        "reference_answer": "您提供的图表似乎显示了一组通常与范德华方程相关的等温线，该方程描述了真实气体的行为。范德瓦尔斯方程是对理想气体定律的改进，考虑了气体分子所占据的体积及其之间的吸引力。\n\n图表显示了不同的曲线，每条曲线对应于不同的温度（T_r），其中 T_r 是约减温度。约减温度是热力学和统计力学中使用的无量纲量，它将物质的实际温度与其临界温度（T_c）进行比较，因此 T_r = T/T_c。\n\n这些线条表示气体的压力如何随体积在恒定温度下变化。曲线的形状展示了真实气体的特征行为：\n- 在高温下（T_r = 9/8，高于临界温度），气体几乎表现为理想气体，随着体积增加，压力连续下降。\n- 在临界温度（T_r = 1）时，等温线显示出一个拐点，在这个范围内，压力对体积变化相对不敏感。这个点对应于气体的临界点，此时气体和液体相的密度相同且无法区分。\n- 在低于临界温度（T_r < 1）时，等温线显示出一个负斜率的区域，气体在此区域凝结成液体。这个区域在物理上不稳定，是发生相变的地方。虚线标记的区域在实际中未被观察到，因为系统直接从气体相转变为液体相或反之，图中的水平线（在此不明显但通常称为麦克斯韦等面积规则）表示这一过程。\n\n该图试图解释真实气体的非理想行为及其相变，特别是在临界点附近。它直观地展示了真实气体如何偏离理想气体行为，而这在理想气体定律中未被描述到。\n\n",
         "score_rubric": {
             "criteria": "Does the response show completeness and accuracy in explaining the van der Waals equation, reduced temperature, critical temperature, and real gas behavior as depicted in the graph?",
             "score1_description": "The response does not mention the van der Waals equation, reduced temperature, critical temperature, or real gas behavior, missing all key points.",
@@ -32,7 +32,7 @@
         "task": "graph_interpretation",
         "instance_idx": 1,
         "system_prompt": "You are an AI assistant with multi-modal capabilities tasked with crafting a useful response using the provided image and text instructions.",
-        "input": "您提供的图表似乎显示了一个天文物体的表观亮度随时间的周期性振荡。这种模式是造父变星的特征。\n\n造父变星是一类由于外层脉动而表现出亮度规律性变化的恒星。图表显示了这些亮度在十天内的变化。造父变星的关键特征是它们的脉动周期与其本征光度直接相关，这种关系被称为周期-光度关系。这种关系在天体物理学中至关重要，因为它允许天文学家确定造父变星的距离，并进而确定它们所在的遥远星系的距离，从而有助于测量宇宙的尺度。\n\n图表旨在传达：\n- 造父变星亮度变化的周期性特征。\n- 亮度峰值之间的规律时间间隔（周期）。\n- 随时间变化的亮度变化幅度。\n\n这些周期性数据用于根据亨丽埃塔·斯旺·勒维特在20世纪初发现的周期-光度关系计算恒星的绝对星等，从而利用这些恒星作为测量天文距离的“标准烛光”来确定其与地球的距离。 \n\n",
+        "input": "您提供的图表似乎显示了一个天文物体的表观亮度随时间的周期性振荡。这种模式是造父变星的特征。\n\n造父变星是一类由于外层脉动而表现出亮度规律性变化的恒星。图表显示了这些亮度在十天内的变化。造父变星的关键特征是它们的脉动周期与其本征光度直接相关，这种关系被称为周期-光度关系。这种关系在天体物理学中至关重要，因为它允许天文学家确定造父变星的距离，并进而确定它们所在的遥远星系的距离，从而有助于测量宇宙的尺度。\n\n图表旨在传达：\n- 造父变星亮度变化的周期性特征。\n- 亮度峰值之间的规律时间间隔（周期）。\n- 随时间变化的亮度变化幅度。\n\n这些周期性数据用于根据亨丽爱塔·斯万·勒维特在20世纪初发现的周期-光度关系计算恒星的绝对星等，从而利用这些恒星作为测量天文距离的“标准烛光”来确定其与地球的距离。 \n\n",
         "reference_answer": "这是一个可以得5分的参考答案示例。 ",
         "score_rubric": {
             "criteria": "Does this response show an understanding of the Cepheid variable star light curves and their astronomical significance?",
@@ -118,7 +118,7 @@
         "instance_idx": 4,
         "system_prompt": "As an AI assistant adept at analyzing visual content, it's your task to generate a helpful reply based on the instructions in the text and the image that's been supplied.",
         "input": "这张图表中的结果表明了什么？哪种算法最适合将语言模型与人类偏好对齐？",
-        "reference_answer": "您提供的图表比较了三种不同算法——KTO、DPO和IPO——在不同“Beta”参数值下的表现。使用的性能指标是“MT Bench Score”，这可能代表某种机器翻译或其他性能指标的基准得分。\n\n从图表中可以得出以下几点见解：\n1. **KTO算法**：该算法在Beta=0时以最高的MT Bench Score开始，但随着Beta的增加，性能下降，在Beta=0.4后趋于平稳。\n2. **DPO算法**：DPO算法在Beta=0时得分低于KTO，但在各个Beta值上保持较为稳定的性能，在Beta=0.4附近略有上升，然后再次下降。\n3. **IPO算法**：IPO算法在Beta=0时得分最低。它略有上升，在Beta=0.2达到峰值，然后随着Beta的增加呈现总体下降趋势，在Beta=0.8时得分最低。\n\n从图表中我们可以推断出：\n- 没有单一算法在所有Beta值上表现最佳。\n- 在Beta=0时，KTO是表现最好的算法。\n- 在Beta=0.4时，DPO表现得最稳定，与KTO表现相似。\n- KTO似乎是较高Beta值（从Beta=0.6及以上）的最佳算法，因为它相对于其他算法保持了较高的得分。\n\n“最佳”算法取决于哪个Beta值被认为对与人类偏好的对齐最重要。如果较低的Beta值更为关键，那么在Beta=0时的KTO或在Beta=0.2时的IPO可能更受青睐。如果目标是保持在一系列Beta值上的性能，那么由于其稳定性，DPO可能被认为是最佳选择。如果我们关注较高的Beta值，KTO可能再次成为首选算法。 \n\n",
+        "reference_answer": "您提供的图表比较了三种不同算法——KTO、DPO和IPO——在不同“Beta”参数值下的表现。使用的性能指标是“MT Bench Score”，这可能代表某种语言模型基准性能指标的得分。\n\n从图表中可以得出以下几点见解：\n1. **KTO算法**：该算法在Beta=0时以最高的MT Bench Score开始，但随着Beta的增加，性能下降，在Beta=0.4后趋于平稳。\n2. **DPO算法**：DPO算法在Beta=0时得分低于KTO，但在各个Beta值上保持较为稳定的性能，在Beta=0.4附近略有上升，然后再次下降。\n3. **IPO算法**：IPO算法在Beta=0时得分最低。它略有上升，在Beta=0.2达到峰值，然后随着Beta的增加呈现总体下降趋势，在Beta=0.8时得分最低。\n\n从图表中我们可以推断出：\n- 没有单一算法在所有Beta值上表现最佳。\n- 在Beta=0时，KTO是表现最好的算法。\n- 在Beta=0.4时，DPO表现得最稳定，与KTO表现相似。\n- KTO似乎是较高Beta值（从Beta=0.6及以上）的最佳算法，因为它相对于其他算法保持了较高的得分。\n\n“最佳”算法取决于哪个Beta值被认为对与人类偏好的对齐最重要。如果较低的Beta值更为关键，那么在Beta=0时的KTO或在Beta=0.2时的IPO可能更受青睐。如果目标是保持在一系列Beta值上的性能，那么由于其稳定性，DPO可能被认为是最佳选择。如果我们关注较高的Beta值，KTO可能再次成为首选算法。 \n\n",
         "score_rubric": {
             "criteria": "Does this response show a comprehensive analysis of algorithm performance relative to the Beta parameter?",
             "score1_description": "The response does not acknowledge the relationship between algorithm performance and the Beta parameter.",
