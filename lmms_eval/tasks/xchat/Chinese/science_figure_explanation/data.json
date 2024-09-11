@@ -91,17 +91,17 @@
         "instance_idx": 3,
         "system_prompt": "As an AI assistant capable of interpreting images, your role is to offer a useful response guided by the text directions and the single image provided.",
         "input": "解释这个电路的用途。什么类型的机器或设备使用这个电路？另外，有哪些好的方法可以尝试自己制作这个电路？",
-        "reference_answer": "你展示的电路是一个双极结型晶体管（BJT）的示意图，特别是一个基于标记和发射极箭头方向的PNP型晶体管。BJTs是用于在电路中放大或切换电子信号的基本组件。\n\n**使用此组件的机器或设备：**\n1. **放大设备**：收音机、电视和扬声器中的音频放大器使用BJTs来放大声音信号。\n2. **切换系统**：BJTs用于切换电路，这是数字电子学中基本的，包括计算机和手机。\n3. **调节系统**：电源调节系统，如电压调节器或电源供应器，通常使用BJTs。\n4. **信号调制**：通信设备使用BJTs进行信号调制和解调。\n\n**尝试自己制作的方法：**\n1. **电子套件**：购买包含BJTs和其他组件的电子套件，以指导学习的方式练习构建电路。\n2. **面包板原型制作**：使用面包板插入和连接组件，无需焊接，便于实验和学习。\n3. **电路仿真软件**：使用仿真软件在实际构建之前虚拟创建和测试BJT电路。\n4. **焊接练习**：学习焊接技术，以便在印刷电路板（PCB）上构建更永久的电路。\n5. **教育资源**：跟随在线教程、课程或教材，了解BJTs的理论和实际应用。\n\n在处理电子组件和工具时，始终确保对电子学有良好的理解，并采取所有必要的安全预防措施。\n\n",
+        "reference_answer": "你展示的电路是一个双极结型晶体管（BJT）的示意图，特别是一个基于标记和发射极箭头方向的NPN型晶体管。BJTs是用于在电路中放大或切换电子信号的基本组件。\n\n**使用此组件的机器或设备：**\n1. **放大设备**：收音机、电视和扬声器中的音频放大器使用BJTs来放大声音信号。\n2. **切换系统**：BJTs用于切换电路，这是数字电子学中基本的，包括计算机和手机。\n3. **调节系统**：电源调节系统，如电压调节器或电源供应器，通常使用BJTs。\n4. **信号调制**：通信设备使用BJTs进行信号调制和解调。\n\n**尝试自己制作的方法：**\n1. **电子套件**：购买包含BJTs和其他组件的电子套件，以指导学习的方式练习构建电路。\n2. **面包板原型制作**：使用面包板插入和连接组件，无需焊接，便于实验和学习。\n3. **电路仿真软件**：使用仿真软件在实际构建之前虚拟创建和测试BJT电路。\n4. **焊接练习**：学习焊接技术，以便在印刷电路板（PCB）上构建更永久的电路。\n5. **教育资源**：跟随在线教程、课程或教材，了解BJTs的理论和实际应用。\n\n在处理电子组件和工具时，始终确保对电子学有良好的理解，并采取所有必要的安全预防措施。\n\n",
         "score_rubric": {
-            "criteria": "Does this response show a clear understanding of the function of a PNP transistor and practical methods for experimentation?",
-            "score1_description": "The response does not accurately identify the circuit as a PNP transistor or provide any practical methods for experimentation.",
-            "score2_description": "The response recognizes the circuit as a transistor but fails to specify its type as PNP or provide clear applications or methods for building the circuit.",
-            "score3_description": "The response identifies the circuit as a PNP transistor, lists a few applications, but offers limited methods for practical experimentation.",
-            "score4_description": "The response correctly identifies the PNP transistor, its common applications, and suggests several methods for building and experimenting with the circuit.",
-            "score5_description": "The response provides a detailed identification of the PNP transistor, a comprehensive list of its applications, and a variety of practical, detailed methods for experimentation and learning."
+            "criteria": "Does this response show a clear understanding of the function of a NPN transistor and practical methods for experimentation?",
+            "score1_description": "The response does not accurately identify the circuit as a NPN transistor or provide any practical methods for experimentation.",
+            "score2_description": "The response recognizes the circuit as a transistor but fails to specify its type as NPN or provide clear applications or methods for building the circuit.",
+            "score3_description": "The response identifies the circuit as a NPN transistor, lists a few applications, but offers limited methods for practical experimentation.",
+            "score4_description": "The response correctly identifies the NPN transistor, its common applications, and suggests several methods for building and experimenting with the circuit.",
+            "score5_description": "The response provides a detailed identification of the NPN transistor, a comprehensive list of its applications, and a variety of practical, detailed methods for experimentation and learning."
         },
         "atomic_checklist": [
-            "Does the response include information on the identification of the circuit as a PNP bipolar junction transistor?",
+            "Does the response include information on the identification of the circuit as a NPN bipolar junction transistor?",
             "Does the response explain the use of BJTs in amplification and switching applications?",
             "Does the response list devices or machines that commonly use BJTs, such as audio devices and computers?",
             "Does the response suggest practical ways to experiment with building BJT circuits, like using breadboards or electronic kits?"
