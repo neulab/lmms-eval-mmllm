@@ -37,6 +37,13 @@ def main(args):
     
     with open(args.input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
+
+    if args.response_file is not None:
+        with open(args.response_file, "r", encoding="utf-8") as f:
+            response_data = json.load(f)
+    
+    for d,r in zip(data,response_data):
+        d['response'] = r['response']
     
     
     instructions = []
@@ -56,7 +63,7 @@ def main(args):
     score_results = []
     for d in tqdm(data):
         inst_ = d['system_prompt']+"\n\n"+d['input']
-        res_ = d['response'].split("ASSISTANT: ")[1]
+        res_ = d['response'].split("ASSISTANT: ")[-1]
         ref_ = d['reference_answer']
         rubric_ = SCORE_RUBRIC_TEMPLATE.format(**d['score_rubric'])
         
@@ -74,13 +81,17 @@ def main(args):
         d['feedback'] = f
         d['score'] = s
 
-            
-    with open(args.input_file.replace(".json","-results.json"), 'w', encoding='utf-8') as file:
-        json.dump(data, file, ensure_ascii=False, indent=4)
+    if args.response_file is None:        
+        with open(args.input_file.replace(".json","-results.json"), 'w', encoding='utf-8') as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+    else:
+        with open(args.response_file.replace(".json","-results.json"), 'w', encoding='utf-8') as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate responses using vLLM")
     parser.add_argument("--input_file", type=str, required=True, help="file_directory")
+    parser.add_argument("--response_file", type=str, required=True, help="file_directory")
     args = parser.parse_args()
 
     main(args)

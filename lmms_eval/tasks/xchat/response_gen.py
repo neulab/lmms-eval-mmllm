@@ -8,6 +8,7 @@ from tqdm import tqdm
 import torch
 from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration
 
+
 def load_and_process_image(image_path):
     image = Image.open(image_path)
     return image
@@ -52,7 +53,13 @@ def main(args):
 
     prompts, images, orig_data = prep_dataset(args.language)
     
-    if "1.5" in args.model_name:
+    if "v0.3" in args.model_name:
+        model = LlavaLlamaForCausalLM.from_pretrained(
+            args.model_name, 
+            torch_dtype=torch.float16
+        ).to(0)
+        model.resize_token_embeddings(len(processor.tokenizer))
+    elif "1.5" in args.model_name:
         model = LlavaForConditionalGeneration.from_pretrained(
             args.model_name, 
             torch_dtype=torch.float16

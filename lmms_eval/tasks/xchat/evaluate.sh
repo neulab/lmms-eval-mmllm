@@ -21,4 +21,4 @@ conda activate base
 
 python3 evaluate.py --input_file "./responses/llava-1.5-7b-hf.json"
 python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf.json"
-# python3 evaluate.py --input_file "./responses/llava-1.5-vicuna-7b-v0.3-hf.json"
+python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf.json" --response_file "./responses/llava-1.5-vicuna-7b-v0.3.json"

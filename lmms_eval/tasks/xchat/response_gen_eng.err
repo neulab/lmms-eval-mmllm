@@ -1,0 +1,6 @@
+/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:127: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen.py", line 38, in <module>
+    from ..llava_arch import LlavaMetaModel, LlavaMetaForCausalLM
+ImportError: attempted relative import with no known parent package
