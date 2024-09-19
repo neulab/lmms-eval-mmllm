@@ -19,6 +19,15 @@ conda activate base
 # export TRANSFORMERS_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 # export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 
-python3 evaluate.py --input_file "./responses/llava-1.5-7b-hf.json"
-python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf.json"
-python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf.json" --response_file "./responses/llava-1.5-vicuna-7b-v0.3.json"
+# python3 evaluate.py --input_file "./responses/llava-1.5-7b-hf.json"
+# python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf.json"
+
+python3 evaluate.py --input_file "./responses/llava-1.5-7b-hf-Korean.json"
+python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf-Korean.json"
+
+python3 evaluate.py --input_file "./responses/llava-1.5-7b-hf-Chinese.json"
+python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf-Chinese.json"
+
+python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf-Korean.json" --response_file "./responses/llava-1.5-vicuna-7b-v0.3-Korean.json"
+python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf-Chinese.json" --response_file "./responses/llava-1.5-vicuna-7b-v0.3-Chinese.json"
+python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf-English.json" --response_file "./responses/llava-1.5-vicuna-7b-v0.3-English.json"

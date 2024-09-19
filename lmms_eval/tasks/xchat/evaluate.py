@@ -42,8 +42,8 @@ def main(args):
         with open(args.response_file, "r", encoding="utf-8") as f:
             response_data = json.load(f)
     
-    for d,r in zip(data,response_data):
-        d['response'] = r['response']
+        for d,r in zip(data,response_data):
+            d['response'] = r['response']
     
     
     instructions = []
@@ -91,7 +91,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate responses using vLLM")
     parser.add_argument("--input_file", type=str, required=True, help="file_directory")
-    parser.add_argument("--response_file", type=str, required=True, help="file_directory")
+    parser.add_argument("--response_file", type=str, help="file_directory")
     args = parser.parse_args()
 
     main(args)

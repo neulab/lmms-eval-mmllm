@@ -20,4 +20,6 @@ export TRANSFORMERS_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingfac
 export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 
 
-python3 convert_to_llava_format.py --language "English" --output_file "./english_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "English" --output_file "./english_prompts.jsonl"
+python3 convert_to_llava_format.py --language "Chinese" --output_file "./chinese_prompts.jsonl"
+python3 convert_to_llava_format.py --language "Korean" --output_file "./korean_prompts.jsonl"
