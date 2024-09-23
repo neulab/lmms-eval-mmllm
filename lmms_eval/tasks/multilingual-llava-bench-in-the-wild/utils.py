@@ -8,7 +8,7 @@ import time
 import yaml
 from pathlib import Path
 from copy import deepcopy
-
+from datasets import load_dataset
 from loguru import logger as eval_logger
 
 NUM_SECONDS_TO_SLEEP = 5
@@ -100,18 +100,41 @@ def parse_score(review):
         eval_logger.debug(f"Error: {e}. Returning [-1, -1]")
         return [-1, -1]
 
+LLAVA_RAW_IMAGE_DATASET = None
+LLAVA_ID2IMAGE = None
 
 def llava_doc_to_visual(doc):
-    return [doc["image"].convert("RGB")]
+    if 'question' in doc.keys(): return [doc["image"].convert("RGB")]
+    global LLAVA_RAW_IMAGE_DATASET
+    global LLAVA_ID2IMAGE
+    if LLAVA_RAW_IMAGE_DATASET is None:
+        LLAVA_RAW_IMAGE_DATASET = load_dataset("gagan3012/multilingual-llava-bench", 'japanese', token=True)
+        LLAVA_ID2IMAGE = {}
+        for row in LLAVA_RAW_IMAGE_DATASET['train']:
+                if row["image_id"] in LLAVA_ID2IMAGE.keys(): continue
+                image = row["image"]
+                LLAVA_ID2IMAGE[row["image_id"]] = image.convert("RGB")
 
+    image = LLAVA_ID2IMAGE[doc["image"]]
+    return [image]
 
 def llava_doc_to_text(doc, model_specific_prompt_kwargs=None):
     if model_specific_prompt_kwargs is None:
         model_specific_prompt_kwargs = {}
     pre_prompt = model_specific_prompt_kwargs.get("pre_prompt", "")
     post_prompt = model_specific_prompt_kwargs.get("post_prompt", "")
-    return f"{pre_prompt}{doc['question']}{post_prompt}"
+    if 'question' in doc.keys(): return f"{pre_prompt}{doc['question']}{post_prompt}"
+    elif 'text' in doc.keys(): return f"{pre_prompt}{doc['text']}{post_prompt}"
 
+def llava_doc_to_target(doc):
+    if 'gpt_answer' in doc.keys(): return doc['gpt_answer']
+    global LLAVA_RAW_IMAGE_DATASET
+    if LLAVA_RAW_IMAGE_DATASET is None:
+        LLAVA_RAW_IMAGE_DATASET = load_dataset("gagan3012/multilingual-llava-bench", 'japanese', token=True)
+    for row in LLAVA_RAW_IMAGE_DATASET['train']:
+        if doc['question_id'] == row['question_id']:
+            return row['gpt_answer']
+    assert 1==2
 
 def llava_process_results(doc, result):
     """
@@ -123,7 +146,7 @@ def llava_process_results(doc, result):
     """
     try:
         question = doc.get("question", "")
-        ans1 = doc.get("gpt_answer", "")
+        ans1 = llava_doc_to_target(doc)
         ans2 = result[0] if result else ""
         captions = doc.get("caption", [])
         context = "\n".join(captions) if isinstance(captions, list) else captions
