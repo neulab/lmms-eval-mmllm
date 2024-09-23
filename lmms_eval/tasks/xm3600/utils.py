@@ -61,15 +61,15 @@ def normalize(result, args):
     if 'xm3600_zh' in args.tasks:
         from spacy.lang.zh import Chinese
         chinese = Chinese() #.from_config({"nlp": {"tokenizer": {"segmenter": "jieba"}}})
-        caption = " ".join([word.text for word in chinese(caption)])
+        caption = "".join([word.text for word in chinese(caption)])
     if 'xm3600_jp' in args.tasks:
         from spacy.lang.ja import Japanese
         japanese = Japanese()
-        caption = " ".join([word.text for word in japanese(caption)])
+        caption = "".join([word.text for word in japanese(caption)])
     if 'xm3600_th' in args.tasks:
         from spacy.lang.th import Thai
         thai = Thai()
-        caption = " ".join([word.text for word in thai(caption)])
+        caption = "".join([word.text for word in thai(caption)])
         # tokenizer = AutoTokenizer.from_pretrained("facebook/xlm-v-base")
         # captions = [" ".join(tokenizer.tokenize(c))[1:] for c in captions]
     caption = unicodedata.normalize("NFC", caption)
@@ -114,10 +114,10 @@ def xm3600_aggregation_result(results, metric, args):
 
     eval_logger.info("tokenization...")
 
-    if 'xm3600_zh' not in args.tasks and 'xm3600_jp' not in args.tasks and 'xm3600_th' not in args.tasks:
-        tokenizer = PTBTokenizer()
-        gts = tokenizer.tokenize(gts)
-        res = tokenizer.tokenize(res)
+    # if 'xm3600_zh' not in args.tasks and 'xm3600_jp' not in args.tasks and 'xm3600_th' not in args.tasks:
+    tokenizer = PTBTokenizer()
+    gts = tokenizer.tokenize(gts)
+    res = tokenizer.tokenize(res)
 
     eval_logger.info(f"Computing {metric} scores...")
 
