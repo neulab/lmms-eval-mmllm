@@ -41,4 +41,5 @@ sbatch-jobs/
 VATEX/
 lmms_eval/tasks/vatex/__pycache__/utils.cpython-310.pyc
 datasets/
+sbatch*/
 *_eval_log/
