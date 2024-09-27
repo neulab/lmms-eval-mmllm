@@ -32,6 +32,21 @@ model_specific_prompt_kwargs:
   default:
     pre_prompt: "Given the image and the question, provide a concise answer. "
     post_prompt: "\nAnswer the question using a single word or phrase in Thai."
+  llava:
+    pre_prompt: "Given the image and the question, provide a concise answer. "
+    post_prompt: "\nAnswer the question using a single word or phrase in Thai."
+  mblip:
+    pre_prompt: "Question: "
+    post_prompt: "Answer in a single word or phrase in Thai:"
+  paligemma:
+    pre_prompt: "answer th"
+    post_prompt: "\nAnswer the question using a single word or phrase in Thai."
+  palo_7b:
+    pre_prompt: "Given the image and the question, provide a concise answer. "
+    post_prompt: "\nAnswer the question using a single word or phrase in Thai."
+  cambrian1:
+    pre_prompt: "Given the image and the question, provide a concise answer. "
+    post_prompt: "\nAnswer the question using a single word or phrase in Thai."
   gpt4v:
     pre_prompt: "Analyze the image and answer the question concisely. "
     post_prompt: ""
