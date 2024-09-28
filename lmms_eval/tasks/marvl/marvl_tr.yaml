@@ -27,4 +27,5 @@ metadata:
 model_specific_prompt_kwargs:
   default:
     hypothesis_prompt: "Hypothesis: "
+    is_our_model: True
     
