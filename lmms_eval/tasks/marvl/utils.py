@@ -11,7 +11,7 @@ with open(Path(__file__).parent / "nlvr2.yaml", "r") as f:
         if "nlvr2_image_dir" in line: nlvr2_info = line.strip()
     nlvr2_image_dir = yaml.safe_load(nlvr2_info)['nlvr2_image_dir']
 
-is_our_model = False
+is_our_model = True
 
 MARVL_RAW_IMAGE_DATASET = None
 MARVL_ID2IMAGE = None
@@ -39,7 +39,7 @@ def nlvr2_doc_to_visual(doc):
 def marvl_doc_to_text(doc, model_specific_prompt_kwargs):
     hypothesis = doc["hypothesis"].strip()
     #### This instruction is for our model
-    if is_our_model: instruction = f"Does the content of the image support the given text? Text: {hypothesis.strip()}\nOptions: (a) false (b) true"
+    if model_specific_prompt_kwargs['is_our_model']: instruction = f"Does the content of the image support the given text? Text: {hypothesis.strip()}\nOptions: (a) false (b) true" + '. Answer with the option directly.'
     #### mblip instruction
     # instruction = f'Based on the two images, is it correct to say "{hypothesis.strip()}"? Yes or no?'
     #### This instruction is for models other than our model
@@ -48,8 +48,8 @@ def marvl_doc_to_text(doc, model_specific_prompt_kwargs):
 
 def nlvr2_doc_to_text(doc, model_specific_prompt_kwargs):
     conversations = doc['conversations']
-    query = conversations[0]['value'].replace('<image>\n', '').strip()
-    if is_our_model: return query
+    query = conversations[0]['value'].replace('<image>\n', '').strip() + '. Answer with the option directly.'
+    if model_specific_prompt_kwargs['is_our_model']: return query
     # for models other than our model
     hypothesis = query.replace('Does the content of the image support the given text? Text: ', '').replace('Options: (a) false (b) true', '').strip()
     instruction = f"Hypothesis: {hypothesis}\nIs it true that the hypothesis match the content of the image? Answer with one word from ['true', 'false']."
