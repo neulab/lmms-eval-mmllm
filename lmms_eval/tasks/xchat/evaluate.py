@@ -32,7 +32,7 @@ def main(args):
     os.environ['OPENAI_API_KEY'] = "" # FILL IN ME
 
     # model = VLLM(model="prometheus-eval/prometheus-7b-v2.0")
-    model = AsyncLiteLLM('gpt-4o-2024-08-06', requests_per_minute=100)
+    model = AsyncLiteLLM('openai/neulab/gpt-4o-2024-08-06', requests_per_minute=100, api_base="https://cmu.litellm.ai")
     judge = PrometheusEval(model=model, absolute_grade_template=ABSOLUTE_PROMPT)
     
     with open(args.input_file, "r", encoding="utf-8") as f:
@@ -63,7 +63,10 @@ def main(args):
     score_results = []
     for d in tqdm(data):
         inst_ = d['system_prompt']+"\n\n"+d['input']
-        res_ = d['response'].split("ASSISTANT: ")[-1]
+        if "ASSISTANT" in d['response']:
+            res_ = d['response'].split("ASSISTANT: ")[-1]
+        else:
+            res_ = d['response'].split("\n\n",1)[-1]
         ref_ = d['reference_answer']
         rubric_ = SCORE_RUBRIC_TEMPLATE.format(**d['score_rubric'])
         

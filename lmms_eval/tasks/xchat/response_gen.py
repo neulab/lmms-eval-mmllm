@@ -49,26 +49,22 @@ def main(args):
     # else:
     #     processor = AutoProcessor.from_pretrained("llava-hf/llava-1.5-7b-hf")
     processor = AutoProcessor.from_pretrained(args.model_name)
-    processor.tokenizer.add_tokens(["<image>", "<pad>"], special_tokens=True)
+    # processor.tokenizer.add_tokens(["<image>", "<pad>"], special_tokens=True)
 
     prompts, images, orig_data = prep_dataset(args.language)
     
-    if "v0.3" in args.model_name:
-        model = LlavaLlamaForCausalLM.from_pretrained(
-            args.model_name, 
-            torch_dtype=torch.float16
-        ).to(0)
-        model.resize_token_embeddings(len(processor.tokenizer))
-    elif "1.5" in args.model_name:
+    if "1.5" in args.model_name:
         model = LlavaForConditionalGeneration.from_pretrained(
             args.model_name, 
-            torch_dtype=torch.float16
+            torch_dtype=torch.float16,
+            cache_dir="/data/tir/projects/tir7/user_data/seungonk/huggingface"
         ).to(0)
         model.resize_token_embeddings(len(processor.tokenizer))
     else:
         model = LlavaNextForConditionalGeneration.from_pretrained(
             args.model_name, 
-            torch_dtype=torch.float16
+            torch_dtype=torch.float16,
+            cache_dir="/data/tir/projects/tir7/user_data/seungonk/huggingface"
         ).to(0)
         model.resize_token_embeddings(len(processor.tokenizer))
 

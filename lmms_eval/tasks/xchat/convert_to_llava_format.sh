@@ -20,6 +20,11 @@ export TRANSFORMERS_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingfac
 export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 
 
-# python3 convert_to_llava_format.py --language "English" --output_file "./english_prompts.jsonl"
-python3 convert_to_llava_format.py --language "Chinese" --output_file "./chinese_prompts.jsonl"
-python3 convert_to_llava_format.py --language "Korean" --output_file "./korean_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "Chinese" --output_file "./prompts/chinese_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "English" --output_file "./prompts/english_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "Hindi" --output_file "./prompts/hindi_prompts.jsonl"
+python3 convert_to_llava_format.py --language "Indonesian" --output_file "./prompts/indonesian_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "Japanese" --output_file "./prompts/japanese_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "Kinyarwanda" --output_file "./prompts/kinyarwanda_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "Korean" --output_file "./prompts/korean_prompts.jsonl"
+# python3 convert_to_llava_format.py --language "Spanish" --output_file "./prompts/spanish_prompts.jsonl"
