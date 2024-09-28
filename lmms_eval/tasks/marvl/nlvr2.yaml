@@ -27,4 +27,5 @@ metadata:
 model_specific_prompt_kwargs:
   default:
     hypothesis_prompt: "Hypothesis: "   
-    nlvr2_image_dir: /data/tir/projects/tir1/corpora/nlvr2-llava/images 
+    nlvr2_image_dir: /data/tir/projects/tir1/corpora/nlvr2-llava/images
+    is_our_model: True
