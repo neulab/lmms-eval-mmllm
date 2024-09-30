@@ -29,7 +29,7 @@ def prep_dataset(language):
 
 def main(args):
 
-    os.environ['OPENAI_API_KEY'] = "" # FILL IN ME
+    os.environ['OPENAI_API_KEY'] = "sk-nvPQWSrFY02nf-1ZtPGIFw" # FILL IN ME
 
     # model = VLLM(model="prometheus-eval/prometheus-7b-v2.0")
     model = AsyncLiteLLM('openai/neulab/gpt-4o-2024-08-06', requests_per_minute=100, api_base="https://cmu.litellm.ai")
@@ -42,8 +42,18 @@ def main(args):
         with open(args.response_file, "r", encoding="utf-8") as f:
             response_data = json.load(f)
     
-        for d,r in zip(data,response_data):
-            d['response'] = r['response']
+        # for d,r in zip(data,response_data):
+        #     d['response'] = r['response']
+        if "input" in response_data[0].keys():
+            for d in data:
+                for r in response_data:
+                    if d['input'] == r['input']:
+                        d['response'] = r['response']
+        elif "question" in response_data[0].keys():
+            for d in data:
+                for r in response_data:
+                    if d['input'] == r['question']:
+                        d['response'] = r['response']
     
     
     instructions = []
@@ -65,8 +75,11 @@ def main(args):
         inst_ = d['system_prompt']+"\n\n"+d['input']
         if "ASSISTANT" in d['response']:
             res_ = d['response'].split("ASSISTANT: ")[-1]
+        elif d['response'].startswith(": \n"):
+            res_ = d['response'].split(": \n",1)[-1]
         else:
-            res_ = d['response'].split("\n\n",1)[-1]
+            res_ = d['response']
+        res_ = res_.strip()
         ref_ = d['reference_answer']
         rubric_ = SCORE_RUBRIC_TEMPLATE.format(**d['score_rubric'])
         
