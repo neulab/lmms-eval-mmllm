@@ -29,7 +29,7 @@ def prep_dataset(language):
 
 def main(args):
 
-    os.environ['OPENAI_API_KEY'] = "sk-nvPQWSrFY02nf-1ZtPGIFw" # FILL IN ME
+    os.environ['OPENAI_API_KEY'] = "" # FILL IN ME
 
     # model = VLLM(model="prometheus-eval/prometheus-7b-v2.0")
     model = AsyncLiteLLM('openai/neulab/gpt-4o-2024-08-06', requests_per_minute=100, api_base="https://cmu.litellm.ai")
