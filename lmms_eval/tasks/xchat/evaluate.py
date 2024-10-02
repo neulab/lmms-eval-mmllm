@@ -72,25 +72,29 @@ def main(args):
     feedback_results = []
     score_results = []
     for d in tqdm(data):
-        inst_ = d['system_prompt']+"\n\n"+d['input']
-        if "ASSISTANT" in d['response']:
-            res_ = d['response'].split("ASSISTANT: ")[-1]
-        elif d['response'].startswith(": \n"):
-            res_ = d['response'].split(": \n",1)[-1]
+        if d['response'] is not None:
+            inst_ = d['system_prompt']+"\n\n"+d['input']
+            if "ASSISTANT" in d['response']:
+                res_ = d['response'].split("ASSISTANT: ")[-1]
+            elif d['response'].startswith(": \n"):
+                res_ = d['response'].split(": \n",1)[-1]
+            else:
+                res_ = d['response']
+            res_ = res_.strip()
+            ref_ = d['reference_answer']
+            rubric_ = SCORE_RUBRIC_TEMPLATE.format(**d['score_rubric'])
+            
+            feedback, score = judge.single_absolute_grade(
+                instruction=inst_,
+                response=res_,
+                rubric=rubric_,
+                reference_answer=ref_
+            )
+            feedback_results.append(feedback)
+            score_results.append(score)
         else:
-            res_ = d['response']
-        res_ = res_.strip()
-        ref_ = d['reference_answer']
-        rubric_ = SCORE_RUBRIC_TEMPLATE.format(**d['score_rubric'])
-        
-        feedback, score = judge.single_absolute_grade(
-            instruction=inst_,
-            response=res_,
-            rubric=rubric_,
-            reference_answer=ref_
-        )
-        feedback_results.append(feedback)
-        score_results.append(score)
+            feedback_results.append("No Feedback")
+            score_results.append(1)
 
         
     for d,f,s in zip(data,feedback_results,score_results):
