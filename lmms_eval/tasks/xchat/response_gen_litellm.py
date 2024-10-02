@@ -52,7 +52,7 @@ def main(args):
         response = litellm.completion(
                 model=args.model_name,
                 base_url="https://cmu.litellm.ai",
-                api_key="sk-nvPQWSrFY02nf-1ZtPGIFw",
+                api_key="",
                 messages=[{
                     'role': 'system',
                     'content': e['system_message']
