@@ -45,6 +45,9 @@ AVAILABLE_MODELS = {
     "cambrian1": "Cambrian1",
     "mblip": "MBlip",
     "paligemma": "PaliGemma",
+    "llava_onevision": "Llava_OneVision",
+    "molmo": "Molmo",
+    "llama_vision": "LlamaVision",
 }
 
 for model_name, model_class in AVAILABLE_MODELS.items():
