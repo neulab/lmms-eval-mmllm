@@ -1,15 +1,6 @@
 import PIL.Image
 from datasets import load_dataset, Image
-import os
 import PIL
-import yaml
-from pathlib import Path
-
-with open(Path(__file__).parent / "nlvr2.yaml", "r") as f:
-    raw_data = f.readlines()
-    for i, line in enumerate(raw_data):
-        if "nlvr2_image_dir" in line: nlvr2_info = line.strip()
-    nlvr2_image_dir = yaml.safe_load(nlvr2_info)['nlvr2_image_dir']
 
 is_our_model = True
 
@@ -32,8 +23,7 @@ def marvl_doc_to_visual(doc):
 
 def nlvr2_doc_to_visual(doc):
     id = doc['id'].strip().lower()
-    image_path = os.path.join(nlvr2_image_dir, f"{id}.jpg")
-    image = PIL.Image.open(image_path).convert("RGB")
+    image = Image().decode_example(doc["image"]).convert("RGB")
     return [image]
 
 def marvl_doc_to_text(doc, model_specific_prompt_kwargs):
