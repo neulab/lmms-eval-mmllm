@@ -29,10 +29,11 @@ def prep_dataset(language):
 
 def main(args):
 
-    os.environ['OPENAI_API_KEY'] = "sk-nvPQWSrFY02nf-1ZtPGIFw" # FILL IN ME
+    os.environ['OPENAI_API_KEY'] = "" # FILL IN ME
 
     # model = VLLM(model="prometheus-eval/prometheus-7b-v2.0")
-    model = AsyncLiteLLM('openai/neulab/gpt-4o-2024-08-06', requests_per_minute=100, api_base="https://cmu.litellm.ai")
+    model = AsyncLiteLLM('openai/gpt-4o-2024-08-06', requests_per_minute=100, api_base="https://openrouter.ai/api/v1")
+    # model = AsyncLiteLLM('gpt-4-turbo', requests_per_minute=100)
     judge = PrometheusEval(model=model, absolute_grade_template=ABSOLUTE_PROMPT)
     
     with open(args.input_file, "r", encoding="utf-8") as f:

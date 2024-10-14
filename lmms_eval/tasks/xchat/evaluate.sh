@@ -16,8 +16,8 @@ __conda_setup="$('/home/seungonk/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /de
 eval "$__conda_setup"
 conda activate base
 
-# export TRANSFORMERS_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
-# export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
+export TRANSFORMERS_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
+export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 
 # python3 evaluate.py --input_file "./responses/llava-1.5-7b-hf.json"
 # python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf.json"
@@ -119,13 +119,13 @@ conda activate base
 # python3 evaluate.py --response_file "./responses/gemini-1.5-pro-Spanish.json" --input_file "./responses/llava-1.5-7b-hf-Spanish.json"
 # python3 evaluate.py --response_file "./responses/gemini-1.5-pro-Indonesian.json" --input_file "./responses/llava-1.5-7b-hf-Indonesian.json"
 
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0925-Korean.json" --input_file "./responses/llava-1.5-7b-hf-Korean.json"
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0925-Chinese.json" --input_file "./responses/llava-1.5-7b-hf-Chinese.json"
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0925-English.json" --input_file "./responses/llava-1.5-7b-hf-English.json"
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0925-Japanese.json" --input_file "./responses/llava-1.5-7b-hf-Japanese.json"
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0925-Hindi.json" --input_file "./responses/llava-1.5-7b-hf-Hindi.json"
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0925-Spanish.json" --input_file "./responses/llava-1.5-7b-hf-Spanish.json"
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0925-Indonesian.json" --input_file "./responses/llava-1.5-7b-hf-Indonesian.json"
+# python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Korean.json" --input_file "./responses/llava-1.5-7b-hf-Korean.json"
+python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Chinese.json" --input_file "./responses/llava-1.5-7b-hf-Chinese.json"
+python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-English.json" --input_file "./responses/llava-1.5-7b-hf-English.json"
+python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Japanese.json" --input_file "./responses/llava-1.5-7b-hf-Japanese.json"
+python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Hindi.json" --input_file "./responses/llava-1.5-7b-hf-Hindi.json"
+python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Spanish.json" --input_file "./responses/llava-1.5-7b-hf-Spanish.json"
+python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Indonesian.json" --input_file "./responses/llava-1.5-7b-hf-Indonesian.json"
 
 
 python3 evaluate.py --response_file "./responses/llava-onevision-qwen2-7b-ov-chat-Korean.json" --input_file "./responses/llava-1.5-7b-hf-Korean.json"
