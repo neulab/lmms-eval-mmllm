@@ -1,5 +1,4 @@
-dataset_path: Phando/nlvr2-llava
-dataset_name: default
+dataset_path: neulab/nlvr2
 dataset_kwargs:
   token: True
 task: "nlvr2"
@@ -27,5 +26,4 @@ metadata:
 model_specific_prompt_kwargs:
   default:
     hypothesis_prompt: "Hypothesis: "   
-    nlvr2_image_dir: /data/tir/projects/tir1/corpora/nlvr2-llava/images
     is_our_model: True
