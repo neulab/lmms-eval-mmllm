@@ -1,574 +1,136 @@
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+/home/seungonk/anaconda3/envs/vllm/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
   warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+A new version of the following files was downloaded from https://huggingface.co/allenai/Molmo-7B-D-0924:
+- preprocessing_molmo.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:21<02:09, 21.57s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:34<01:22, 16.57s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:46<00:56, 14.24s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:57<00:39, 13.00s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:09<00:25, 12.88s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:24<00:13, 13.50s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:38<00:00, 13.57s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:38<00:00, 14.04s/it]
+  0%|          | 0/50 [00:00<?, ?it/s]/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen.py:127: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+  2%|▏         | 1/50 [00:07<06:06,  7.49s/it]  4%|▍         | 2/50 [00:16<06:44,  8.43s/it]  6%|▌         | 3/50 [00:26<07:15,  9.26s/it]  8%|▊         | 4/50 [00:35<06:48,  8.89s/it] 10%|█         | 5/50 [00:41<05:53,  7.86s/it] 12%|█▏        | 6/50 [00:49<05:54,  8.05s/it] 14%|█▍        | 7/50 [00:58<05:53,  8.22s/it] 16%|█▌        | 8/50 [01:04<05:18,  7.58s/it] 18%|█▊        | 9/50 [01:15<05:52,  8.60s/it] 20%|██        | 10/50 [01:24<05:47,  8.68s/it] 22%|██▏       | 11/50 [01:27<04:36,  7.08s/it] 24%|██▍       | 12/50 [01:37<04:58,  7.86s/it] 26%|██▌       | 13/50 [01:47<05:13,  8.46s/it] 28%|██▊       | 14/50 [01:55<04:59,  8.32s/it] 30%|███       | 15/50 [02:01<04:34,  7.85s/it] 32%|███▏      | 16/50 [02:09<04:20,  7.67s/it] 34%|███▍      | 17/50 [02:17<04:20,  7.90s/it] 36%|███▌      | 18/50 [02:23<03:59,  7.48s/it] 38%|███▊      | 19/50 [02:33<04:08,  8.03s/it] 40%|████      | 20/50 [02:41<03:58,  7.94s/it] 42%|████▏     | 21/50 [02:52<04:23,  9.07s/it] 44%|████▍     | 22/50 [02:59<03:53,  8.32s/it] 46%|████▌     | 23/50 [03:08<03:51,  8.57s/it] 48%|████▊     | 24/50 [03:23<04:32, 10.47s/it] 50%|█████     | 25/50 [03:31<04:06,  9.84s/it] 52%|█████▏    | 26/50 [03:39<03:41,  9.23s/it] 54%|█████▍    | 27/50 [03:48<03:27,  9.02s/it] 56%|█████▌    | 28/50 [03:53<02:56,  8.01s/it] 58%|█████▊    | 29/50 [04:01<02:48,  8.02s/it] 60%|██████    | 30/50 [04:09<02:39,  8.00s/it] 62%|██████▏   | 31/50 [04:13<02:07,  6.71s/it] 64%|██████▍   | 32/50 [04:22<02:11,  7.31s/it] 66%|██████▌   | 33/50 [04:31<02:14,  7.89s/it] 68%|██████▊   | 34/50 [04:39<02:08,  8.01s/it] 70%|███████   | 35/50 [04:49<02:09,  8.67s/it] 72%|███████▏  | 36/50 [04:58<02:02,  8.75s/it] 74%|███████▍  | 37/50 [05:06<01:50,  8.53s/it] 76%|███████▌  | 38/50 [05:16<01:47,  9.00s/it] 78%|███████▊  | 39/50 [05:25<01:38,  8.97s/it] 80%|████████  | 40/50 [05:32<01:22,  8.25s/it] 82%|████████▏ | 41/50 [05:35<01:00,  6.72s/it] 84%|████████▍ | 42/50 [05:38<00:44,  5.62s/it] 86%|████████▌ | 43/50 [05:44<00:39,  5.71s/it] 88%|████████▊ | 44/50 [05:49<00:32,  5.38s/it] 90%|█████████ | 45/50 [05:52<00:24,  4.80s/it] 92%|█████████▏| 46/50 [06:02<00:25,  6.43s/it] 94%|█████████▍| 47/50 [06:10<00:20,  6.92s/it] 96%|█████████▌| 48/50 [06:17<00:13,  6.93s/it] 98%|█████████▊| 49/50 [06:27<00:07,  7.71s/it]100%|██████████| 50/50 [06:34<00:00,  7.62s/it]100%|██████████| 50/50 [06:34<00:00,  7.90s/it]
+/home/seungonk/anaconda3/envs/vllm/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
   warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:07,  1.92s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:03<00:04,  1.50s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:04<00:02,  1.36s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:05<00:01,  1.35s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:05<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:05<00:00,  1.17s/it]
+  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:16<13:46, 16.87s/it]  4%|▍         | 2/50 [00:31<12:29, 15.61s/it]  6%|▌         | 3/50 [00:51<13:45, 17.56s/it]  8%|▊         | 4/50 [01:07<13:05, 17.08s/it] 10%|█         | 5/50 [01:24<12:36, 16.82s/it] 12%|█▏        | 6/50 [01:49<14:28, 19.75s/it] 14%|█▍        | 7/50 [02:01<12:17, 17.15s/it] 16%|█▌        | 8/50 [02:17<11:46, 16.82s/it] 18%|█▊        | 9/50 [02:36<12:00, 17.58s/it] 20%|██        | 10/50 [03:02<13:19, 19.98s/it] 22%|██▏       | 11/50 [03:03<09:15, 14.25s/it] 24%|██▍       | 12/50 [03:24<10:22, 16.38s/it] 26%|██▌       | 13/50 [03:54<12:32, 20.33s/it] 28%|██▊       | 14/50 [04:16<12:33, 20.93s/it] 30%|███       | 15/50 [04:45<13:38, 23.39s/it] 32%|███▏      | 16/50 [04:55<10:58, 19.38s/it] 34%|███▍      | 17/50 [05:01<08:22, 15.22s/it] 36%|███▌      | 18/50 [05:14<07:46, 14.58s/it] 38%|███▊      | 19/50 [05:28<07:28, 14.46s/it] 40%|████      | 20/50 [05:36<06:16, 12.56s/it] 42%|████▏     | 21/50 [05:58<07:25, 15.35s/it] 44%|████▍     | 22/50 [06:12<07:00, 15.02s/it] 46%|████▌     | 23/50 [06:29<06:59, 15.54s/it] 48%|████▊     | 24/50 [06:55<08:09, 18.82s/it] 50%|█████     | 25/50 [07:14<07:50, 18.84s/it] 52%|█████▏    | 26/50 [07:32<07:26, 18.59s/it] 54%|█████▍    | 27/50 [07:33<05:08, 13.40s/it] 56%|█████▌    | 28/50 [07:58<06:09, 16.82s/it] 58%|█████▊    | 29/50 [08:23<06:43, 19.21s/it] 60%|██████    | 30/50 [08:42<06:20, 19.05s/it] 62%|██████▏   | 31/50 [08:48<04:51, 15.32s/it] 64%|██████▍   | 32/50 [09:13<05:23, 17.99s/it] 66%|██████▌   | 33/50 [09:30<05:02, 17.78s/it] 68%|██████▊   | 34/50 [09:44<04:24, 16.54s/it] 70%|███████   | 35/50 [10:10<04:52, 19.51s/it] 72%|███████▏  | 36/50 [10:20<03:55, 16.82s/it] 74%|███████▍  | 37/50 [10:40<03:49, 17.69s/it] 76%|███████▌  | 38/50 [10:57<03:28, 17.40s/it] 78%|███████▊  | 39/50 [11:07<02:46, 15.11s/it] 80%|████████  | 40/50 [11:26<02:44, 16.47s/it] 82%|████████▏ | 41/50 [11:35<02:07, 14.16s/it] 84%|████████▍ | 42/50 [11:50<01:55, 14.40s/it] 86%|████████▌ | 43/50 [11:54<01:18, 11.24s/it] 88%|████████▊ | 44/50 [12:03<01:03, 10.56s/it] 90%|█████████ | 45/50 [12:11<00:49,  9.85s/it] 92%|█████████▏| 46/50 [12:36<00:57, 14.46s/it] 94%|█████████▍| 47/50 [12:49<00:42, 14.02s/it] 96%|█████████▌| 48/50 [13:05<00:29, 14.64s/it] 98%|█████████▊| 49/50 [13:25<00:16, 16.13s/it]100%|██████████| 50/50 [13:41<00:00, 16.05s/it]100%|██████████| 50/50 [13:41<00:00, 16.43s/it]
+/home/seungonk/anaconda3/envs/vllm/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
   warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:14<00:42, 14.33s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:32<00:33, 16.85s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:45<00:15, 15.03s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:48<00:00, 10.14s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:48<00:00, 12.11s/it]
+  0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+  2%|▏         | 1/50 [00:13<10:48, 13.24s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+  4%|▍         | 2/50 [00:26<10:24, 13.02s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+  6%|▌         | 3/50 [00:40<10:49, 13.83s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+  8%|▊         | 4/50 [00:58<11:42, 15.26s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 10%|█         | 5/50 [01:21<13:40, 18.24s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 12%|█▏        | 6/50 [01:38<12:52, 17.55s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 14%|█▍        | 7/50 [01:54<12:16, 17.12s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 16%|█▌        | 8/50 [02:02<10:04, 14.40s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 18%|█▊        | 9/50 [02:14<09:19, 13.66s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 20%|██        | 10/50 [02:26<08:46, 13.17s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 22%|██▏       | 11/50 [02:36<07:45, 11.93s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 24%|██▍       | 12/50 [02:56<09:15, 14.61s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 26%|██▌       | 13/50 [03:13<09:18, 15.08s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 28%|██▊       | 14/50 [03:30<09:32, 15.91s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 30%|███       | 15/50 [03:51<10:04, 17.27s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 32%|███▏      | 16/50 [04:06<09:26, 16.65s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 34%|███▍      | 17/50 [04:22<09:02, 16.43s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 36%|███▌      | 18/50 [04:35<08:10, 15.31s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 38%|███▊      | 19/50 [04:48<07:32, 14.59s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 40%|████      | 20/50 [04:58<06:42, 13.41s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 42%|████▏     | 21/50 [05:10<06:15, 12.95s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 44%|████▍     | 22/50 [05:19<05:30, 11.79s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 46%|████▌     | 23/50 [05:35<05:53, 13.10s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 48%|████▊     | 24/50 [05:53<06:15, 14.45s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 50%|█████     | 25/50 [06:07<05:59, 14.38s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 52%|█████▏    | 26/50 [06:19<05:25, 13.56s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 54%|█████▍    | 27/50 [06:35<05:27, 14.24s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 56%|█████▌    | 28/50 [06:51<05:25, 14.79s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 58%|█████▊    | 29/50 [07:04<05:02, 14.42s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 60%|██████    | 30/50 [07:22<05:08, 15.40s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 62%|██████▏   | 31/50 [07:35<04:37, 14.59s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 64%|██████▍   | 32/50 [07:53<04:44, 15.83s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 66%|██████▌   | 33/50 [08:05<04:06, 14.48s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 68%|██████▊   | 34/50 [08:18<03:45, 14.12s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 70%|███████   | 35/50 [08:40<04:06, 16.42s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 72%|███████▏  | 36/50 [08:51<03:27, 14.82s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 74%|███████▍  | 37/50 [09:02<02:59, 13.83s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 76%|███████▌  | 38/50 [09:15<02:40, 13.37s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 78%|███████▊  | 39/50 [09:27<02:23, 13.03s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 80%|████████  | 40/50 [09:41<02:12, 13.21s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 82%|████████▏ | 41/50 [09:45<01:34, 10.52s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 84%|████████▍ | 42/50 [09:46<01:02,  7.84s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 86%|████████▌ | 43/50 [09:59<01:05,  9.42s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 88%|████████▊ | 44/50 [10:06<00:50,  8.43s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 90%|█████████ | 45/50 [10:07<00:31,  6.35s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 92%|█████████▏| 46/50 [10:23<00:37,  9.30s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 94%|█████████▍| 47/50 [10:41<00:35, 11.74s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 96%|█████████▌| 48/50 [10:54<00:24, 12.28s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 98%|█████████▊| 49/50 [11:12<00:14, 14.08s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+100%|██████████| 50/50 [11:26<00:00, 13.78s/it]100%|██████████| 50/50 [11:26<00:00, 13.72s/it]
+/home/seungonk/anaconda3/envs/vllm/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
   warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+A new version of the following files was downloaded from https://huggingface.co/allenai/Molmo-7B-D-0924:
+- preprocessing_molmo.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:21<02:10, 21.72s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:34<01:21, 16.32s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:44<00:53, 13.40s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:54<00:36, 12.09s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:04<00:23, 11.53s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:18<00:12, 12.33s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:30<00:00, 12.00s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:30<00:00, 12.86s/it]
+  0%|          | 0/50 [00:00<?, ?it/s]/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen.py:127: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+  2%|▏         | 1/50 [00:08<06:45,  8.27s/it]  4%|▍         | 2/50 [00:17<07:02,  8.79s/it]  6%|▌         | 3/50 [00:25<06:47,  8.67s/it]  8%|▊         | 4/50 [00:39<08:07, 10.60s/it] 10%|█         | 5/50 [00:53<08:50, 11.79s/it] 12%|█▏        | 6/50 [00:56<06:21,  8.68s/it] 14%|█▍        | 7/50 [01:00<05:13,  7.28s/it] 16%|█▌        | 8/50 [01:03<04:10,  5.96s/it] 18%|█▊        | 9/50 [01:06<03:28,  5.09s/it] 20%|██        | 10/50 [01:10<03:02,  4.57s/it] 22%|██▏       | 11/50 [01:17<03:35,  5.53s/it] 24%|██▍       | 12/50 [01:19<02:40,  4.23s/it] 26%|██▌       | 13/50 [01:24<02:47,  4.53s/it] 28%|██▊       | 14/50 [01:32<03:27,  5.76s/it] 30%|███       | 15/50 [01:38<03:20,  5.73s/it] 32%|███▏      | 16/50 [01:44<03:14,  5.72s/it] 34%|███▍      | 17/50 [01:53<03:41,  6.72s/it] 36%|███▌      | 18/50 [01:59<03:30,  6.57s/it] 38%|███▊      | 19/50 [02:07<03:33,  6.87s/it] 40%|████      | 20/50 [02:14<03:31,  7.06s/it] 42%|████▏     | 21/50 [02:26<04:09,  8.59s/it] 44%|████▍     | 22/50 [02:33<03:46,  8.11s/it] 46%|████▌     | 23/50 [02:41<03:32,  7.88s/it] 48%|████▊     | 24/50 [02:49<03:29,  8.04s/it] 50%|█████     | 25/50 [02:58<03:30,  8.43s/it] 52%|█████▏    | 26/50 [03:07<03:21,  8.40s/it] 54%|█████▍    | 27/50 [03:16<03:17,  8.59s/it] 56%|█████▌    | 28/50 [03:29<03:40, 10.04s/it] 58%|█████▊    | 29/50 [03:37<03:18,  9.43s/it] 60%|██████    | 30/50 [03:46<03:05,  9.29s/it] 62%|██████▏   | 31/50 [03:55<02:56,  9.31s/it] 64%|██████▍   | 32/50 [04:07<02:57,  9.86s/it] 66%|██████▌   | 33/50 [04:08<02:04,  7.34s/it] 68%|██████▊   | 34/50 [04:13<01:47,  6.69s/it] 70%|███████   | 35/50 [04:22<01:47,  7.20s/it] 72%|███████▏  | 36/50 [04:31<01:51,  7.98s/it] 74%|███████▍  | 37/50 [04:35<01:25,  6.57s/it] 76%|███████▌  | 38/50 [04:42<01:20,  6.70s/it] 78%|███████▊  | 39/50 [04:48<01:12,  6.57s/it] 80%|████████  | 40/50 [04:55<01:06,  6.69s/it] 82%|████████▏ | 41/50 [05:03<01:04,  7.17s/it] 84%|████████▍ | 42/50 [05:11<00:59,  7.43s/it] 86%|████████▌ | 43/50 [05:21<00:56,  8.08s/it] 88%|████████▊ | 44/50 [05:29<00:47,  7.96s/it] 90%|█████████ | 45/50 [05:36<00:39,  7.85s/it] 92%|█████████▏| 46/50 [05:45<00:32,  8.16s/it] 94%|█████████▍| 47/50 [05:58<00:28,  9.47s/it] 96%|█████████▌| 48/50 [06:04<00:17,  8.57s/it] 98%|█████████▊| 49/50 [06:17<00:09,  9.91s/it]100%|██████████| 50/50 [06:27<00:00,  9.96s/it]100%|██████████| 50/50 [06:27<00:00,  7.75s/it]
+/home/seungonk/anaconda3/envs/vllm/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
   warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:02<00:08,  2.19s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:03<00:05,  1.69s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:04<00:02,  1.49s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:06<00:01,  1.44s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:06<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:06<00:00,  1.27s/it]
+  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:28<23:11, 28.41s/it]  4%|▍         | 2/50 [00:43<16:29, 20.62s/it]  6%|▌         | 3/50 [00:58<13:58, 17.84s/it]  8%|▊         | 4/50 [01:25<16:42, 21.79s/it] 10%|█         | 5/50 [01:40<14:26, 19.25s/it] 12%|█▏        | 6/50 [01:43<09:53, 13.49s/it] 14%|█▍        | 7/50 [01:45<07:00,  9.78s/it] 16%|█▌        | 8/50 [01:48<05:27,  7.80s/it] 18%|█▊        | 9/50 [01:52<04:34,  6.69s/it] 20%|██        | 10/50 [01:54<03:28,  5.22s/it] 22%|██▏       | 11/50 [02:18<06:58, 10.73s/it] 24%|██▍       | 12/50 [02:29<06:52, 10.84s/it] 26%|██▌       | 13/50 [02:37<06:15, 10.14s/it] 28%|██▊       | 14/50 [03:16<11:13, 18.70s/it] 30%|███       | 15/50 [03:31<10:13, 17.54s/it] 32%|███▏      | 16/50 [03:44<09:16, 16.37s/it] 34%|███▍      | 17/50 [04:04<09:29, 17.25s/it] 36%|███▌      | 18/50 [04:17<08:32, 16.01s/it] 38%|███▊      | 19/50 [04:37<08:52, 17.17s/it] 40%|████      | 20/50 [04:59<09:27, 18.91s/it] 42%|████▏     | 21/50 [05:34<11:25, 23.63s/it] 44%|████▍     | 22/50 [05:51<10:02, 21.52s/it] 46%|████▌     | 23/50 [06:18<10:25, 23.18s/it] 48%|████▊     | 24/50 [06:30<08:39, 19.97s/it] 50%|█████     | 25/50 [06:48<08:05, 19.41s/it] 52%|█████▏    | 26/50 [07:06<07:33, 18.89s/it] 54%|█████▍    | 27/50 [07:18<06:26, 16.81s/it] 56%|█████▌    | 28/50 [07:29<05:32, 15.09s/it] 58%|█████▊    | 29/50 [07:43<05:09, 14.76s/it] 60%|██████    | 30/50 [08:07<05:50, 17.52s/it] 62%|██████▏   | 31/50 [08:11<04:13, 13.34s/it] 64%|██████▍   | 32/50 [08:23<03:55, 13.10s/it] 66%|██████▌   | 33/50 [08:35<03:38, 12.84s/it] 68%|██████▊   | 34/50 [08:36<02:27,  9.24s/it] 70%|███████   | 35/50 [08:58<03:13, 12.87s/it] 72%|███████▏  | 36/50 [09:09<02:53, 12.36s/it] 74%|███████▍  | 37/50 [09:20<02:37, 12.11s/it] 76%|███████▌  | 38/50 [09:30<02:16, 11.35s/it] 78%|███████▊  | 39/50 [09:42<02:08, 11.65s/it] 80%|████████  | 40/50 [09:58<02:08, 12.89s/it] 82%|████████▏ | 41/50 [10:12<01:58, 13.12s/it] 84%|████████▍ | 42/50 [10:39<02:19, 17.44s/it] 86%|████████▌ | 43/50 [11:00<02:10, 18.58s/it] 88%|████████▊ | 44/50 [11:29<02:08, 21.46s/it] 90%|█████████ | 45/50 [11:43<01:36, 19.24s/it] 92%|█████████▏| 46/50 [12:13<01:30, 22.65s/it] 94%|█████████▍| 47/50 [12:33<01:05, 21.91s/it] 96%|█████████▌| 48/50 [12:47<00:38, 19.43s/it] 98%|█████████▊| 49/50 [13:22<00:24, 24.15s/it]100%|██████████| 50/50 [13:51<00:00, 25.65s/it]100%|██████████| 50/50 [13:51<00:00, 16.64s/it]
+/home/seungonk/anaconda3/envs/vllm/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
   warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:482: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/seungonk/anaconda3/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/generic.py:339: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  _torch_pytree._register_pytree_node(
-Traceback (most recent call last):
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1764, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/seungonk/anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/models/paligemma/modeling_paligemma.py", line 39, in <module>
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/__init__.py", line 3, in <module>
-    from flash_attn.flash_attn_interface import (
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 10, in <module>
-    import flash_attn_2_cuda as flash_attn_cuda
-ImportError: /home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/seungonk/lmms-eval-mmllm/lmms_eval/tasks/xchat/response_gen_litellm.py", line 9, in <module>
-    from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1755, in __getattr__
-    value = getattr(module, name)
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1754, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/seungonk/anaconda3/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.paligemma.modeling_paligemma because of the following error (look up to see its traceback):
-/home/seungonk/anaconda3/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops5zeros4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEE
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:12,  4.26s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.23s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.20s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  2.98s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.43s/it]
+  0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+  2%|▏         | 1/50 [00:10<08:30, 10.41s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+  4%|▍         | 2/50 [00:19<07:47,  9.73s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+  6%|▌         | 3/50 [00:28<07:18,  9.34s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+  8%|▊         | 4/50 [00:38<07:29,  9.76s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 10%|█         | 5/50 [00:50<07:43, 10.31s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 12%|█▏        | 6/50 [00:58<07:02,  9.61s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 14%|█▍        | 7/50 [01:00<05:03,  7.05s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 16%|█▌        | 8/50 [01:14<06:31,  9.32s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 18%|█▊        | 9/50 [01:17<05:04,  7.42s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 20%|██        | 10/50 [01:19<03:49,  5.73s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 22%|██▏       | 11/50 [01:33<05:16,  8.12s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 24%|██▍       | 12/50 [01:40<04:56,  7.79s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 26%|██▌       | 13/50 [01:49<05:05,  8.25s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 28%|██▊       | 14/50 [02:08<06:54, 11.50s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 30%|███       | 15/50 [02:19<06:36, 11.32s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 32%|███▏      | 16/50 [02:26<05:42, 10.08s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 34%|███▍      | 17/50 [02:39<06:00, 10.94s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 36%|███▌      | 18/50 [02:51<05:58, 11.19s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 38%|███▊      | 19/50 [02:58<05:10, 10.01s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 40%|████      | 20/50 [03:11<05:30, 11.02s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 42%|████▏     | 21/50 [03:21<05:02, 10.44s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 44%|████▍     | 22/50 [03:28<04:27,  9.55s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 46%|████▌     | 23/50 [03:39<04:25,  9.83s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 48%|████▊     | 24/50 [03:50<04:26, 10.24s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 50%|█████     | 25/50 [04:01<04:23, 10.54s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 52%|█████▏    | 26/50 [04:10<04:02, 10.10s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 54%|█████▍    | 27/50 [04:24<04:19, 11.27s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 56%|█████▌    | 28/50 [04:35<04:06, 11.20s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 58%|█████▊    | 29/50 [04:44<03:43, 10.66s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 60%|██████    | 30/50 [04:55<03:30, 10.53s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 62%|██████▏   | 31/50 [05:08<03:33, 11.25s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 64%|██████▍   | 32/50 [05:23<03:46, 12.56s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 66%|██████▌   | 33/50 [05:38<03:43, 13.13s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 68%|██████▊   | 34/50 [05:48<03:16, 12.26s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 70%|███████   | 35/50 [06:06<03:31, 14.09s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 72%|███████▏  | 36/50 [06:20<03:17, 14.10s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 74%|███████▍  | 37/50 [06:47<03:53, 17.96s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 76%|███████▌  | 38/50 [07:02<03:24, 17.00s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 78%|███████▊  | 39/50 [07:30<03:43, 20.35s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 80%|████████  | 40/50 [07:45<03:07, 18.70s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 82%|████████▏ | 41/50 [07:53<02:18, 15.40s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 84%|████████▍ | 42/50 [08:10<02:06, 15.77s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 86%|████████▌ | 43/50 [08:21<01:41, 14.50s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 88%|████████▊ | 44/50 [08:33<01:23, 13.87s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 90%|█████████ | 45/50 [08:48<01:10, 14.19s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 92%|█████████▏| 46/50 [08:59<00:52, 13.17s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 94%|█████████▍| 47/50 [09:12<00:39, 13.01s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 96%|█████████▌| 48/50 [09:24<00:25, 12.78s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+ 98%|█████████▊| 49/50 [09:40<00:13, 13.62s/it]Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+100%|██████████| 50/50 [09:50<00:00, 12.61s/it]100%|██████████| 50/50 [09:50<00:00, 11.81s/it]

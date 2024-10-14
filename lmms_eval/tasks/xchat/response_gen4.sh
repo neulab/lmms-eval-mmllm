@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=seungone-xchat
-#SBATCH --output=xchat.out
-#SBATCH --error=xchat.err
+#SBATCH --job-name=seungone-xchat4
+#SBATCH --output=xchat4.out
+#SBATCH --error=xchat4.err
 #SBATCH --partition=debug
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -29,9 +29,9 @@ export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 # python3 response_gen.py --model_name "microsoft/Phi-3.5-vision-instruct" --language "English" --output_file "./responses/Phi-3.5-vision-instruct-English.json" --gpu_num 1
 # python3 response_gen_litellm.py --model_name "openai/neulab/gpt-4o-2024-08-06" --language "English" --output_file "./responses/gpt4o-English.json"
 # python3 response_gen_litellm.py --model_name "openai/neulab/gemini/gemini-1.5-pro" --language "English" --output_file "./responses/gemini-1.5-pro-English.json"
-python3 response_gen.py --model_name "allenai/Molmo-7B-D-0924" --language "English" --output_file "./responses/Molmo-7B-D-0924-English.json"
-python3 response_gen.py --model_name "meta-llama/Llama-3.2-11B-Vision-Instruct" --language "English" --output_file "./responses/Llama-3.2-11B-Vision-Instruct-English.json"
-python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat" --language "English" --output_file "./responses/llava-onevision-qwen2-7b-ov-chat-English.json"
+# python3 response_gen.py --model_name "allenai/Molmo-7B-D-0924" --language "English" --output_file "./responses/Molmo-7B-D-0924-English.json"
+# python3 response_gen.py --model_name "meta-llama/Llama-3.2-11B-Vision-Instruct" --language "English" --output_file "./responses/Llama-3.2-11B-Vision-Instruct-English.json"
+# python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat" --language "English" --output_file "./responses/llava-onevision-qwen2-7b-ov-chat-English.json"
 
 
 # Chinese
@@ -43,9 +43,9 @@ python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat"
 # python3 response_gen.py --model_name "microsoft/Phi-3.5-vision-instruct" --language "Chinese" --output_file "./responses/Phi-3.5-vision-instruct-Chinese.json" --gpu_num 1
 # python3 response_gen_litellm.py --model_name "openai/neulab/gpt-4o-2024-08-06" --language "Chinese" --output_file "./responses/gpt4o-Chinese.json"
 # python3 response_gen_litellm.py --model_name "openai/neulab/gemini/gemini-1.5-pro" --language "Chinese" --output_file "./responses/gemini-1.5-pro-Chinese.json"
-python3 response_gen.py --model_name "allenai/Molmo-7B-D-0924" --language "Chinese" --output_file "./responses/Molmo-7B-D-0924-Chinese.json"
-python3 response_gen.py --model_name "meta-llama/Llama-3.2-11B-Vision-Instruct" --language "Chinese" --output_file "./responses/Llama-3.2-11B-Vision-Instruct-Chinese.json"
-python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat" --language "Chinese" --output_file "./responses/llava-onevision-qwen2-7b-ov-chat-Chinese.json"
+# python3 response_gen.py --model_name "allenai/Molmo-7B-D-0924" --language "Chinese" --output_file "./responses/Molmo-7B-D-0924-Chinese.json"
+# python3 response_gen.py --model_name "meta-llama/Llama-3.2-11B-Vision-Instruct" --language "Chinese" --output_file "./responses/Llama-3.2-11B-Vision-Instruct-Chinese.json"
+# python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat" --language "Chinese" --output_file "./responses/llava-onevision-qwen2-7b-ov-chat-Chinese.json"
 
 
 # Hindi
@@ -123,6 +123,6 @@ python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat"
 # python3 response_gen.py --model_name "microsoft/Phi-3.5-vision-instruct" --language "Spanish" --output_file "./responses/Phi-3.5-vision-instruct-Spanish.json" --gpu_num 1
 # python3 response_gen_litellm.py --model_name "openai/neulab/gpt-4o-2024-08-06" --language "Spanish" --output_file "./responses/gpt4o-Spanish.json"
 # python3 response_gen_litellm.py --model_name "openai/neulab/gemini/gemini-1.5-pro" --language "Spanish" --output_file "./responses/gemini-1.5-pro-Spanish.json"
-# python3 response_gen.py --model_name "allenai/Molmo-7B-D-0924" --language "Spanish" --output_file "./responses/Molmo-7B-D-0924-Spanish.json"
-# python3 response_gen.py --model_name "meta-llama/Llama-3.2-11B-Vision-Instruct" --language "Spanish" --output_file "./responses/Llama-3.2-11B-Vision-Instruct-Spanish.json"
-# python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat" --language "Spanish" --output_file "./responses/llava-onevision-qwen2-7b-ov-chat-Spanish.json"
+python3 response_gen.py --model_name "allenai/Molmo-7B-D-0924" --language "Spanish" --output_file "./responses/Molmo-7B-D-0924-Spanish.json"
+python3 response_gen.py --model_name "meta-llama/Llama-3.2-11B-Vision-Instruct" --language "Spanish" --output_file "./responses/Llama-3.2-11B-Vision-Instruct-Spanish.json"
+python3 response_gen.py --model_name "lmms-lab/llava-onevision-qwen2-7b-ov-chat" --language "Spanish" --output_file "./responses/llava-onevision-qwen2-7b-ov-chat-Spanish.json"

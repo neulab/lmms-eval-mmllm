@@ -6,7 +6,8 @@ from PIL import Image
 import requests
 from tqdm import tqdm
 import torch
-from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM
+from transformers import AutoProcessor, LlavaForConditionalGeneration, LlavaNextForConditionalGeneration, PaliGemmaForConditionalGeneration, Blip2ForConditionalGeneration, Blip2Processor, AutoModelForCausalLM, MllamaForConditionalGeneration, LlavaOnevisionForConditionalGeneration, GenerationConfig
+from PIL import Image
 
 
 def load_and_process_image(image_path):
@@ -82,6 +83,15 @@ def main(args):
     elif "mblip-bloomz-7b" in args.model_name:
         processor = Blip2Processor.from_pretrained("Gregor/mblip-bloomz-7b")
         model = Blip2ForConditionalGeneration.from_pretrained("Gregor/mblip-bloomz-7b", torch_dtype=torch.bfloat16, cache_dir="/data/tir/projects/tir7/user_data/seungonk/huggingface").to(0)
+    elif "Molmo" in args.model_name:
+        processor = AutoProcessor.from_pretrained("allenai/Molmo-7B-D-0924",trust_remote_code=True, torch_dtype=torch.bfloat16,device_map="auto")
+        model = AutoModelForCausalLM.from_pretrained("allenai/Molmo-7B-D-0924", torch_dtype=torch.bfloat16, cache_dir="/data/tir/projects/tir7/user_data/seungonk/huggingface",trust_remote_code=True,device_map="auto")
+    elif "Llama-3.2" in args.model_name:
+        processor = AutoProcessor.from_pretrained("meta-llama/Llama-3.2-11B-Vision-Instruct")
+        model = MllamaForConditionalGeneration.from_pretrained("meta-llama/Llama-3.2-11B-Vision-Instruct", torch_dtype=torch.bfloat16, cache_dir="/data/tir/projects/tir7/user_data/seungonk/huggingface").to(0)
+    elif "onevision" in args.model_name:
+        processor = AutoProcessor.from_pretrained("llava-hf/llava-onevision-qwen2-7b-ov-chat-hf")
+        model = LlavaOnevisionForConditionalGeneration.from_pretrained("llava-hf/llava-onevision-qwen2-7b-ov-chat-hf", torch_dtype=torch.bfloat16, cache_dir="/data/tir/projects/tir7/user_data/seungonk/huggingface").to(0)
     else:
         raise ValueError(f"Model name {args.model_name} is not supported")
 
@@ -111,6 +121,35 @@ def main(args):
             output = model.generate(**model_inputs, max_new_tokens=1024, repetition_penalty=1.1, top_p=0.9, temperature=1.0, do_sample=True)
             output = output[0]
             result = processor.decode(output, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+        elif args.model_name == "allenai/Molmo-7B-D-0924":
+            model_inputs = processor.process(images=i,text=p['content'][1]['text'].split("\n\n")[1]+ f"\nAnswer in {args.language}: ")
+            model_inputs = {k: v.to(model.device).unsqueeze(0) for k, v in model_inputs.items()}
+            with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+                output = model.generate_from_batch(model_inputs, GenerationConfig(max_new_tokens=1024, stop_strings="<|endoftext|>"), tokenizer=processor.tokenizer)
+            output = output[0,model_inputs['input_ids'].size(1):]
+            result = processor.tokenizer.decode(output, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+        elif "Llama-3.2" in args.model_name:
+            p = processor.apply_chat_template([
+                {"role":"user", "content":[
+                    {"type":"image"},
+                    {"type":"text","text":p['content'][1]['text'].split("\n\n")[1]+ f"\nAnswer in {args.language}: "}
+                ]}
+            ], add_generation_prompt=True)
+            model_inputs = processor(i,p,add_special_tokens=False,return_tensors='pt').to("cuda", torch.bfloat16)
+            output = model.generate(**model_inputs, max_new_tokens=1024)
+            output = output[0]
+            result = processor.decode(output, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+        elif "onevision" in args.model_name:
+            p = processor.apply_chat_template([
+                {"role":"user", "content":[
+                    {"type":"text","text":p['content'][1]['text'].split("\n\n")[1]+ f"\nAnswer in {args.language}: "},
+                    {"type":"image"}
+                ]}
+            ], add_generation_prompt=True)
+            model_inputs = processor(i,p,add_special_tokens=False,return_tensors='pt').to("cuda", torch.bfloat16)
+            output = model.generate(**model_inputs, max_new_tokens=1024, repetition_penalty=1.1, top_p=0.9, temperature=1.0, do_sample=True)
+            output = output[0]
+            result = processor.decode(output, skip_special_tokens=True, clean_up_tokenization_spaces=False)
         
         if "Answer in" in result:
             result = result.split(f"Answer in {args.language}")[1]
@@ -118,6 +157,8 @@ def main(args):
             result = result.split("ASSISTANT:")[1]
         elif "<|assistant|>" in result:
             result = result.split("<|assistant|>")[1]
+        elif "assistant" in result:
+            result = result.split("assistant")[1]
         
         results.append(result)
 

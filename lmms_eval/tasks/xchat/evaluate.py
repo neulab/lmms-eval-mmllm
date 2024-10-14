@@ -29,7 +29,7 @@ def prep_dataset(language):
 
 def main(args):
 
-    os.environ['OPENAI_API_KEY'] = "" # FILL IN ME
+    os.environ['OPENAI_API_KEY'] = "sk-nvPQWSrFY02nf-1ZtPGIFw" # FILL IN ME
 
     # model = VLLM(model="prometheus-eval/prometheus-7b-v2.0")
     model = AsyncLiteLLM('openai/neulab/gpt-4o-2024-08-06', requests_per_minute=100, api_base="https://cmu.litellm.ai")
@@ -76,6 +76,10 @@ def main(args):
             inst_ = d['system_prompt']+"\n\n"+d['input']
             if "ASSISTANT" in d['response']:
                 res_ = d['response'].split("ASSISTANT: ")[-1]
+            elif "assistant\n\n" in d['response']:
+                res_ = d['response'].split("assistant\n\n",1)[-1]
+            elif "assistant\n" in d['response']:
+                res_ = d['response'].split("assistant\n",1)[-1]
             elif d['response'].startswith(": \n"):
                 res_ = d['response'].split(": \n",1)[-1]
             else:
