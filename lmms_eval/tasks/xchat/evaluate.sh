@@ -120,7 +120,7 @@ export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 # python3 evaluate.py --response_file "./responses/gemini-1.5-pro-Indonesian.json" --input_file "./responses/llava-1.5-7b-hf-Indonesian.json"
 
 # python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Korean.json" --input_file "./responses/llava-1.5-7b-hf-Korean.json"
-python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Chinese.json" --input_file "./responses/llava-1.5-7b-hf-Chinese.json"
+# python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Chinese.json" --input_file "./responses/llava-1.5-7b-hf-Chinese.json"
 python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-English.json" --input_file "./responses/llava-1.5-7b-hf-English.json"
 python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Japanese.json" --input_file "./responses/llava-1.5-7b-hf-Japanese.json"
 python3 evaluate.py --response_file "./responses/Molmo-7B-D-0924-Hindi.json" --input_file "./responses/llava-1.5-7b-hf-Hindi.json"
