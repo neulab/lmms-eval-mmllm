@@ -6,7 +6,7 @@ group : "xm3600"
 test_split: uk
 output_type: generate_until
 doc_to_visual: !function utils.xm3600_doc_to_visual
-doc_to_text: "Provide a one-sentence caption for the provided image in Chinese."
+doc_to_text: "Provide a one-sentence caption for the provided image in Ukrainian."
 doc_to_target: "answer"
 generation_kwargs:
   max_new_tokens: 128
