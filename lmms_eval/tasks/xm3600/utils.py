@@ -51,7 +51,7 @@ def xm3600_process_result(doc, result):
 
     
 
-    data_dict = {"answer": doc["caption"], "pred": pred, "image_id": id}
+    data_dict = {"answer": [doc["caption"]], "pred": pred, "image_id": id}
 
     return {f"xm3600_{metric}": data_dict for metric in XM3600_METRICS}
 
