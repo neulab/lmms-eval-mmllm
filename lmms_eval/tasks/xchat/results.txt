@@ -1,0 +1,641 @@
+/Users/seungonekim/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/palo-hindi-results.json
+Average response length: 397.30 tokens
+Number of responses not in target language: 27
+Original scores: 1.12
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/korean_prompts_responses-results.json
+Average response length: 272.76 tokens
+Number of responses not in target language: 0
+Original scores: 2.34
+Adjusted scores: 2.34
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-Japanese-results.json
+Average response length: 41.49 tokens
+Number of responses not in target language: 9
+Original scores: 1.26
+Adjusted scores: 1.26
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-Korean-results.json
+Average response length: 50.76 tokens
+Number of responses not in target language: 9
+Original scores: 1.08
+Adjusted scores: 1.08
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Molmo-7B-D-0924-English-results.json
+Average response length: 236.46 tokens
+Number of responses not in target language: 0
+Original scores: 2.98
+Adjusted scores: 2.98
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gpt4o-Japanese-results.json
+Average response length: 269.34 tokens
+Number of responses not in target language: 0
+Original scores: 3.72
+Adjusted scores: 3.72
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-Japanese-results.json
+Average response length: 30.15 tokens
+Number of responses not in target language: 3
+Original scores: 1.0
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gemini-1.5-pro-Hindi-results.json
+Average response length: 1311.35 tokens
+Number of responses not in target language: 10
+Original scores: 3.56
+Adjusted scores: 3.1
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Molmo-7B-D-0924-Hindi-results.json
+Average response length: 678.79 tokens
+Number of responses not in target language: 16
+Original scores: 1.78
+Adjusted scores: 1.18
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-Kinyarwanda-results.json
+No responses in target language found.
+Number of responses not in target language: 50
+Original scores: 1.0
+Adjusted scores: 1.0
+
+WARNING: Less than 30% of responses are in the target language (Kinyarwanda).
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-Spanish-results.json
+Average response length: 40.62 tokens
+Number of responses not in target language: 26
+Original scores: 1.18
+Adjusted scores: 1.12
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Llama-3.2-11B-Vision-Instruct-Indonesian-results.json
+Average response length: 421.27 tokens
+Number of responses not in target language: 2
+Original scores: 2.44
+Adjusted scores: 2.44
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-onevision-qwen2-7b-ov-chat-Hindi-results.json
+Average response length: 763.04 tokens
+Number of responses not in target language: 2
+Original scores: 1.26
+Adjusted scores: 1.24
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-Chinese-results.json
+Average response length: 30.35 tokens
+Number of responses not in target language: 24
+Original scores: 1.12
+Adjusted scores: 1.12
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gpt4o-English-results.json
+Average response length: 256.00 tokens
+Number of responses not in target language: 0
+Original scores: 3.84
+Adjusted scores: 3.84
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gemini-1.5-pro-English-results.json
+Average response length: 287.40 tokens
+Number of responses not in target language: 0
+Original scores: 3.68
+Adjusted scores: 3.68
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/cambrian-hindi-results.json
+Average response length: 397.30 tokens
+Number of responses not in target language: 27
+Original scores: 1.16
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-onevision-qwen2-7b-ov-chat-Japanese-results.json
+Average response length: 409.78 tokens
+Number of responses not in target language: 5
+Original scores: 2.46
+Adjusted scores: 2.24
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gpt4o-Korean-results.json
+Average response length: 321.98 tokens
+Number of responses not in target language: 1
+Original scores: 3.66
+Adjusted scores: 3.6
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-Japanese-results.json
+Average response length: 329.70 tokens
+Number of responses not in target language: 3
+Original scores: 2.0
+Adjusted scores: 1.98
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-English-results.json
+Average response length: 36.62 tokens
+Number of responses not in target language: 5
+Original scores: 1.16
+Adjusted scores: 1.16
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-Korean-results.json
+Average response length: 205.89 tokens
+Number of responses not in target language: 23
+Original scores: 1.48
+Adjusted scores: 1.18
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-English-results.json
+Average response length: 30.43 tokens
+Number of responses not in target language: 1
+Original scores: 1.1
+Adjusted scores: 1.1
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/indonesian_prompts_responses-results.json
+Average response length: 289.02 tokens
+Number of responses not in target language: 2
+Original scores: 2.38
+Adjusted scores: 2.38
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-English-results.json
+Average response length: 201.36 tokens
+Number of responses not in target language: 0
+Original scores: 2.54
+Adjusted scores: 2.54
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-Indonesian-results.json
+Average response length: 391.69 tokens
+Number of responses not in target language: 2
+Original scores: 1.76
+Adjusted scores: 1.72
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/cambrian-english-results.json
+Average response length: 147.76 tokens
+Number of responses not in target language: 0
+Original scores: 2.1
+Adjusted scores: 2.1
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Molmo-7B-D-0924-Japanese-results.json
+Average response length: 412.86 tokens
+Number of responses not in target language: 7
+Original scores: 2.44
+Adjusted scores: 2.26
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gpt4o-Indonesian-results.json
+Average response length: 348.53 tokens
+Number of responses not in target language: 1
+Original scores: 3.62
+Adjusted scores: 3.56
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-Korean-results.json
+Average response length: 342.33 tokens
+Number of responses not in target language: 8
+Original scores: 1.6
+Adjusted scores: 1.36
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Llama-3.2-11B-Vision-Instruct-English-results.json
+Average response length: 326.02 tokens
+Number of responses not in target language: 0
+Original scores: 2.96
+Adjusted scores: 2.96
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/palo-korean-results.json
+Average response length: 205.89 tokens
+Number of responses not in target language: 23
+Original scores: 1.54
+Adjusted scores: 1.26
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/cambrian-korean-results.json
+Average response length: 205.89 tokens
+Number of responses not in target language: 23
+Original scores: 1.42
+Adjusted scores: 1.16
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/hindi_prompts_responses-results.json
+Average response length: 622.26 tokens
+Number of responses not in target language: 4
+Original scores: 1.94
+Adjusted scores: 1.94
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gemini-1.5-pro-Indonesian-results.json
+Average response length: 474.22 tokens
+Number of responses not in target language: 5
+Original scores: 3.6
+Adjusted scores: 3.38
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gpt4o-Hindi-results.json
+Average response length: 798.27 tokens
+Number of responses not in target language: 1
+Original scores: 3.48
+Adjusted scores: 3.42
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-Chinese-results.json
+Average response length: 234.60 tokens
+Number of responses not in target language: 3
+Original scores: 2.16
+Adjusted scores: 2.14
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-Indonesian-results.json
+Average response length: 62.67 tokens
+Number of responses not in target language: 4
+Original scores: 1.1
+Adjusted scores: 1.1
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-Hindi-results.json
+Average response length: 121.29 tokens
+Number of responses not in target language: 16
+Original scores: 1.02
+Adjusted scores: 1.02
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-Spanish-results.json
+Average response length: 372.64 tokens
+Number of responses not in target language: 0
+Original scores: 2.32
+Adjusted scores: 2.32
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/chinese_prompts_responses-results.json
+Average response length: 174.98 tokens
+Number of responses not in target language: 0
+Original scores: 2.62
+Adjusted scores: 2.62
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/palo-english-results.json
+Average response length: 147.76 tokens
+Number of responses not in target language: 0
+Original scores: 2.08
+Adjusted scores: 2.08
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-Kinyarwanda-results.json
+No responses in target language found.
+Number of responses not in target language: 50
+Original scores: 1.06
+Adjusted scores: 1.0
+
+WARNING: Less than 30% of responses are in the target language (Kinyarwanda).
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-Japanese-results.json
+Average response length: 184.41 tokens
+Number of responses not in target language: 18
+Original scores: 1.92
+Adjusted scores: 1.56
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-Kinyarwanda-results.json
+No responses in target language found.
+Number of responses not in target language: 50
+Original scores: 1.02
+Adjusted scores: 1.0
+
+WARNING: Less than 30% of responses are in the target language (Kinyarwanda).
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-onevision-qwen2-7b-ov-chat-Spanish-results.json
+Average response length: 427.84 tokens
+Number of responses not in target language: 1
+Original scores: 2.68
+Adjusted scores: 2.64
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-onevision-qwen2-7b-ov-chat-Indonesian-results.json
+Average response length: 438.84 tokens
+Number of responses not in target language: 0
+Original scores: 2.68
+Adjusted scores: 2.68
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-English-results.json
+Average response length: 147.76 tokens
+Number of responses not in target language: 0
+Original scores: 2.14
+Adjusted scores: 2.14
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-Indonesian-results.json
+Average response length: 41.17 tokens
+Number of responses not in target language: 15
+Original scores: 1.26
+Adjusted scores: 1.24
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Llama-3.2-11B-Vision-Instruct-Hindi-results.json
+Average response length: 1161.06 tokens
+Number of responses not in target language: 0
+Original scores: 1.78
+Adjusted scores: 1.78
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-onevision-qwen2-7b-ov-chat-Chinese-results.json
+Average response length: 334.14 tokens
+Number of responses not in target language: 1
+Original scores: 2.82
+Adjusted scores: 2.82
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Molmo-7B-D-0924-Chinese-results.json
+Average response length: 83.20 tokens
+Number of responses not in target language: 45
+Original scores: 2.8
+Adjusted scores: 1.02
+
+WARNING: Less than 30% of responses are in the target language (Chinese).
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-Hindi-results.json
+Average response length: 162.60 tokens
+Number of responses not in target language: 0
+Original scores: 1.1
+Adjusted scores: 1.1
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/japanese_prompts_responses-results.json
+Average response length: 225.90 tokens
+Number of responses not in target language: 0
+Original scores: 2.56
+Adjusted scores: 2.56
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Molmo-7B-D-0924-Indonesian-results.json
+Average response length: 358.52 tokens
+Number of responses not in target language: 6
+Original scores: 2.46
+Adjusted scores: 2.3
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-Hindi-results.json
+Average response length: 103.67 tokens
+Number of responses not in target language: 1
+Original scores: 1.0
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-Korean-results.json
+Average response length: 45.06 tokens
+Number of responses not in target language: 2
+Original scores: 1.02
+Adjusted scores: 1.02
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/spanish_prompts_responses-results.json
+Average response length: 318.60 tokens
+Number of responses not in target language: 2
+Original scores: 2.74
+Adjusted scores: 2.7
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-Kinyarwanda-results.json
+No responses in target language found.
+Number of responses not in target language: 50
+Original scores: 1.16
+Adjusted scores: 1.0
+
+WARNING: Less than 30% of responses are in the target language (Kinyarwanda).
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Molmo-7B-D-0924-Spanish-results.json
+Average response length: 319.51 tokens
+Number of responses not in target language: 1
+Original scores: 2.76
+Adjusted scores: 2.7
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-Hindi-results.json
+Average response length: 500.31 tokens
+Number of responses not in target language: 21
+Original scores: 1.46
+Adjusted scores: 1.22
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gpt4o-Spanish-results.json
+Average response length: 310.82 tokens
+Number of responses not in target language: 0
+Original scores: 3.64
+Adjusted scores: 3.64
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-Indonesian-results.json
+Average response length: 214.34 tokens
+Number of responses not in target language: 18
+Original scores: 1.42
+Adjusted scores: 1.12
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gemini-1.5-pro-Korean-results.json
+Average response length: 447.19 tokens
+Number of responses not in target language: 7
+Original scores: 3.7
+Adjusted scores: 3.36
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gpt4o-Chinese-results.json
+Average response length: 205.15 tokens
+Number of responses not in target language: 2
+Original scores: 3.62
+Adjusted scores: 3.52
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Llama-3.2-11B-Vision-Instruct-Japanese-results.json
+Average response length: 540.54 tokens
+Number of responses not in target language: 0
+Original scores: 2.04
+Adjusted scores: 2.04
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/paligemma-3b-mix-448-English-results.json
+Average response length: 24.74 tokens
+Number of responses not in target language: 23
+Original scores: 1.24
+Adjusted scores: 1.24
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/palo-indonesian-results.json
+Average response length: 210.71 tokens
+Number of responses not in target language: 12
+Original scores: 1.76
+Adjusted scores: 1.54
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gemini-1.5-pro-Chinese-results.json
+Average response length: 295.67 tokens
+Number of responses not in target language: 17
+Original scores: 3.46
+Adjusted scores: 2.74
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gemini-1.5-pro-Spanish-results.json
+Average response length: 431.85 tokens
+Number of responses not in target language: 9
+Original scores: 3.64
+Adjusted scores: 3.2
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-Chinese-results.json
+Average response length: 36.97 tokens
+Number of responses not in target language: 12
+Original scores: 1.0
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-Korean-results.json
+Average response length: 25.24 tokens
+Number of responses not in target language: 1
+Original scores: 1.0
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-Chinese-results.json
+Average response length: 47.50 tokens
+Number of responses not in target language: 18
+Original scores: 1.12
+Adjusted scores: 1.1
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/cambrian-spanish-results.json
+Average response length: 191.92 tokens
+Number of responses not in target language: 1
+Original scores: 1.9
+Adjusted scores: 1.9
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-Kinyarwanda-results.json
+No responses in target language found.
+Number of responses not in target language: 50
+Original scores: 1.18
+Adjusted scores: 1.0
+
+WARNING: Less than 30% of responses are in the target language (Kinyarwanda).
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-Spanish-results.json
+Average response length: 245.46 tokens
+Number of responses not in target language: 4
+Original scores: 2.48
+Adjusted scores: 2.36
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-bloomz-7b-Spanish-results.json
+Average response length: 47.23 tokens
+Number of responses not in target language: 19
+Original scores: 1.08
+Adjusted scores: 1.08
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/cambrian-chinese-results.json
+Average response length: 117.90 tokens
+Number of responses not in target language: 10
+Original scores: 1.72
+Adjusted scores: 1.58
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-Kinyarwanda-results.json
+No responses in target language found.
+Number of responses not in target language: 50
+Original scores: 1.04
+Adjusted scores: 1.0
+
+WARNING: Less than 30% of responses are in the target language (Kinyarwanda).
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/english_prompts_responses-results.json
+Average response length: 197.92 tokens
+Number of responses not in target language: 1
+Original scores: 2.84
+Adjusted scores: 2.84
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-Spanish-results.json
+Average response length: 33.79 tokens
+Number of responses not in target language: 3
+Original scores: 1.0
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Llama-3.2-11B-Vision-Instruct-Korean-results.json
+Average response length: 662.33 tokens
+Number of responses not in target language: 1
+Original scores: 1.84
+Adjusted scores: 1.8
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-Chinese-results.json
+Average response length: 151.82 tokens
+Number of responses not in target language: 17
+Original scores: 1.96
+Adjusted scores: 1.62
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-onevision-qwen2-7b-ov-chat-Korean-results.json
+Average response length: 481.17 tokens
+Number of responses not in target language: 32
+Original scores: 2.04
+Adjusted scores: 1.22
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/gemini-1.5-pro-Japanese-results.json
+Average response length: 434.27 tokens
+Number of responses not in target language: 9
+Original scores: 3.66
+Adjusted scores: 3.28
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Llama-3.2-11B-Vision-Instruct-Chinese-results.json
+Average response length: 291.79 tokens
+Number of responses not in target language: 22
+Original scores: 2.7
+Adjusted scores: 1.9
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-Hindi-results.json
+Average response length: 397.30 tokens
+Number of responses not in target language: 27
+Original scores: 1.14
+Adjusted scores: 1.0
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Llama-3.2-11B-Vision-Instruct-Spanish-results.json
+Average response length: 460.88 tokens
+Number of responses not in target language: 0
+Original scores: 2.72
+Adjusted scores: 2.72
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/palo-japanese-results.json
+Average response length: 184.41 tokens
+Number of responses not in target language: 18
+Original scores: 1.8
+Adjusted scores: 1.52
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/cambrian-japanese-results.json
+Average response length: 184.41 tokens
+Number of responses not in target language: 18
+Original scores: 1.8
+Adjusted scores: 1.52
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/palo-spanish-results.json
+Average response length: 191.92 tokens
+Number of responses not in target language: 1
+Original scores: 1.92
+Adjusted scores: 1.92
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-Indonesian-results.json
+Average response length: 210.71 tokens
+Number of responses not in target language: 12
+Original scores: 1.72
+Adjusted scores: 1.5
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-English-results.json
+Average response length: 308.46 tokens
+Number of responses not in target language: 0
+Original scores: 2.62
+Adjusted scores: 2.62
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/cambrian-indonesian-results.json
+Average response length: 210.71 tokens
+Number of responses not in target language: 12
+Original scores: 1.8
+Adjusted scores: 1.56
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-Korean-results.json
+Average response length: 198.00 tokens
+Number of responses not in target language: 28
+Original scores: 1.5
+Adjusted scores: 1.22
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-Japanese-results.json
+Average response length: 51.45 tokens
+Number of responses not in target language: 1
+Original scores: 1.08
+Adjusted scores: 1.08
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/palo-chinese-results.json
+Average response length: 117.90 tokens
+Number of responses not in target language: 10
+Original scores: 1.74
+Adjusted scores: 1.58
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-v1.6-vicuna-7b-hf-Hindi-results.json
+Average response length: 730.38 tokens
+Number of responses not in target language: 2
+Original scores: 1.06
+Adjusted scores: 1.02
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Molmo-7B-D-0924-Korean-results.json
+Average response length: 484.23 tokens
+Number of responses not in target language: 11
+Original scores: 1.96
+Adjusted scores: 1.6
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/Phi-3.5-vision-instruct-Japanese-results.json
+Average response length: 222.32 tokens
+Number of responses not in target language: 25
+Original scores: 2.24
+Adjusted scores: 1.62
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-Spanish-results.json
+Average response length: 191.92 tokens
+Number of responses not in target language: 1
+Original scores: 1.9
+Adjusted scores: 1.9
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-onevision-qwen2-7b-ov-chat-English-results.json
+Average response length: 396.82 tokens
+Number of responses not in target language: 1
+Original scores: 3.04
+Adjusted scores: 3.04
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/mblip-mt0-xl-Indonesian-results.json
+Average response length: 46.33 tokens
+Number of responses not in target language: 2
+Original scores: 1.02
+Adjusted scores: 1.02
+
+/Users/seungonekim/Documents/vscode/lmms-eval-mmllm/lmms_eval/tasks/xchat/responses/llava-1.5-7b-hf-Chinese-results.json
+Average response length: 117.90 tokens
+Number of responses not in target language: 10
+Original scores: 1.84
+Adjusted scores: 1.7
+
