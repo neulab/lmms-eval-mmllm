@@ -16,8 +16,8 @@ __conda_setup="$('/home/seungonk/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /de
 eval "$__conda_setup"
 conda activate base
 
-export TRANSFORMERS_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
-export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
+# export TRANSFORMERS_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
+# export HF_CACHE="/data/tir/projects/tir7/user_data/seungonk/huggingface"
 
 # python3 evaluate.py --input_file "./responses/llava-1.5-7b-hf.json"
 # python3 evaluate.py --input_file "./responses/llava-v1.6-vicuna-7b-hf.json"
