@@ -163,7 +163,7 @@ def llava_process_results(doc, result):
         ans2_lan = detect(ans2)
         question_lan = detect(question)
         if ans2_lan != ans1_lan and ans2_lan != question_lan: 
-            print(f"ans1 lan: {ans1_lan}; ans2 lan: {ans2_lan}; question_lan: {question_lan}; ans1: {ans1}; ans2: {ans2}")
+            #print(f"ans1 lan: {ans1_lan}; ans2 lan: {ans2_lan}; question_lan: {question_lan}; ans1: {ans1}; ans2: {ans2}")
             scores[1] = min(0, scores[1])
     except Exception as e:
         eval_logger.error(f"Error for Question ID: {doc.get('question_id', 'Unknown')}: {e}")
