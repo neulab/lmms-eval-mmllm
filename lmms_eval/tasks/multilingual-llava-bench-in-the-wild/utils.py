@@ -10,6 +10,7 @@ from pathlib import Path
 from copy import deepcopy
 from datasets import load_dataset
 from loguru import logger as eval_logger
+from langdetect import detect
 
 NUM_SECONDS_TO_SLEEP = 5
 
@@ -158,6 +159,12 @@ def llava_process_results(doc, result):
 
         review, model_name = get_eval(content, 1024)
         scores = parse_score(review)
+        ans1_lan = detect(ans1)
+        ans2_lan = detect(ans2)
+        question_lan = detect(question)
+        if ans2_lan != ans1_lan and ans2_lan != question_lan: 
+            print(f"ans1 lan: {ans1_lan}; ans2 lan: {ans2_lan}; question_lan: {question_lan}; ans1: {ans1}; ans2: {ans2}")
+            scores[1] = min(0, scores[1])
     except Exception as e:
         eval_logger.error(f"Error for Question ID: {doc.get('question_id', 'Unknown')}: {e}")
         review = "Failed to Get a Proper Review."
